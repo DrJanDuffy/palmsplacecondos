@@ -24,7 +24,7 @@ export const homeFaqItems: FaqItem[] = [
   {
     question: "Where is Palms Place in Las Vegas?",
     answer:
-      "Palms Place is a high-rise near the Las Vegas Strip, adjacent to Palms Casino Resort in Las Vegas, Nevada. For tours and paperwork, use the team's office address shown in the site footer and contact page—it must match the Google Business Profile for this Palms Place practice.",
+      "Palms Place is at 4381 W Flamingo Road in Paradise, Nevada—just west of the Las Vegas Strip and connected to Palms Casino Resort. The team’s sales office (for tours and paperwork) is listed in the site footer and contact page and matches the Google Business Profile for Palms Place Condos.",
   },
   {
     question: "What is Palms Place?",

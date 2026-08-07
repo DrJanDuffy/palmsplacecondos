@@ -12,7 +12,7 @@ import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 const pageMeta = {
   name: "Homes for sale in Las Vegas",
   description:
-    "Browse Las Vegas single-family and attached homes for sale—compare valley neighborhoods with Palms Place high-rise living and live MLS search.",
+    "Browse Las Vegas single-family and attached homes for sale—compare valley neighborhoods with Palms Place high-rise living and live listing search.",
 };
 
 /** Expanded /homes — single-family & attached vs high-rise context. */

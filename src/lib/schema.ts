@@ -449,7 +449,7 @@ export function getHomeWebPageJsonLd(): JsonLdGraph {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
-    name: defaultListingAgentDescription(),
+    name: "Palms Place Condos for Sale | 4381 W Flamingo | Dr. Jan Duffy",
     description:
       "Browse Palms Place condos for sale at 4381 W Flamingo Road near the Las Vegas Strip. Compare studio and one-bedroom high-rise listings, HOA details, and tours with Dr. Jan Duffy, Realtor.",
     isPartOf: { "@id": webId },
@@ -580,7 +580,11 @@ export function getBreadcrumbListJsonLd(pathname: string, items: BreadcrumbItem[
   };
 }
 
-/** FAQPage for use on the homepage only — must mirror visible FAQ copy. */
+/**
+ * FAQPage for use on the homepage only — must mirror visible FAQ copy.
+ * Google sunset FAQ rich results (May 2026); keep markup for AEO/entity understanding
+ * when Q&A is visible on-page.
+ */
 export function getHomeFaqPageJsonLd(items: FaqItem[]): JsonLdGraph {
   const siteUrl = getSiteUrl();
   const faqPage: Record<string, unknown> = {

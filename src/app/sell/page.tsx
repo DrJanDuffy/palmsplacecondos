@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { SellPageBody } from "@/components/marketing/sell-page-body";
-import { canonicalMetadata } from "@/lib/metadata-helpers";
+import { buildPageMetadata } from "@/lib/metadata-helpers";
+import { siteContact } from "@/lib/site-contact";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
+  path: "/sell",
   title: "Sell your Palms Place or Las Vegas condo",
-  description:
-    "Request a free seller valuation conversation with Dr. Jan Duffy, listing specialist and team leader—pricing strategy and marketing for Palms Place and Las Vegas listings. Not an automated appraisal; details confirmed in your consult.",
-  ...canonicalMetadata("/sell"),
-};
+  description: `Request a seller valuation conversation with ${siteContact.agentName}. Call ${siteContact.phone} for pricing strategy and marketing—not an automated appraisal.`,
+});
 
 export default function SellPage() {
   return <SellPageBody />;

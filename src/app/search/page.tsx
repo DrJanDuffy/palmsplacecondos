@@ -7,21 +7,21 @@ import { ButtonAnchor } from "@/components/shared/button-link";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { searchPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { relatedLinksForPath } from "@/lib/internal-links";
-import { canonicalMetadata } from "@/lib/metadata-helpers";
+import { buildPageMetadata } from "@/lib/metadata-helpers";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
 import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
-import { formatTeamPhrase, siteContact } from "@/lib/site-contact";
+import { siteContact } from "@/lib/site-contact";
 
 const pageMeta = {
-  name: "Palms Place condos for sale — search residences",
-  description: `Curated home search for Palms Place condos for sale and Las Vegas-area listings (${formatTeamPhrase()})—${siteContact.primaryServiceArea}.`,
+  name: "Search Palms Place & Las Vegas listings",
+  description: `Search live Palms Place and Las Vegas condo listings. Filter by price and status, then call ${siteContact.phone} — ${siteContact.agentName}.`,
 };
 
-export const metadata: Metadata = {
-  title: "Palms Place Condos for Sale | Search Residences",
+export const metadata: Metadata = buildPageMetadata({
+  path: "/search",
+  title: "Search Palms Place Listings | Live Condo Inventory",
   description: pageMeta.description,
-  ...canonicalMetadata("/search"),
-};
+});
 
 type SearchPageProps = {
   searchParams: Promise<{ q?: string | string[] }>;
@@ -46,7 +46,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <StructuredData data={breadcrumbJsonLd} />
         <SectionEyebrow>Property search</SectionEyebrow>
         <h1 className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
-          Palms Place condos for sale — search residences
+          Search Palms Place &amp; Las Vegas listings
         </h1>
         <AgentHeroBadge className="mt-6" />
         <p className="mt-4 max-w-2xl text-lg leading-relaxed text-palms-cream/85">

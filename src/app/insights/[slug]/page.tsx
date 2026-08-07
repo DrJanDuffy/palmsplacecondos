@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FieldNotePageBody } from "@/components/marketing/field-note-page-body";
 import { fieldNotes, getFieldNoteBySlug } from "@/lib/content/field-notes";
-import { canonicalMetadata } from "@/lib/metadata-helpers";
+import { buildPageMetadata } from "@/lib/metadata-helpers";
 import { formatTeamPhrase, siteContact } from "@/lib/site-contact";
 
 type InsightsArticlePageProps = {
@@ -17,14 +17,17 @@ export async function generateMetadata({ params }: InsightsArticlePageProps): Pr
   const { slug } = await params;
   const note = getFieldNoteBySlug(slug);
   if (!note) {
-    return { title: "Field note not found" };
+    return {
+      title: "Field note not found",
+      robots: { index: false, follow: false },
+    };
   }
   const path = `/insights/${slug}`;
-  return {
+  return buildPageMetadata({
+    path,
     title: `${note.title} | Field note`,
     description: `${note.description} ${formatTeamPhrase()} — ${siteContact.brokerage}.`,
-    ...canonicalMetadata(path),
-  };
+  });
 }
 
 export default async function InsightsArticlePage({ params }: InsightsArticlePageProps) {

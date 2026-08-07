@@ -228,7 +228,7 @@ export function PopularSearchesPageBody() {
         pathname="/popular-searches"
         headingId="popular-searches-faq-heading"
         heading="Popular searches FAQ"
-        intro="How this hub relates to the building guide and live MLS search."
+        intro="How this hub relates to the building guide and live listing search."
         items={popularSearchesPageFaq}
       />
 

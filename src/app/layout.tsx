@@ -26,16 +26,22 @@ const displaySerif = Cormorant_Garamond({
 const siteUrl = getSiteUrl();
 const googleSiteVerification = getGoogleSiteVerification();
 
-const rootOgDescription =
-  "Studio to penthouse high-rise condos steps from the Las Vegas Strip. Expert guidance from Dr. Jan Duffy, 35+ years Vegas real estate.";
+/** Shared fallback only — page routes should set their own title/description/OG via buildPageMetadata. */
+const rootDescription = [
+  siteContact.schemaAgentDescription,
+  `Service area: ${siteContact.primaryServiceArea}.`,
+  siteContact.phone ? `Call ${siteContact.phone}.` : null,
+  formatTeamPhrase(),
+  siteContact.brokerage,
+]
+  .filter(Boolean)
+  .join(" ");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: "Palms Place Condos for Sale | Las Vegas Strip High-Rise | Dr. Jan Duffy",
-    template: `%s | ${siteContact.gbpBusinessName}`,
-  },
-  description: `${siteContact.schemaAgentDescription} Service area: ${siteContact.primaryServiceArea}. ${formatTeamPhrase()}. ${siteContact.brokerage}.`,
+  // Pages set full titles via buildPageMetadata — no brand template suffix (avoids double “Palms Place”).
+  title: "Palms Place Condos for Sale | Las Vegas Strip High-Rise | Dr. Jan Duffy",
+  description: rootDescription,
   robots: {
     index: true,
     follow: true,
@@ -47,16 +53,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
     siteName: siteContact.gbpBusinessName,
-    title: "Palms Place Condos for Sale | Las Vegas Strip",
-    description: rootOgDescription,
     images: getDefaultOgImages(),
   },
   twitter: {
     card: "summary_large_image",
-    title: "Palms Place Condos for Sale | Las Vegas Strip High-Rise | Dr. Jan Duffy",
-    description: rootOgDescription,
     images: getDefaultTwitterImages(),
   },
   ...(googleSiteVerification

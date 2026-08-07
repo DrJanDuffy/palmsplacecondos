@@ -14,7 +14,7 @@ import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 const pageMeta = {
   name: "Las Vegas high-rise & Palms Place condos for sale",
   description:
-    "Strip and west-of-Strip high-rise condos for sale—including Palms Place—with HOA context, building guides, and live MLS search with the local team.",
+    "Strip and west-of-Strip high-rise condos for sale—including Palms Place—with HOA context, building guides, and live listing search with the local team.",
 };
 
 /**
