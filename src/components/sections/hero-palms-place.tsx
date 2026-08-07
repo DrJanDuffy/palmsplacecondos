@@ -14,7 +14,7 @@ export function HeroPalmsPlace() {
     <section aria-labelledby="hero-heading" className="relative isolate min-h-[80vh] w-full overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          alt="Las Vegas high-rise condo tower at dusk — illustrative image for Palms Place condos for sale"
+          alt="Palms Place condo tower at dusk on the Las Vegas Strip — real building photo"
           className="object-cover"
           fetchPriority="high"
           fill

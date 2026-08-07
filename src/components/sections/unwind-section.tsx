@@ -15,7 +15,7 @@ export function UnwindSection() {
     >
       <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2 md:items-center md:gap-16">
         <LuxuryPlaceholder
-          alt="Resort-style pool deck with cabanas at golden hour — illustrative image for Las Vegas condo amenities"
+          alt="Palms Place pool deck with cabanas at golden hour — real building photo"
           className="min-h-[280px] w-full rounded-2xl shadow-2xl shadow-black/30 md:min-h-[340px]"
           variant="unwind"
         />

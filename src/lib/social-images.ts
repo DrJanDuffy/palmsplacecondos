@@ -7,9 +7,8 @@ export const OG_IMAGE_ALT =
   "Palms Place condos for sale — Las Vegas Strip high-rise residences with Dr. Jan Duffy";
 
 /**
- * Static photo-based share card (1200×630 JPEG) — illustrative tower render with
- * brand text overlay. Override via `NEXT_PUBLIC_OG_IMAGE_URL` when a licensed
- * tower or agent photo is ready.
+ * Static photo-based share card (1200×630 JPEG) — real building photo with brand
+ * text overlay. Override via `NEXT_PUBLIC_OG_IMAGE_URL` when a custom card is ready.
  */
 const DEFAULT_OG_IMAGE_PATH = "/images/og-palms-place.jpg";
 

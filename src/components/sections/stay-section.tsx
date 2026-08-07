@@ -31,7 +31,7 @@ export function StaySection() {
                 content: (
                   <div className="grid gap-0 md:grid-cols-2">
                     <LuxuryPlaceholder
-                      alt="Modern studio condo interior with city view — illustrative image for Palms Place studios in Las Vegas"
+                      alt="Palms Place studio condo interior with city view — real building photo"
                       className="min-h-[220px] md:min-h-[280px]"
                       variant="stay"
                     />
@@ -72,7 +72,7 @@ export function StaySection() {
                 content: (
                   <div className="grid gap-0 md:grid-cols-2">
                     <LuxuryPlaceholder
-                      alt="Open-plan one-bedroom condo living room at twilight — illustrative image for Palms Place one-bedroom residences"
+                      alt="Palms Place one-bedroom condo living room at twilight — real building photo"
                       className="min-h-[220px] md:min-h-[280px]"
                       src="/images/stay-one-bedroom-interior.webp"
                       variant="stay"

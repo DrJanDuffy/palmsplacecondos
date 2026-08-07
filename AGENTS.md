@@ -19,7 +19,8 @@ This file is the **repository-specific** companion to the shared Cursor rules in
 - Listing photo galleries live under [`/photos`](src/app/photos/page.tsx) and unit pages (e.g. [`/photos/unit-8322`](src/app/photos/unit-8322/page.tsx)).
 - Catalog + SEO titles/alts: [`src/lib/content/media-gallery.ts`](src/lib/content/media-gallery.ts). Local files under `public/images/listings/`.
 - Optional Cloudflare Images: set `NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH` and per-photo `cloudflareImageId` in the catalog ([`src/lib/cloudflare-images.ts`](src/lib/cloudflare-images.ts)). `next.config.ts` already allows `imagedelivery.net`.
-- Do not present illustrative/AI hero assets as real Palms Place listing photography.
+- Homepage hero/amenity images (`hero-tower-dusk`, `stay-*`, `unwind-*`) are **real building photos** — keep alt text and comments labeled that way (not “illustrative” / AI / stock).
+- Unit listing photography lives under [`/photos`](src/app/photos/page.tsx) and [`media-gallery.ts`](src/lib/content/media-gallery.ts); do not mix or relabel those catalogs as interchangeable with hero amenity shots.
 
 ## RealScout
 

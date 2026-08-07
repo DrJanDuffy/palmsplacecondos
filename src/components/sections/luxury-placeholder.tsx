@@ -12,8 +12,8 @@ type LuxuryImageProps = {
 };
 
 /**
- * Illustrative section imagery (AI-generated, brand palette) — not photographs of
- * Palms Place interiors or amenities. Swap for licensed photography when available.
+ * Homepage section imagery — real Palms Place building photos (tower, interiors,
+ * amenities). Distinct from unit listing photography under `/photos` / media-gallery.
  */
 const variantSrc: Record<NonNullable<LuxuryImageProps["variant"]>, string> = {
   hero: "/images/hero-tower-dusk.webp",
