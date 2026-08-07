@@ -39,6 +39,8 @@ export function OfficeNap({
   const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`;
   const placeSearchHref = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
   const gbpHref = siteContact.googleBusinessProfileUrl?.trim() || placeSearchHref;
+  const writeReviewHref =
+    siteContact.googleWriteReviewUrl?.trim() || siteContact.googleBusinessProfileUrl?.trim();
   const facebookHref = siteContact.facebookUrl?.trim();
 
   return (
@@ -158,13 +160,23 @@ export function OfficeNap({
           >
             Directions
           </a>
+          {writeReviewHref ? (
+            <a
+              className={actionClassName}
+              href={writeReviewHref}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Leave a Google review
+            </a>
+          ) : null}
           <a
             className={actionClassName}
             href={gbpHref}
             rel="noopener noreferrer"
             target="_blank"
           >
-            Google reviews
+            Google Business Profile
           </a>
           {facebookHref ? (
             <a

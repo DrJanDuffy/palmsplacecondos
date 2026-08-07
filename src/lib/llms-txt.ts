@@ -26,6 +26,7 @@ export function buildLlmsTxt(): string {
     `- Website: ${origin}/`,
     `- Facebook: ${siteContact.facebookUrl ?? ""}`,
     `- Google Business Profile: ${siteContact.googleBusinessProfileUrl ?? ""}`,
+    `- Google write a review: ${siteContact.googleWriteReviewUrl ?? ""}`,
     `- License: ${siteContact.agentName} ${siteContact.license}`,
     `- Services: buy representation (${origin}/buyers); sell / listing (${origin}/sell)`,
     "",

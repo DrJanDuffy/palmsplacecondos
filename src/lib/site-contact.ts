@@ -102,10 +102,15 @@ export type SiteContact = {
   /** Dr. Jan Duffy YouTube channel — footer/connect + JSON-LD `sameAs`. */
   youtubeUrl?: string;
   /**
-   * Google Business Profile / Maps share URL — visible “View Google Reviews” link and JSON-LD `sameAs`.
+   * Google Business Profile / Maps share URL — profile link and JSON-LD `sameAs`.
    * Prefer the stable share link from GBP (share.google) or a Maps place URL.
    */
   googleBusinessProfileUrl?: string;
+  /**
+   * Google “Write a review” short link (g.page/r/…/review).
+   * Use for Leave-a-review CTAs — do not put in JSON-LD `sameAs`.
+   */
+  googleWriteReviewUrl?: string;
 };
 
 export const siteContact: SiteContact = {
@@ -169,6 +174,8 @@ export const siteContact: SiteContact = {
   youtubeUrl: "https://www.youtube.com/@DrDuffy",
   /** GBP share link for Palms Place Condos (Maps / knowledge panel). */
   googleBusinessProfileUrl: "https://share.google/6cQL7oQ9T88LIQfbC",
+  /** GBP write-a-review link for Palms Place Condos. */
+  googleWriteReviewUrl: "https://g.page/r/CQ8Pc6LgsOHoEBM/review",
   /** Tower entity for GEO — address + geo from palms-place-building.ts */
   palmsPlaceBuilding: getPalmsPlaceBuildingForSchema(),
   /**

@@ -31,6 +31,7 @@ export function ConnectPageBody() {
   const youtubeHref =
     process.env.NEXT_PUBLIC_YOUTUBE_URL ?? siteContact.youtubeUrl ?? "https://www.youtube.com/";
   const gbpHref = siteContact.googleBusinessProfileUrl?.trim();
+  const writeReviewHref = siteContact.googleWriteReviewUrl?.trim();
   const webPageJsonLd = getWebPageJsonLdForPath("/connect", pageMeta, { aboutListingAgent: true });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/connect", [
     { name: "Home", path: "/" },
@@ -96,9 +97,22 @@ export function ConnectPageBody() {
             Palms Place on Facebook
           </a>{" "}
           for building and area updates
+          {writeReviewHref ? (
+            <>
+              ;{" "}
+              <a
+                className="text-palms-gold underline-offset-4 hover:underline"
+                href={writeReviewHref}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                leave a Google review
+              </a>
+            </>
+          ) : null}
           {gbpHref ? (
             <>
-              , leave or read reviews on our{" "}
+              ; open our{" "}
               <a
                 className="text-palms-gold underline-offset-4 hover:underline"
                 href={gbpHref}
@@ -109,7 +123,7 @@ export function ConnectPageBody() {
               </a>
             </>
           ) : null}
-          , and watch{" "}
+          ; and watch{" "}
           <a
             className="text-palms-gold underline-offset-4 hover:underline"
             href={youtubeHref}
