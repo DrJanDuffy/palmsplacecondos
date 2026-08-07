@@ -19,6 +19,7 @@ export function HeroPalmsPlace() {
           fetchPriority="high"
           fill
           priority
+          quality={65}
           sizes="100vw"
           src="/images/hero-tower-dusk.webp"
         />
