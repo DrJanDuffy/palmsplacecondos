@@ -685,6 +685,39 @@ export function getImageGalleryJsonLd(
   };
 }
 
+export type HowToStepInput = { text: string; name?: string };
+
+/**
+ * HowTo JSON-LD for field-guide checklists (tour prep, listing prep). Steps must mirror the
+ * visible ordered list on the same page — do not add steps that aren't shown on-page.
+ */
+export function getHowToJsonLdForPath(
+  pathname: string,
+  input: { name: string; description: string; steps: HowToStepInput[] },
+): JsonLdGraph {
+  const origin = siteOrigin(getSiteUrl());
+  const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const pageUrl = `${origin}${path}`;
+
+  const howTo: Record<string, unknown> = {
+    "@type": "HowTo",
+    "@id": `${pageUrl}#howto`,
+    name: input.name,
+    description: input.description,
+    step: input.steps.map((s, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: s.name ?? s.text.slice(0, 60),
+      text: s.text,
+    })),
+  };
+
+  return {
+    "@context": CONTEXT,
+    "@graph": [howTo],
+  };
+}
+
 /** Featured Palms Place unit as RealEstateListing + Offer (photos required). */
 export function getFeaturedUnitListingJsonLd(
   pathname: string,
