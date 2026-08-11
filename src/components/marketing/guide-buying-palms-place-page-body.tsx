@@ -14,7 +14,7 @@ import {
 } from "@/lib/content/palms-place-buyer-guide";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import { getBreadcrumbListJsonLd, getHowToJsonLdForPath, getWebPageJsonLdForPath } from "@/lib/schema";
 import { getSiteUrl } from "@/lib/site-url";
 import { siteContact } from "@/lib/site-contact";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
@@ -33,6 +33,11 @@ export function GuideBuyingPalmsPlacePageBody() {
     { name: "Buyers", path: "/buyers" },
     { name: "Buying guide", path },
   ]);
+  const howToJsonLd = getHowToJsonLdForPath(path, {
+    name: "What to ask on a Palms Place condo tour",
+    description: palmsPlaceBuyerGuideMeta.description,
+    steps: palmsPlaceTourChecklist.map((text) => ({ text })),
+  });
 
   const pageUrl = `${getSiteUrl().replace(/\/$/, "")}${path}`;
   const articleJsonLd = {
@@ -65,6 +70,7 @@ export function GuideBuyingPalmsPlacePageBody() {
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <StructuredData data={articleJsonLd} />
+      <StructuredData data={howToJsonLd} />
       <SectionEyebrow>Field guide</SectionEyebrow>
       <h1 className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         {palmsPlaceBuyerGuideIntro.headline}
