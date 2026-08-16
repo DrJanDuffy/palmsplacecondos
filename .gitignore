@@ -43,3 +43,9 @@ coverage/
 # Misc
 *.pem
 .vercel
+
+# Local AI agent skill installs (Parallel / Agent Skills CLI)
+.agents/
+.claude/
+agent/
+skills-lock.json
