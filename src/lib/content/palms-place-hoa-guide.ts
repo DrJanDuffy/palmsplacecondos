@@ -39,4 +39,10 @@ export const palmsPlaceHoaSections: { id: string; question: string; answer: stri
     answer:
       "As early as your agent can coordinate—often before or immediately after your first serious tour. Waiting until the night before an offer is how buyers discover rental caps, litigation notes, or parking restrictions that change the deal.",
   },
+  {
+    id: "hoa-youtube-dollars",
+    question: "Why not use a YouTube Palms Place HOA number for 2026?",
+    answer:
+      "Social videos quote dollar figures that may be for a different unit type, year, or utility stack. Palms Place #8322 lists HOA on that spotlight as a unit-specific line—not a building average, and not a studio figure copied onto a one-bedroom. Request the current resale certificate. Dr. Jan Duffy will not publish a blog HOA amount that can be wrong next quarter.",
+  },
 ];

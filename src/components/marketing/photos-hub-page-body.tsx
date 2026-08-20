@@ -55,8 +55,9 @@ export function PhotosHubPageBody() {
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">
         Listing photography for Palms Place residences at 4381 W Flamingo Road—Strip views, furnished
-        interiors, and balcony context. Galleries support buyers researching {siteContact.gbpBusinessName}{" "}
-        inventory before a tour with {siteContact.agentName}.
+        interiors, and balcony context. This is the first-party high-rise condo tour hub: galleries
+        support buyers researching {siteContact.gbpBusinessName} inventory before a showing with{" "}
+        {siteContact.agentName}. Competitor YouTube walkthroughs are not this brokerage’s listings.
       </p>
 
       <section className="mt-12" aria-labelledby="photo-galleries-heading">
@@ -93,6 +94,14 @@ export function PhotosHubPageBody() {
             contact the office
           </Link>
           . Photos do not replace disclosures—verify HOA, furnishings, and status with your agent.
+          For outlook (Strip vs mountain), read the{" "}
+          <Link
+            className="text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-strip-view-condos"
+          >
+            Palms Place Strip view condos guide
+          </Link>
+          . Palms Place #8322 also has a PropertyPanorama 3D tour on its gallery page.
         </p>
       </section>
 

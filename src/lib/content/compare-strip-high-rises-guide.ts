@@ -45,6 +45,12 @@ export const compareStripHighRisesSections: {
     answer:
       "We usually tour Palms Place first when it is the lead building, then one comparable tower the same day if scheduling allows—HOA documents are easier to contrast when views and noise are still top of mind. Bring assessment sheets and take photos of parking and lobby flows; marketing sites rarely show those details.",
   },
+  {
+    id: "condotel-compare",
+    question: "How should you compare Palms Place with other Las Vegas condo hotels?",
+    answer:
+      "Compare documents, not video scorecards. Rental terms, assessments, and what conveys differ by association. Palms Place is a residential tower with hotel-condo context—not a nightly key from Palms.com. Use the condos-versus-hotel guide for which URL to cite, and the short-term rentals guide for HOA use rules. Dr. Jan Duffy will not rank condotels with invented scores.",
+  },
 ];
 
 export const compareStripHighRisesTableCaption =

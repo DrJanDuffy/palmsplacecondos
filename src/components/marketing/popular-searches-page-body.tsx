@@ -46,6 +46,24 @@ const staticLinks: PopularSearchLink[] = [
     description: "What conveys & rental rules",
   },
   {
+    id: "palms-place-strip-view",
+    href: "/guide/palms-place-strip-view-condos",
+    label: "Palms Place Strip view condos",
+    description: "Strip vs mountain outlook on tour",
+  },
+  {
+    id: "palms-place-str",
+    href: "/guide/palms-place-short-term-rentals",
+    label: "Palms Place short-term rentals",
+    description: "HOA rules vs Airbnb video claims",
+  },
+  {
+    id: "palms-place-photos",
+    href: "/photos",
+    label: "Palms Place high-rise condo tour photos",
+    description: "First-party listing galleries",
+  },
+  {
     id: "palms-place-amenities",
     href: "/guide/palms-place-amenities-and-resort-access",
     label: "Palms Place amenities & resort access",
@@ -233,6 +251,17 @@ export function PopularSearchesPageBody() {
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/guide/buying-palms-place">
             Buying a Palms Place condo
+          </Link>
+          ,{" "}
+          <Link className="text-palms-gold underline-offset-4 hover:underline" href="/guide/palms-place-strip-view-condos">
+            Strip view vs mountain view
+          </Link>
+          ,{" "}
+          <Link
+            className="text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-short-term-rentals"
+          >
+            short-term rental rules
           </Link>
           ,{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/guide/selling-palms-place">

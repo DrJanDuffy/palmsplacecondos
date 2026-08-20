@@ -4,8 +4,9 @@ import { buildPageMetadata } from "@/lib/metadata-helpers";
 
 export const metadata: Metadata = buildPageMetadata({
   path: "/photos",
-  title: "Palms Place condo photos | Las Vegas Strip high-rise galleries",
-  description: "Photo galleries for Palms Place condos for sale—unit interiors, Strip views, and listing photography with Dr. Jan Duffy at 4381 W Flamingo Road, Las Vegas.",
+  title: "Palms Place high-rise condo tour photos | Las Vegas galleries",
+  description:
+    "First-party Palms Place condo tour photos—Strip views, interiors, and listing galleries with Dr. Jan Duffy at 4381 W Flamingo Road. Not competitor YouTube walkthroughs.",
 });
 
 export default function PhotosPage() {

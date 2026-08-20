@@ -16,7 +16,7 @@ export const homeFaqItems: FaqItem[] = [
   {
     question: "How do I tour Palms Place condos for sale this week?",
     answer:
-      "Schedule a Palms Place showing on Calendly or call the office number in the footer. Dr. Jan Duffy runs tower tours at 4381 W Flamingo Road—not at the Lindell office unless you booked paperwork there. Bring must-haves (view, furnishing, rental intent) so the first visit uses the buying-guide checklist instead of a generic walkthrough.",
+      "Schedule a Palms Place showing on Calendly or call the office number in the footer. Dr. Jan Duffy runs tower tours at 4381 W Flamingo Road—not at the Lindell office unless you booked paperwork there. Bring must-haves (view, furnishing, rental intent) so the first visit uses the buying-guide checklist instead of a generic walkthrough. First-party photos live on the photo hub; Strip vs mountain outlook is on the Strip view guide.",
   },
   {
     question: "What should Palms Place buyers verify besides list price?",

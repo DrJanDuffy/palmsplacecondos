@@ -44,6 +44,16 @@ export function BuyersPageBody() {
         description: "Floor-plan decision framework",
       },
       {
+        name: "Palms Place Strip view vs mountain view",
+        path: "/guide/palms-place-strip-view-condos",
+        description: "Verify outlook on tour, not a video title",
+      },
+      {
+        name: "Palms Place short-term rental rules",
+        path: "/guide/palms-place-short-term-rentals",
+        description: "HOA permission vs Airbnb video claims",
+      },
+      {
         name: "Palms Place field notes",
         path: "/insights",
         description: "First-hand tour and listing notes",
@@ -111,6 +121,20 @@ export function BuyersPageBody() {
             href="/guide/palms-place-unit-types"
           >
             Studios vs one-bedroom guide
+          </Link>
+          {" · "}
+          <Link
+            className="font-medium text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-strip-view-condos"
+          >
+            Strip view vs mountain view
+          </Link>
+          {" · "}
+          <Link
+            className="font-medium text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-short-term-rentals"
+          >
+            Short-term rental rules
           </Link>
         </p>
       </section>

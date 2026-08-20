@@ -54,4 +54,22 @@ export const palmsPlaceUnitTypesSections: {
     answer:
       "Yes. Furnished studios can look spacious with hotel-style built-ins; unfurnished one-bedrooms can feel smaller once your furniture arrives. Always tour the exact unit you are buying and read the inventory list before you assume a floor plan “type” will feel the same as a prior stay.",
   },
+  {
+    id: "mountain-vs-strip-studio",
+    question: "How do Palms Place studio mountain views differ from Strip view studios?",
+    answer:
+      "Outlook is not included in the word studio. Mountain-facing glass and Strip-facing glass are different products even near the commonly cited 615 square-foot studio size. Confirm orientation on the listing, then tour. Pair this page with the Strip view guide before you treat a video title as the floor plan.",
+  },
+  {
+    id: "one-bed-full-strip",
+    question: "What should you check on a Palms Place 1BR with a full Strip view?",
+    answer:
+      "Confirm it is a true one-bedroom, which walls have glass, and whether you are buying a corner stack. Palms Place #8322 is a 1,220 SF eighth-floor corner with Strip views—use it as a reference, then verify the next 1BR on its own record. Do not assume every one-bedroom on a high floor matches that outlook.",
+  },
+  {
+    id: "penthouse-inventory",
+    question: "Are Palms Place penthouses or 57th-floor residences a standard floor plan?",
+    answer:
+      "No. Upper-floor and penthouse-style units vary in terrace, spa, and square footage. A social video of a 57th-floor penthouse is not this site’s inventory and may not still be listed. Search live listings, then tour the exact residence with Dr. Jan Duffy.",
+  },
 ];
