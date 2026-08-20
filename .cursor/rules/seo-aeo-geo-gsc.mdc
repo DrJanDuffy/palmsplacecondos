@@ -30,6 +30,7 @@ Companion to **`best-practices-2026.mdc`**. Detailed file-specific rules stay in
 ## Google Search Console
 
 - **Property host**: match how the site is served (e.g. `https://www.example.com` vs apex); keep **Search Console**, **sitemap**, **robots `Sitemap:`**, and **`metadataBase`** on the same canonical host.
+- **robots.txt report**: Do **not** emit `Host:` (Search Console warning; Google ignores it). Keep User-agent, Allow/Disallow, and an absolute `Sitemap:` URL.
 - **URL Inspection**: use for a **single URL** (live vs Google, fetch status, indexing). **Request indexing** sparingly for high-priority pages.
 - **Page indexing** reports:
   - **Page with redirect** for `http://`, apex, or non-canonical `www` variants is often **expected** when the canonical URL is elsewhere; validate the **destination** URL is indexed.

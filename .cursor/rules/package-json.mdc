@@ -15,7 +15,7 @@ alwaysApply: false
 - Avoid **one-off** `npm run build` in docs when the team standard is **`vercel build`** (see global `best-practices-2026.mdc`)—document the canonical production check.
 
 ## Engines and package manager
-- Set **`engines.node`** to the **LTS range** the team supports (e.g. `>=20`) to reduce “works on my machine” drift.
+- Set **`engines.node`** to a **specific major** Vercel understands (e.g. `20.x`, `22.x`, `24.x`). Avoid `>=20`: Vercel warns that range **auto-upgrades** when a new Node major ships ([Node.js versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions)).
 - If the repo standardizes on **pnpm/yarn**, consider **`packageManager`** (Corepack) + **lockfile** committed—don’t mix lockfiles.
 
 ## Dependencies

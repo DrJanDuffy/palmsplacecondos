@@ -12,6 +12,7 @@ alwaysApply: false
 ## Host and environment
 - If **`baseUrl`** is derived from **`x-forwarded-host`** / **`host`**, confirm **preview** and **production** hosts do not accidentally publish wrong origins or block crawlers on prod.
 - Staging: often **`Disallow: /`** or auth wall—do not copy staging robots to production without review.
+- **Do not set `host` in `robots.ts`.** Next.js would emit a `Host:` line. Google does not support that field and Search Console reports it as a robots.txt warning.
 
 ## Rules blocks
 - **`allow`** / **`disallow`** paths must match real **`app`** routes; avoid typos that block CSS or Next static assets unintentionally.
