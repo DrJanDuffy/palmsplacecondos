@@ -19,7 +19,7 @@ export function HomeFaqSection() {
           className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl"
           id="home-faq-heading"
         >
-          Palms Place condos FAQ — Las Vegas Strip high-rise buyers
+          What do Palms Place buyers in Las Vegas ask first?
         </h2>
         <p className="mt-4 text-base leading-relaxed text-palms-cream/80">
           Direct answers about Palms Place location, inventory, and how to tour with the local team.

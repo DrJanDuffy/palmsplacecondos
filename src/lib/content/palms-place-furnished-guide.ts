@@ -1,15 +1,15 @@
 /** Furnished Palms Place resales — buyer framing (verify in disclosures). */
 
 export const palmsPlaceFurnishedGuideMeta = {
-  title: "Furnished Palms Place condos — buyer guide",
+  title: "Furnished Palms Place condos in Las Vegas — buyer guide",
   description:
     "What to verify when you buy a furnished Palms Place condo on the Las Vegas Strip—inventory, HOA rental rules, and resale certificates before you offer.",
   datePublished: "2026-05-27",
-  dateModified: "2026-05-27",
+  dateModified: "2026-08-20",
 };
 
 export const palmsPlaceFurnishedIntro = {
-  headline: "Furnished Palms Place condos — what transfers and what does not",
+  headline: "Furnished Palms Place condos in Las Vegas — what transfers and what does not",
   lede:
     "Furnished inventory can shorten move-in time, but it is not a shortcut around HOA rental rules or disclosure review. This guide frames questions our team asks on furnished tours—always confirm facts in the listing and HOA resale package.",
 };

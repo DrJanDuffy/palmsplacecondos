@@ -1,15 +1,15 @@
 /** Palms Place amenities & resort-adjacent access — verify with HOA / management. */
 
 export const palmsPlaceAmenitiesGuideMeta = {
-  title: "Palms Place amenities & resort access — owner guide",
+  title: "Palms Place amenities in Las Vegas — owner verification guide",
   description:
     "Pool, fitness, and Palms Casino Resort adjacency at Palms Place—how owners use amenities, what to verify in HOA documents, and how it differs from hotel guest access.",
   datePublished: "2026-05-27",
-  dateModified: "2026-05-27",
+  dateModified: "2026-08-20",
 };
 
 export const palmsPlaceAmenitiesIntro = {
-  headline: "Palms Place amenities — what owners should verify before they buy",
+  headline: "Palms Place amenities in Las Vegas — what owners should verify before they buy",
   lede:
     "Resort-adjacent high-rise living is as much about access rules as it is about photos of pools and lounges. This page explains the questions we ask on tours—confirm current rights and fees in HOA disclosures for the unit you are buying.",
 };

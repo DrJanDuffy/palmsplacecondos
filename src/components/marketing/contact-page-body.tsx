@@ -55,7 +55,7 @@ export function ContactPageBody() {
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
-        Contact {siteContact.gbpBusinessName}
+        Contact {siteContact.gbpBusinessName} — Las Vegas office
       </h1>
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">

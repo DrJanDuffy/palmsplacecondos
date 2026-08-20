@@ -6,7 +6,7 @@ const path = "/guide/palms-place-hoa-and-monthly-costs";
 
 export const metadata: Metadata = buildPageMetadata({
   path: path,
-  title: "Palms Place HOA fees & monthly costs | Buyer guide",
+  title: "Palms Place HOA fees in Las Vegas | Buyer monthly cost guide",
   description: "Read Palms Place HOA assessments, reserves, and parking fees—model true monthly carry before you tour or offer on a Las Vegas Strip high-rise condo.",
 });
 
