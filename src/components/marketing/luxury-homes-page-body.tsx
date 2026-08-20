@@ -17,7 +17,10 @@ const pageMeta = {
 /** Expanded /luxury-homes — estates & high-rise contrast. */
 export function LuxuryHomesPageBody() {
   const related = relatedLinksForPath("/luxury-homes");
-  const webPageJsonLd = getWebPageJsonLdForPath("/luxury-homes", pageMeta);
+  const webPageJsonLd = getWebPageJsonLdForPath("/luxury-homes", pageMeta, {
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/luxury-homes", [
     { name: "Home", path: "/" },
     { name: "Luxury homes", path: "/luxury-homes" },

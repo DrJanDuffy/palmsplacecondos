@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { PageFaqSection } from "@/components/marketing/page-faq-section";
 import { PhotoGalleryGrid } from "@/components/seo/photo-gallery-grid";
 import { RelatedPages } from "@/components/seo/related-pages";
 import { StructuredData } from "@/components/seo/structured-data";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 import { ButtonAnchor, ButtonLink } from "@/components/shared/button-link";
 import { CalendlyButton } from "@/components/shared/calendly-link";
+import { unit8322PhotosPageFaq } from "@/lib/content/discoverability-page-faqs";
 import {
   featuredListing,
   getFeaturedListingDetailsUrl,
@@ -13,11 +15,10 @@ import {
   getGalleryPhotoSrc,
   unit8322Gallery,
 } from "@/lib/content/media-gallery";
-import { palmsPlaceTower } from "@/lib/content/palms-place-building";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import {
   getBreadcrumbListJsonLd,
-  getFeaturedUnitListingJsonLd,
+  getCurrentFeaturedListingJsonLd,
   getImageGalleryJsonLd,
   getWebPageJsonLdForPath,
 } from "@/lib/schema";
@@ -28,7 +29,6 @@ const path = unit8322Gallery.path;
 export function PhotosUnit8322PageBody() {
   const related = relatedLinksForPath(path);
   const photos = unit8322Gallery.photos;
-  const imageUrls = photos.map((p) => getGalleryPhotoSrc(p));
   const detailsUrl = getFeaturedListingDetailsUrl();
 
   const webPageJsonLd = getWebPageJsonLdForPath(
@@ -37,7 +37,7 @@ export function PhotosUnit8322PageBody() {
       name: unit8322Gallery.h1,
       description: unit8322Gallery.metaDescription,
     },
-    { aboutPalmsPlace: true },
+    { aboutPalmsPlace: true, mainEntity: "featured-listing", hasFaq: true },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
@@ -55,21 +55,7 @@ export function PhotosUnit8322PageBody() {
       height: p.height,
     })),
   });
-  const listingJsonLd = getFeaturedUnitListingJsonLd(path, {
-    name: `Palms Place #8322 — ${palmsPlaceTower.streetAddress}, Las Vegas`,
-    description: featuredListing.overview,
-    price: 387777,
-    mlsNumber: featuredListing.mlsNumber,
-    beds: 1,
-    baths: 1.5,
-    squareFeet: 1220,
-    streetAddress: `${palmsPlaceTower.streetAddress} #8322`,
-    addressLocality: palmsPlaceTower.addressLocality,
-    addressRegion: palmsPlaceTower.addressRegion,
-    postalCode: palmsPlaceTower.postalCode,
-    imageUrls,
-    detailsUrl,
-  });
+  const listingJsonLd = getCurrentFeaturedListingJsonLd();
 
   return (
     <article className="mx-auto max-w-4xl px-6 py-12 md:py-16">
@@ -104,23 +90,13 @@ export function PhotosUnit8322PageBody() {
 
       <PhotoGalleryGrid photos={photos} />
 
-      <section className="mt-12" aria-labelledby="unit-photos-faq-heading">
-        <h2
-          className="font-display text-2xl font-semibold text-palms-cream"
-          id="unit-photos-faq-heading"
-        >
-          What should buyers know about these photos?
-        </h2>
-        <p className="mt-4 leading-relaxed text-palms-cream/85">
-          These are professional listing photos for MLS #{featuredListing.mlsNumber}. Furnishings,
-          art, and electronics convey only as stated in the inventory exhibit—not by photo alone.
-          Views, light, and sound vary by time of day; tour the unit before you write an offer.
-        </p>
-        <p className="mt-4 leading-relaxed text-palms-cream/85">
-          Represented by {siteContact.agentName}, {siteContact.brokerage}. Service area:{" "}
-          {siteContact.primaryServiceArea}.
-        </p>
-      </section>
+      <PageFaqSection
+        pathname={path}
+        headingId="unit-photos-faq-heading"
+        heading="Photo FAQ"
+        intro={`Represented by ${siteContact.agentName}, ${siteContact.brokerage}. Service area: ${siteContact.primaryServiceArea}.`}
+        items={unit8322PhotosPageFaq}
+      />
 
       <div className="mt-10 flex flex-wrap gap-4">
         <CalendlyButton variant="primary">Schedule a showing</CalendlyButton>

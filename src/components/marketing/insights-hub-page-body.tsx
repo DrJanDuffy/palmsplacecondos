@@ -5,23 +5,42 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { insightsHubPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { fieldNotes, fieldNotesHubMeta } from "@/lib/content/field-notes";
 import { relatedLinksForPath } from "@/lib/internal-links";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import {
+  getBreadcrumbListJsonLd,
+  getItemListJsonLd,
+  getWebPageJsonLdForPath,
+} from "@/lib/schema";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
 const path = "/insights";
 
 export function InsightsHubPageBody() {
   const related = relatedLinksForPath(path);
-  const webPageJsonLd = getWebPageJsonLdForPath(path, fieldNotesHubMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath(path, fieldNotesHubMeta, {
+    aboutPalmsPlace: true,
+    pageType: "CollectionPage",
+    hasFaq: true,
+    hasItemList: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
     { name: "Field notes", path },
   ]);
+  const itemListJsonLd = getItemListJsonLd(path, {
+    name: "Palms Place field notes",
+    description: fieldNotesHubMeta.description,
+    items: fieldNotes.map((note) => ({
+      name: note.headline,
+      path: `/insights/${note.slug}`,
+      description: note.description,
+    })),
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Palms Place field notes
       </h1>

@@ -24,7 +24,7 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
   const webPageJsonLd = getWebPageJsonLdForPath(path, {
     name: note.title,
     description: note.description,
-  }, { aboutPalmsPlace: true });
+  }, { aboutPalmsPlace: true, hasFaq: true });
   const breadcrumbLabel =
     note.headline.length > 48 ? `${note.headline.slice(0, 45)}…` : note.headline;
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [

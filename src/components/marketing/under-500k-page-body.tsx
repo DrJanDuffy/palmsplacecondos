@@ -19,7 +19,10 @@ const pageMeta = {
 export function Under500kPageBody() {
   const related = relatedLinksForPath("/under-500k");
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath("/under-500k", pageMeta);
+  const webPageJsonLd = getWebPageJsonLdForPath("/under-500k", pageMeta, {
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/under-500k", [
     { name: "Home", path: "/" },
     { name: "Under $500K", path: "/under-500k" },

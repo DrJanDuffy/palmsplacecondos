@@ -23,7 +23,11 @@ const pageMeta = {
 export function CondosPageBody() {
   const related = relatedLinksForPath("/condos");
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath("/condos", pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/condos", pageMeta, {
+    aboutPalmsPlace: true,
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/condos", [
     { name: "Home", path: "/" },
     { name: "Condos", path: "/condos" },

@@ -21,7 +21,10 @@ export function BuyerCalculatorsPageBody() {
   const searchUrl = getRealScoutSharedSearchUrl();
   const phone = siteContact.phone;
   const tel = phone ? `tel:${phone.replace(/\D/g, "")}` : undefined;
-  const webPageJsonLd = getWebPageJsonLdForPath("/buyers/calculators", pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/buyers/calculators", pageMeta, {
+    aboutPalmsPlace: true,
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/buyers/calculators", [
     { name: "Home", path: "/" },
     { name: "Buyers", path: "/buyers" },

@@ -7,12 +7,20 @@ import { palmsPlaceTower } from "@/lib/content/palms-place-building";
  */
 export const featuredListing = {
   price: "$387,777",
+  /** Numeric offer price for RealEstateListing JSON-LD — keep in sync with `price`. */
+  priceUsd: 387777,
   status: "For Sale (Active)",
   mlsNumber: "2782527",
+  unitNumber: "8322",
+  /** GLVAR list date for this spotlight (schema `datePosted`). */
+  datePosted: "2026-07-10",
   addressLine: `${palmsPlaceTower.streetAddress} #8322 • Palms Place • ${palmsPlaceTower.addressLocality}, ${palmsPlaceTower.addressRegion} ${palmsPlaceTower.postalCode}`,
   beds: "1 bed",
   baths: "1.5 baths",
   squareFeet: "1,220 SF",
+  bedsCount: 1,
+  bathsCount: 1.5,
+  livingAreaSqFt: 1220,
   lot: "—",
   propertyType: "High Rise",
   entryLevel: "8th floor",

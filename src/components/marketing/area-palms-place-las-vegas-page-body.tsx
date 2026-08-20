@@ -31,7 +31,11 @@ const mapsEmbedSrc = resolveMapEmbedSrc({
 /** GEO / entity page for the Palms Place tower — building address, not team office. */
 export function AreaPalmsPlaceLasVegasPageBody() {
   const related = relatedLinksForPath(path);
-  const webPageJsonLd = getWebPageJsonLdForPath(path, pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath(path, pageMeta, {
+    aboutPalmsPlace: true,
+    mainEntity: "palms-place",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
     { name: "Palms Place area", path },

@@ -1,11 +1,17 @@
 import Link from "next/link";
+import { PageFaqSection } from "@/components/marketing/page-faq-section";
 import { RelatedPages } from "@/components/seo/related-pages";
 import { StructuredData } from "@/components/seo/structured-data";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 import { CalendlyLink } from "@/components/shared/calendly-link";
+import { photosHubPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { photoGalleries } from "@/lib/content/media-gallery";
 import { relatedLinksForPath } from "@/lib/internal-links";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import {
+  getBreadcrumbListJsonLd,
+  getItemListJsonLd,
+  getWebPageJsonLdForPath,
+} from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
 
 const path = "/photos";
@@ -18,16 +24,31 @@ const pageMeta = {
 
 export function PhotosHubPageBody() {
   const related = relatedLinksForPath(path);
-  const webPageJsonLd = getWebPageJsonLdForPath(path, pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath(path, pageMeta, {
+    aboutPalmsPlace: true,
+    pageType: "CollectionPage",
+    hasFaq: true,
+    hasItemList: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
     { name: "Photos", path },
   ]);
+  const itemListJsonLd = getItemListJsonLd(path, {
+    name: "Palms Place photo galleries",
+    description: pageMeta.description,
+    items: photoGalleries.map((gallery) => ({
+      name: gallery.h1,
+      path: gallery.path,
+      description: gallery.lede,
+    })),
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Palms Place condo photos
       </h1>
@@ -43,7 +64,7 @@ export function PhotosHubPageBody() {
           className="font-display text-2xl font-semibold text-palms-cream"
           id="photo-galleries-heading"
         >
-          Which photo galleries are live?
+          Live photo galleries
         </h2>
         <ul className="mt-6 space-y-4">
           {photoGalleries.map((gallery) => (
@@ -62,7 +83,7 @@ export function PhotosHubPageBody() {
 
       <section className="mt-12" aria-labelledby="photos-next-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="photos-next-heading">
-          Ready to tour what you see in photos?
+          Tour what you see in photos
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           <CalendlyLink>Schedule a showing</CalendlyLink>
@@ -74,6 +95,13 @@ export function PhotosHubPageBody() {
           . Photos do not replace disclosures—verify HOA, furnishings, and status with your agent.
         </p>
       </section>
+
+      <PageFaqSection
+        pathname={path}
+        headingId="photos-hub-faq-heading"
+        heading="Photo gallery FAQ"
+        items={photosHubPageFaq}
+      />
 
       <RelatedPages links={related} />
     </article>

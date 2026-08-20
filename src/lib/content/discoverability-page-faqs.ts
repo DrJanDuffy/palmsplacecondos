@@ -502,3 +502,26 @@ export const insightsHubPageFaq: FaqItem[] = [
       "Each note shows an updated date. Re-read before you tour if association rules or inventory conditions may have changed.",
   },
 ];
+
+/** `/photos` hub — must mirror visible FAQ on that page. */
+export const photosHubPageFaq: FaqItem[] = [
+  {
+    question: "Which photo galleries are live?",
+    answer:
+      "Listing photography for Palms Place residences at 4381 W Flamingo Road—Strip views, furnished interiors, and balcony context. The live gallery is Palms Place #8322. Galleries support buyers researching inventory before a tour with Dr. Jan Duffy.",
+  },
+  {
+    question: "Ready to tour what you see in photos?",
+    answer:
+      "Schedule a showing or contact the office. Photos do not replace disclosures—verify HOA, furnishings, and status with your agent.",
+  },
+];
+
+/** `/photos/unit-8322` — must mirror visible FAQ on that page. */
+export const unit8322PhotosPageFaq: FaqItem[] = [
+  {
+    question: "What should buyers know about these photos?",
+    answer:
+      "These are professional listing photos for MLS #2782527. Furnishings, art, and electronics convey only as stated in the inventory exhibit—not by photo alone. Views, light, and sound vary by time of day; tour the unit before you write an offer.",
+  },
+];

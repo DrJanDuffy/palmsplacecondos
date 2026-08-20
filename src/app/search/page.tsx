@@ -33,7 +33,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const q = typeof qRaw === "string" ? qRaw.trim() : "";
   const sharedSearchUrl = getRealScoutSharedSearchUrl();
   const related = relatedLinksForPath("/search");
-  const webPageJsonLd = getWebPageJsonLdForPath("/search", pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/search", pageMeta, {
+    aboutPalmsPlace: true,
+    pageType: "SearchResultsPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/search", [
     { name: "Home", path: "/" },
     { name: "Search", path: "/search" },

@@ -5,7 +5,11 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { featuredPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import {
+  getBreadcrumbListJsonLd,
+  getCurrentFeaturedListingJsonLd,
+  getWebPageJsonLdForPath,
+} from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 import { CalendlyLink } from "@/components/shared/calendly-link";
@@ -20,7 +24,12 @@ const pageMeta = {
 export function FeaturedPageBody() {
   const related = relatedLinksForPath("/featured");
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath("/featured", pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/featured", pageMeta, {
+    aboutPalmsPlace: true,
+    pageType: "CollectionPage",
+    hasFaq: true,
+    mentionsFeaturedListing: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/featured", [
     { name: "Home", path: "/" },
     { name: "Featured listings", path: "/featured" },
@@ -30,6 +39,7 @@ export function FeaturedPageBody() {
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={getCurrentFeaturedListingJsonLd()} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Featured Palms Place &amp; Las Vegas listings
       </h1>

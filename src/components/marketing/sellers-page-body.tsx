@@ -19,7 +19,10 @@ const pageMeta = {
 
 export function SellersPageBody() {
   const related = relatedLinksForPath("/sellers");
-  const webPageJsonLd = getWebPageJsonLdForPath("/sellers", pageMeta);
+  const webPageJsonLd = getWebPageJsonLdForPath("/sellers", pageMeta, {
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/sellers", [
     { name: "Home", path: "/" },
     { name: "Sellers", path: "/sellers" },

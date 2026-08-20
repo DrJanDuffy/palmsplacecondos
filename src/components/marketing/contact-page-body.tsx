@@ -38,7 +38,12 @@ export function ContactPageBody() {
       siteContact.contactMapEmbedUrl?.trim(),
     embedApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_API_KEY?.trim(),
   });
-  const webPageJsonLd = getWebPageJsonLdForPath("/contact", pageMeta, { aboutListingAgent: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/contact", pageMeta, {
+    aboutListingAgent: true,
+    mainEntity: "listing-agent",
+    pageType: "ContactPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/contact", [
     { name: "Home", path: "/" },
     { name: "Contact", path: "/contact" },

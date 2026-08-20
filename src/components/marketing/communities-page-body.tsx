@@ -20,7 +20,10 @@ const pageMeta = {
  */
 export function CommunitiesPageBody() {
   const related = relatedLinksForPath("/communities");
-  const webPageJsonLd = getWebPageJsonLdForPath("/communities", pageMeta);
+  const webPageJsonLd = getWebPageJsonLdForPath("/communities", pageMeta, {
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/communities", [
     { name: "Home", path: "/" },
     { name: "Communities", path: "/communities" },

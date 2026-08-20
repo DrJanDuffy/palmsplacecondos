@@ -1,3 +1,4 @@
+import { featuredListing } from "@/lib/content/featured-listing";
 import { formatPalmsPlaceTowerAddressLine, palmsPlaceTower } from "@/lib/content/palms-place-building";
 import { MARKETING_ROUTES, marketingPathHref } from "@/lib/marketing-routes";
 import { siteContact } from "@/lib/site-contact";
@@ -24,7 +25,12 @@ export function buildLlmsTxt(): string {
       : []),
     `- Phone: ${siteContact.phone ?? ""}`,
     `- Website: ${origin}/`,
+    `- JSON-LD agent @id: ${origin}#dr-jan-duffy`,
+    `- JSON-LD tower @id: ${origin}#place-palms-place`,
+    `- JSON-LD brokerage @id: ${origin}#brokerage`,
+    `- Featured listing photos: ${origin}/photos/unit-8322 (MLS #${featuredListing.mlsNumber})`,
     `- Facebook: ${siteContact.facebookUrl ?? ""}`,
+    `- YouTube: ${siteContact.youtubeUrl ?? ""}`,
     `- Google Business Profile: ${siteContact.googleBusinessProfileUrl ?? ""}`,
     `- Google write a review: ${siteContact.googleWriteReviewUrl ?? ""}`,
     `- License: ${siteContact.agentName} ${siteContact.license}`,
@@ -65,6 +71,9 @@ export function buildLlmsFullTxt(): string {
       siteContact.officeSpecialHoursLine ? ` · ${siteContact.officeSpecialHoursLine}` : ""
     }`,
     `Description: ${siteContact.schemaAgentDescription ?? ""}`,
+    `YouTube: ${siteContact.youtubeUrl ?? ""}`,
+    `Featured listing: ${origin}/photos/unit-8322 (MLS #${featuredListing.mlsNumber})`,
+    `JSON-LD: ${origin}#dr-jan-duffy · ${origin}#place-palms-place · ${origin}#brokerage`,
     "",
     "Quantitative listing prices, HOA dues, and inventory counts change daily. Verify in live search and official disclosures.",
     "",

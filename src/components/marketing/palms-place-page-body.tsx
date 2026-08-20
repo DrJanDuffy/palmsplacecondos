@@ -22,7 +22,11 @@ export function PalmsPlacePageBody() {
   const related = relatedLinksForPath("/palms-place");
   const searchUrl = getRealScoutSharedSearchUrl();
   const towerLine = formatPalmsPlaceTowerAddressLine();
-  const webPageJsonLd = getWebPageJsonLdForPath("/palms-place", pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/palms-place", pageMeta, {
+    aboutPalmsPlace: true,
+    mainEntity: "palms-place",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/palms-place", [
     { name: "Home", path: "/" },
     { name: "Palms Place", path: "/palms-place" },
