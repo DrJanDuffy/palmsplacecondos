@@ -42,6 +42,7 @@ Keep **apex** (`palmsplacecondos.com`) and **`www`** on **DNS only** (gray cloud
 - Add a **URL-prefix** property for **`https://www.palmsplacecondos.com`** (same host as `NEXT_PUBLIC_SITE_URL` and the app’s apex → `www` redirect).
 - **Page indexing → Page with redirect** for `http://palmsplacecondos.com/` or `http://www.palmsplacecondos.com/` is **expected**: those URLs 301/308 to `https://www.palmsplacecondos.com/`. Do not try to get the HTTP or apex URLs indexed—use **URL Inspection** on the **https www** homepage instead. The redirect report may keep listing legacy URLs while Google recrawls.
 - After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC.
+- **robots.txt warnings:** GSC lists `http`/`https` and apex/`www` copies of `/robots.txt`. One warning on each was the unsupported `Host:` line (Yandex-only). Google only uses User-agent, Allow, Disallow, and Sitemap — that line is omitted in [`src/app/robots.ts`](src/app/robots.ts). Recrawl after deploy; do not treat the four URLs as four different files.
 - **Verification:** DNS **TXT** at the apex (as in your Cloudflare zone) **or** set `GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` per [`.env.example`](.env.example) for the HTML-tag method.
 
 ### Optional: DMARC (email only)
