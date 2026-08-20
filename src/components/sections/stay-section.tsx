@@ -57,9 +57,15 @@ export function StaySection() {
                       <div className="mt-6 flex flex-wrap gap-3">
                         <Link
                           className="text-sm font-semibold text-palms-gold underline-offset-4 hover:underline"
+                          href="/guide/palms-place-unit-types"
+                        >
+                          Palms Place studios vs one-bedroom guide
+                        </Link>
+                        <Link
+                          className="text-sm font-semibold text-palms-cream/80 underline-offset-4 hover:text-palms-gold hover:underline"
                           href="/condos"
                         >
-                          Browse all Las Vegas high-rise condos
+                          Browse Las Vegas high-rise condos
                         </Link>
                         <a
                           className="text-sm font-semibold text-palms-cream/80 underline-offset-4 hover:text-palms-gold hover:underline"
@@ -100,6 +106,12 @@ export function StaySection() {
                       <div className="mt-6 flex flex-wrap gap-3">
                         <Link
                           className="text-sm font-semibold text-palms-gold underline-offset-4 hover:underline"
+                          href="/guide/palms-place-unit-types"
+                        >
+                          Compare Palms Place floor plans
+                        </Link>
+                        <Link
+                          className="text-sm font-semibold text-palms-cream/80 underline-offset-4 hover:text-palms-gold hover:underline"
                           href="/high-rises"
                         >
                           Las Vegas high-rises

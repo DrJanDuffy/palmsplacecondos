@@ -116,7 +116,7 @@ export function FeaturedListingBanner() {
                 </p>
                 <p className="text-xs text-palms-cream/55">
                   MLS #{featuredListing.mlsNumber} · {featuredListing.annualTax} · Source: GLVAR ·
-                  Listing offered by BHHS Nevada Properties
+                  Listing offered by {siteContact.brokerage}
                 </p>
               </div>
 
