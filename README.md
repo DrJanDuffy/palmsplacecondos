@@ -4,7 +4,7 @@ Real estate marketing site for **Palms Place** (Las Vegas). This repository is s
 
 ## Prerequisites
 
-- **Node.js** 20+ (see `engines` in [`package.json`](package.json))
+- **Node.js** 24.x (see `engines` in [`package.json`](package.json); Vercel project is Node 24)
 - **npm** (lockfile: [`package-lock.json`](package-lock.json))
 - **Git**
 - A GitHub account with access to this repository
