@@ -47,7 +47,7 @@ Keep **apex** (`palmsplacecondos.com`) and **`www`** on **DNS only** (gray cloud
   Live checks (2026-08-20): each returns a **single 301** to **`https://www.palmsplacecondos.com/`**. Sitemap and `robots.txt` already list only the `https://www` origin.
 - **Do not click Validate Fix** on that report. Google recrawls the same URLs, still sees a redirect, and marks validation **Failed**. That is the correct outcome. Validate Fix is only for *accidental* redirects you removed.
 - Confirm the destination instead: **URL Inspection** on **`https://www.palmsplacecondos.com/`** (expect **Indexed** / 200, `index, follow`). Do not try to get the HTTP or apex URLs indexed.
-- After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC. Search Console Sitemaps export (2026-08-20): that URL is **Success**, **33 URLs discovered**, last processed **2026-08-18** (last *submitted* **2026-04-16** — resubmit after large content/lastmod waves if the report looks stale). Live `sitemap.xml` and `robots.txt` on **www** match this repo.
+- After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC. Search Console Sitemaps export (2026-08-20): that URL is **Success**, **33 URLs discovered**, last processed **2026-08-18** (last *submitted* **2026-04-16** — **resubmit after this content wave**). This repo’s marketing catalog is **37 URLs** after adding `/guide/palms-place-strip-view-condos` and `/guide/palms-place-short-term-rentals`. Live `robots.txt` on **www** still points at the same sitemap origin.
 - **robots.txt warnings:** GSC lists `http`/`https` and apex/`www` copies of `/robots.txt`. One warning on each was the unsupported `Host:` line (Yandex-only). Google only uses User-agent, Allow, Disallow, and Sitemap — that line is omitted in [`src/app/robots.ts`](src/app/robots.ts). Recrawl after deploy; do not treat the four URLs as four different files.
 - **Verification:** DNS **TXT** at the apex (as in your Cloudflare zone) **or** set `GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` per [`.env.example`](.env.example) for the HTML-tag method.
 
@@ -81,6 +81,32 @@ Bing Webmaster Tools Backlinks compare, **2026-08-20** (UI paste):
 `palms.com` top referring domains in that sample included blogspot.com, themogh.org, trazeetravel.com, uvtix.com, axs.com, vegasfamilyinsider.com, fodors.com, vegasnearme.com, yogonet.com, and boxofficehero.com. Top anchors were Palms / Palms Casino Resort / palms.com / Scotch 80 Prime / Press / tickets / a pool-opening press URL. That is a **hotel-casino and ticketing** link graph, not a Palms Place **resale condo** peer. Do not chase those domains or copy those anchors for this site.
 
 Re-run the same Bing compare with **`https://www.palmsplacecondos.com/`** as “your site.” If **www** is also “No data,” Bing has not sampled inbound links yet (new property, or none discovered)—that is not a robots/sitemap bug. First-party citations that can earn real links: Google Business Profile website field, the Palms Place Facebook page, BHHS Nevada Properties agent profile, and RealScout—keep NAP identical to [`src/lib/site-contact.ts`](src/lib/site-contact.ts). Do not invent review counts or “#1” claims.
+
+### After content deploy (A + B — operator clicks)
+
+Code cannot click Bing or Google Search Console. After Vercel production deploys this wave:
+
+1. **A — Bing www.** Open Bing Webmaster Tools on **`https://www.palmsplacecondos.com/`** (not apex). Confirm the IndexNow key file `/{key}.txt` returns 200. Run `npm run notify:indexnow` against production. Point GBP website, YouTube About, BHHS agent profile, and RealScout website fields at **www**. Re-run Backlinks compare on **www**.
+2. **B — GSC.** On the **www** URL-prefix property, **resubmit** `https://www.palmsplacecondos.com/sitemap.xml`. URL Inspection a few new guides (`/guide/palms-place-strip-view-condos`, `/guide/palms-place-short-term-rentals`). Do **not** Validate Fix on apex/HTTP “Page with redirect.”
+3. **Do not** copy competitor phones (e.g. 702-810-6039), competitor listing portals, HOA dollar figures from YouTube, or “Airbnb approved” claims into this site.
+
+### SERP query map (first-party pages)
+
+Competitor YouTube/Instagram titles for Palms Place are indexed; this site answers the same intents on canonical pages (no competitor embeds):
+
+| Query cluster | Canonical on this site |
+|---|---|
+| Palms Place Strip view / Strip View Las Vegas Real Estate | `/guide/palms-place-strip-view-condos` |
+| High-rise condo tour | `/photos`, `/photos/unit-8322` |
+| Studio mountain view / 1BR full Strip view / ~615 SF | `/guide/palms-place-unit-types` |
+| HOA costs 2026 | `/guide/palms-place-hoa-and-monthly-costs` (no invented dues) |
+| Condo hotel / condotel / investors | `/guide/palms-place-condos-vs-hotel` |
+| Airbnb / legally short-term rent | `/guide/palms-place-short-term-rentals` |
+| Penthouse / 57th floor | `/guide/palms-place-unit-types` + live search |
+| Gym / amenities | `/guide/palms-place-amenities-and-resort-access` |
+| 4381 W Flamingo | `/area/palms-place-las-vegas` |
+
+The FAQ query map ([`src/lib/content/aeo-query-map.ts`](src/lib/content/aeo-query-map.ts)) is the AEO index for these questions.
 
 ### Optional: DMARC (email only)
 

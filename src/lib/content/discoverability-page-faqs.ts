@@ -92,7 +92,7 @@ export const popularSearchesPageFaq: FaqItem[] = [
   {
     question: "What is the popular searches page for?",
     answer:
-      "It groups high-intent topics—Palms Place, Strip towers, luxury homes, and price bands—into descriptive internal links so you can jump to the right guide without searching the whole site.",
+      "It groups high-intent topics—Palms Place Strip views, short-term rental rules, Strip towers, luxury homes, and price bands—into descriptive internal links so you can jump to the right guide without searching the whole site.",
   },
   {
     question: "Should I use popular searches or RealScout first?",
@@ -218,6 +218,8 @@ export const compareStripGuidePageFaq: FaqItem[] = [
 
 /** `/guide/palms-place-unit-types` — must mirror visible FAQ on that page. */
 export const unitTypesGuidePageFaq: FaqItem[] = [
+  canonicalQueryAsFaqItem("studio-mountain"),
+  canonicalQueryAsFaqItem("penthouse"),
   {
     question: "Are published square-footage ranges exact for every unit?",
     answer:
@@ -227,11 +229,6 @@ export const unitTypesGuidePageFaq: FaqItem[] = [
     question: "Do studios and one-bedrooms have the same HOA rules?",
     answer:
       "They are in the same association, but furnished inventory, views, and parking assignments still vary by unit. Read the resale certificate for the specific unit you are buying.",
-  },
-  {
-    question: "Where do penthouses fit a first-time Palms Place tour?",
-    answer:
-      "Tour studios or one-bedrooms first if budget and lifestyle match. Penthouse layouts differ in ceiling height, outdoor space, and carry—confirm on listing data, not building averages.",
   },
 ];
 
@@ -253,6 +250,7 @@ export const sellingGuidePageFaq: FaqItem[] = [
 /** `/guide/palms-place-hoa-and-monthly-costs` — must mirror visible FAQ on that page. */
 export const hoaGuidePageFaq: FaqItem[] = [
   canonicalQueryAsFaqItem("hoa-fees"),
+  canonicalQueryAsFaqItem("hoa-costs-year"),
   {
     question: "Does this page quote current Palms Place HOA dollar amounts?",
     answer:
@@ -269,6 +267,11 @@ export const hoaGuidePageFaq: FaqItem[] = [
 export const furnishedGuidePageFaq: FaqItem[] = [
   canonicalQueryAsFaqItem("furnished"),
   {
+    question: "Can you Airbnb a furnished Palms Place condo because the photos look turnkey?",
+    answer:
+      "No. Furnishing is not rental permission. See the Palms Place short-term rentals guide, then confirm HOA rules for that unit with Dr. Jan Duffy.",
+  },
+  {
     question: "What if furniture in photos is not included in the sale?",
     answer:
       "The purchase agreement and listing remarks control what conveys. Clarify personal property in writing before you assume a turnkey package from marketing photos. Palms Place #8322 is marketed furnished—still read the inventory exhibit Dr. Jan Duffy uses on that listing.",
@@ -283,6 +286,7 @@ export const furnishedGuidePageFaq: FaqItem[] = [
 /** `/guide/palms-place-amenities-and-resort-access` — must mirror visible FAQ on that page. */
 export const amenitiesGuidePageFaq: FaqItem[] = [
   canonicalQueryAsFaqItem("amenities"),
+  canonicalQueryAsFaqItem("gym"),
   {
     question: "Can amenities change after you buy?",
     answer:
@@ -298,6 +302,7 @@ export const amenitiesGuidePageFaq: FaqItem[] = [
 /** `/guide/palms-place-condos-vs-hotel` — must mirror visible FAQ on that page. */
 export const condosVsHotelGuidePageFaq: FaqItem[] = [
   canonicalQueryAsFaqItem("hotel-vs-condos"),
+  canonicalQueryAsFaqItem("condotel-investors"),
   {
     question: "Which URL should blogs use for Palms Place condos for sale?",
     answer:
@@ -307,6 +312,32 @@ export const condosVsHotelGuidePageFaq: FaqItem[] = [
     question: "Do hotel and ticket backlinks help this real estate site?",
     answer:
       "No. Links to Palms.com about pools, concerts, and suites describe the resort, not Dr. Jan Duffy’s listing practice. This site earns citations from owned profiles and first-party listing work such as Palms Place #8322—not from the casino’s travel-press graph.",
+  },
+];
+
+/** `/guide/palms-place-strip-view-condos` — must mirror visible FAQ on that page. */
+export const stripViewGuidePageFaq: FaqItem[] = [
+  canonicalQueryAsFaqItem("strip-view"),
+  {
+    question: "Is every Palms Place studio a Strip view unit?",
+    answer:
+      "No. Studios can face the Strip, mountains, or a mixed city outlook. Confirm stack and glass on the listing, then tour at the hours you would use the balcony. Dr. Jan Duffy will not sell a video title as an orientation.",
+  },
+  {
+    question: "Where are first-party Palms Place view photos?",
+    answer:
+      "The photo hub and Palms Place #8322 gallery are listing photography from this brokerage. Competitor YouTube tours are not this inventory. Schedule a showing to verify light and sound.",
+  },
+];
+
+/** `/guide/palms-place-short-term-rentals` — must mirror visible FAQ on that page. */
+export const shortTermRentalGuidePageFaq: FaqItem[] = [
+  canonicalQueryAsFaqItem("short-term-rental"),
+  canonicalQueryAsFaqItem("furnished"),
+  {
+    question: "Does this page project Airbnb income at Palms Place?",
+    answer:
+      "No. Occupancy, nightly rates, and returns are unknown without your own numbers, a CPA, and current HOA rules. Dr. Jan Duffy requests the packet so rental eligibility is documented—she does not underwrite a platform listing.",
   },
 ];
 
@@ -486,6 +517,7 @@ export const insightsHubPageFaq: FaqItem[] = [
 
 /** `/photos` hub — must mirror visible FAQ on that page. */
 export const photosHubPageFaq: FaqItem[] = [
+  canonicalQueryAsFaqItem("condo-tour"),
   {
     question: "Which photo galleries are live?",
     answer:

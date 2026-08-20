@@ -14,6 +14,8 @@ import { palmsPlaceCondosVsHotelGuideMeta } from "@/lib/content/palms-place-cond
 import { palmsPlaceFurnishedGuideMeta } from "@/lib/content/palms-place-furnished-guide";
 import { palmsPlaceHoaGuideMeta } from "@/lib/content/palms-place-hoa-guide";
 import { palmsPlaceSellerGuideMeta } from "@/lib/content/palms-place-seller-guide";
+import { palmsPlaceShortTermRentalGuideMeta } from "@/lib/content/palms-place-short-term-rental-guide";
+import { palmsPlaceStripViewGuideMeta } from "@/lib/content/palms-place-strip-view-guide";
 import { palmsPlaceUnitTypesGuideMeta } from "@/lib/content/palms-place-unit-types-guide";
 import { MARKETING_ROUTES } from "@/lib/marketing-routes";
 
@@ -38,6 +40,8 @@ function editorialContentLastModified(): Record<string, string> {
     "/guide/palms-place-amenities-and-resort-access":
       palmsPlaceAmenitiesGuideMeta.dateModified,
     "/guide/palms-place-condos-vs-hotel": palmsPlaceCondosVsHotelGuideMeta.dateModified,
+    "/guide/palms-place-strip-view-condos": palmsPlaceStripViewGuideMeta.dateModified,
+    "/guide/palms-place-short-term-rentals": palmsPlaceShortTermRentalGuideMeta.dateModified,
     "/insights": maxIsoDate(fieldNotes.map((note) => note.dateModified)),
   };
 

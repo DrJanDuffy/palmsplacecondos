@@ -77,6 +77,16 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       description: "Which URL to cite — brokerage, not resort",
     },
     {
+      href: "/guide/palms-place-strip-view-condos",
+      label: "Palms Place Strip view vs mountain view condos",
+      description: "Verify orientation on tour, not a video title",
+    },
+    {
+      href: "/guide/palms-place-short-term-rentals",
+      label: "Palms Place short-term rentals — HOA rules",
+      description: "Furnishing is not Airbnb permission",
+    },
+    {
       href: "/area/palms-place-las-vegas",
       label: "Palms Place location — West Flamingo & Paradise",
       description: "Map, directions & Strip context",
@@ -189,13 +199,19 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
  */
 function preferredHrefsForPath(pathname: string): string[] {
   if (pathname === "/") {
-    return ["/palms-place", "/guide/buying-palms-place", "/guide/palms-place-unit-types", "/photos", "__search__"];
+    return [
+      "/palms-place",
+      "/guide/buying-palms-place",
+      "/guide/palms-place-strip-view-condos",
+      "/photos",
+      "__search__",
+    ];
   }
   if (pathname === "/guide/compare-strip-high-rises" || pathname === "/high-rises") {
     return [
       "/palms-place",
       "/guide/palms-place-hoa-and-monthly-costs",
-      "/guide/buying-palms-place",
+      "/guide/palms-place-condos-vs-hotel",
       "/guide/palms-place-unit-types",
       "/condos",
     ];
@@ -220,17 +236,17 @@ function preferredHrefsForPath(pathname: string): string[] {
   ) {
     return [
       "/guide/palms-place-hoa-and-monthly-costs",
-      "/guide/palms-place-unit-types",
+      "/guide/palms-place-strip-view-condos",
       "/photos",
       "__search__",
-      "/guide/compare-strip-high-rises",
+      "/guide/palms-place-short-term-rentals",
     ];
   }
   if (pathname === "/guide/palms-place-hoa-and-monthly-costs") {
     return [
       "/guide/buying-palms-place",
       "/insights/why-we-request-hoa-packets-early",
-      "/guide/selling-palms-place",
+      "/guide/palms-place-short-term-rentals",
       "/palms-place",
       "/faq",
     ];
@@ -240,7 +256,7 @@ function preferredHrefsForPath(pathname: string): string[] {
       "/palms-place",
       "/guide/palms-place-hoa-and-monthly-costs",
       "/area/palms-place-las-vegas",
-      "/communities",
+      "/photos",
       "/faq",
     ];
   }
@@ -249,11 +265,24 @@ function preferredHrefsForPath(pathname: string): string[] {
     pathname === "/guide/furnished-palms-place-condos"
   ) {
     return [
-      "/guide/palms-place-unit-types",
-      "/guide/furnished-palms-place-condos",
+      "/guide/palms-place-strip-view-condos",
+      "/guide/palms-place-short-term-rentals",
       "/photos",
       "/condos",
       "/guide/buying-palms-place",
+    ];
+  }
+  if (
+    pathname === "/guide/palms-place-strip-view-condos" ||
+    pathname === "/guide/palms-place-short-term-rentals" ||
+    pathname === "/guide/palms-place-condos-vs-hotel"
+  ) {
+    return [
+      "/guide/palms-place-strip-view-condos",
+      "/guide/palms-place-short-term-rentals",
+      "/photos",
+      "/guide/palms-place-unit-types",
+      "/guide/furnished-palms-place-condos",
     ];
   }
   if (pathname.startsWith("/insights")) {
@@ -266,7 +295,13 @@ function preferredHrefsForPath(pathname: string): string[] {
     ];
   }
   if (pathname.startsWith("/photos") || pathname === "/featured") {
-    return ["/photos", "/photos/unit-8322", "/featured", "/palms-place", "__search__"];
+    return [
+      "/photos",
+      "/photos/unit-8322",
+      "/guide/palms-place-strip-view-condos",
+      "/palms-place",
+      "__search__",
+    ];
   }
   if (
     pathname === "/condos" ||

@@ -3,8 +3,9 @@
  * Keep in sync with public App Router page.tsx routes under src/app.
  *
  * GSC Sitemaps (2026-08-20): 33 URLs discovered on
- * `https://www.palmsplacecondos.com/sitemap.xml` (Success). Count must stay
- * aligned with this array.
+ * `https://www.palmsplacecondos.com/sitemap.xml` (Success). After this deploy the
+ * marketing catalog is 37 URLs (added Strip-view and short-term rental guides;
+ * GSC count was already behind this array). Count must stay aligned with this array.
  */
 
 export type MarketingRoute = {
@@ -87,6 +88,18 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     summary: "Palms Place condos for sale vs Palms.com hotel booking — which URL to cite.",
     changeFrequency: "monthly",
     priority: 0.84,
+  },
+  {
+    path: "/guide/palms-place-strip-view-condos",
+    summary: "Strip view vs mountain view Palms Place condos — verify orientation on tour.",
+    changeFrequency: "monthly",
+    priority: 0.86,
+  },
+  {
+    path: "/guide/palms-place-short-term-rentals",
+    summary: "Palms Place short-term rentals — HOA rules vs Airbnb video claims.",
+    changeFrequency: "monthly",
+    priority: 0.86,
   },
   {
     path: "/area/palms-place-las-vegas",

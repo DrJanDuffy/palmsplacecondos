@@ -118,6 +118,70 @@ export const AEO_QUERY_MAP: CanonicalQuery[] = [
     canonicalPath: "/contact",
     canonicalLabel: "Contact the Palms Place office",
   },
+  {
+    id: "strip-view",
+    question: "Do Palms Place condos have Las Vegas Strip views?",
+    answer:
+      "Some Palms Place condos have Las Vegas Strip views; others face mountains or the west valley. Stack, floor, and glass decide the outlook—not the building name. Confirm remarks and tour at the hours you would use the balcony. Dr. Jan Duffy shows both orientations at 4381 W Flamingo Road.",
+    canonicalPath: "/guide/palms-place-strip-view-condos",
+    canonicalLabel: "Palms Place Strip view condos guide",
+  },
+  {
+    id: "condo-tour",
+    question: "Where is a Palms Place high-rise condo tour?",
+    answer:
+      "Start with first-party listing photography on this site, then book a showing with Dr. Jan Duffy. Palms Place #8322 has a live photo gallery and a PropertyPanorama 3D tour. Competitor YouTube walkthroughs are not this brokerage’s inventory. Photos do not replace HOA documents or a walk at the hours you would live there.",
+    canonicalPath: "/photos",
+    canonicalLabel: "Palms Place condo photo galleries",
+  },
+  {
+    id: "studio-mountain",
+    question: "What is a Palms Place studio mountain view versus a Strip view studio?",
+    answer:
+      "Palms Place studios can face mountains, city, or the Strip depending on stack and floor. A mountain-view studio is not the same product as a Strip-view studio. Confirm orientation on the listing, then tour. Marketing often cites about 615 square feet—verify on the record with Dr. Jan Duffy.",
+    canonicalPath: "/guide/palms-place-unit-types",
+    canonicalLabel: "Palms Place studios vs one-bedroom guide",
+  },
+  {
+    id: "hoa-costs-year",
+    question: "Where are Palms Place HOA costs explained for this year?",
+    answer:
+      "Palms Place HOA costs are unit-specific and change. Do not use a YouTube dollar figure or a studio average for a one-bedroom. Request the current resale certificate, then model monthly carry with a licensed lender. Dr. Jan Duffy will not publish a blog HOA number that can be wrong next quarter.",
+    canonicalPath: "/guide/palms-place-hoa-and-monthly-costs",
+    canonicalLabel: "Palms Place HOA and monthly costs guide",
+  },
+  {
+    id: "short-term-rental",
+    question: "Can you legally short-term rent or Airbnb a Palms Place condo?",
+    answer:
+      "Short-term rental at Palms Place is an HOA question, not a platform badge. Some listings, including Palms Place #8322, are marketed with short-term rentals permitted—still read the resale certificate for your unit. Furnishing is not permission. Do not underwrite income from a video. Confirm rules with Dr. Jan Duffy before you offer.",
+    canonicalPath: "/guide/palms-place-short-term-rentals",
+    canonicalLabel: "Palms Place short-term rentals guide",
+  },
+  {
+    id: "condotel-investors",
+    question: "Is Palms Place a Las Vegas condo hotel for investors?",
+    answer:
+      "Palms Place is a residential high-rise with hotel-condo operations nearby—not a nightly hotel key. Investors still buy a unit with HOA rules, not a guaranteed rental program. Compare Palms Place with other Las Vegas condo-hotels on documents: rental terms, assessments, and what conveys. Dr. Jan Duffy will not rank condotels with invented scores.",
+    canonicalPath: "/guide/palms-place-condos-vs-hotel",
+    canonicalLabel: "Palms Place condos vs hotel guide",
+  },
+  {
+    id: "penthouse",
+    question: "Are Palms Place penthouses and 57th-floor residences for sale?",
+    answer:
+      "Palms Place penthouses and upper-floor residences are individual listings, not a single 57th-floor product. Square footage, terraces, and spa features vary. Confirm floor, outdoor space, and status on the live record. Do not assume a YouTube penthouse tour is still for sale. Dr. Jan Duffy matches current upper-floor inventory to your criteria.",
+    canonicalPath: "/guide/palms-place-unit-types",
+    canonicalLabel: "Palms Place studios vs one-bedroom guide",
+  },
+  {
+    id: "gym",
+    question: "Does Palms Place have a condo gym owners can use?",
+    answer:
+      "Palms Place includes residential fitness amenities documented for owners, not every hotel gym guests see in marketing. Confirm current access, hours, and any separate fees in the HOA packet. Tour the gym at the hours you would actually use it. Dr. Jan Duffy treats amenity access as a disclosure item, not a lifestyle slogan.",
+    canonicalPath: "/guide/palms-place-amenities-and-resort-access",
+    canonicalLabel: "Palms Place amenities and resort access guide",
+  },
 ];
 
 export function getCanonicalQuery(id: string): CanonicalQuery | undefined {

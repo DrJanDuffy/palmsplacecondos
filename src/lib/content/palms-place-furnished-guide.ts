@@ -25,7 +25,7 @@ export const palmsPlaceFurnishedSections: { id: string; question: string; answer
     id: "furnished-rental",
     question: "Can you assume a furnished unit is rental-ready?",
     answer:
-      "Never without HOA documents. Rental caps, minimum lease terms, and registration requirements live in governing documents and resale certificates—not in furniture quality. Read our field note on furnished inventory surprises, then verify the packet for your unit.",
+      "Never without HOA documents. Rental caps, minimum lease terms, and registration requirements live in governing documents and resale certificates—not in furniture quality. Read the Palms Place short-term rentals guide, then the field note on furnished inventory surprises, then verify the packet for your unit.",
   },
   {
     id: "furnished-condition",

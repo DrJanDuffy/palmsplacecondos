@@ -39,4 +39,10 @@ export const palmsPlaceAmenitiesSections: { id: string; question: string; answer
     answer:
       "Visit during the hours you would actually use them, note noise from Flamingo Road, and ask how maintenance issues are handled. Compare against other Strip towers on the same tour day while impressions are fresh.",
   },
+  {
+    id: "amenities-gym",
+    question: "Does Palms Place have a condo gym owners can use?",
+    answer:
+      "Residential fitness space is part of owner amenity questions at Palms Place—not every hotel gym guests see in marketing. Confirm current access, hours, and any separate fees in the HOA packet. Tour the gym at the hours you would actually use it. Dr. Jan Duffy treats amenity access as a disclosure item, not a ranking.",
+  },
 ];

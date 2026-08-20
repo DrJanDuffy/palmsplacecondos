@@ -409,6 +409,28 @@ const listingAuthorityByPath: Record<string, ListingAuthoritySection> = {
     ctaLabel: "Meet the listing specialist",
     ctaHref: "/team",
   },
+  "/guide/palms-place-strip-view-condos": {
+    heading: "Who verifies Palms Place Strip views from listings in this tower?",
+    answer: `Dr. Jan Duffy verifies Palms Place Strip views and mountain views from units she lists and tours at ${tower}. A YouTube title is not orientation. As listing specialist she photographs glass, stack, and balcony context—including Palms Place #${unit}—so buyers are not paying a Strip-view premium for the wrong wall of glass.`,
+    proofs: [
+      `Palms Place #${unit} is an ${featuredListing.entryLevel} corner with Strip views in her listing campaign.`,
+      "This guide refuses to treat the building name as a panorama guarantee.",
+      "First-party photo hub and #8322 gallery are her media, not competitor walkthroughs.",
+    ],
+    ctaLabel: "Open Palms Place #8322 photos",
+    ctaHref: "/photos/unit-8322",
+  },
+  "/guide/palms-place-short-term-rentals": {
+    heading: "Who documents Palms Place short-term rental rules without Airbnb income claims?",
+    answer: `Dr. Jan Duffy documents Palms Place short-term rental rules from HOA packets and listing remarks—not from platform badges. Palms Place #${unit} is marketed with short-term rentals permitted; she still sends buyers to the resale certificate. The listing specialist will not underwrite occupancy or nightly rates from a video.`,
+    proofs: [
+      `Featured listing badges include STR permitted for unit #${unit}—verify current rules on the live record.`,
+      "Furnished photos are separated from rental eligibility in her remarks and this guide.",
+      "No income projections. CPA and association documents belong in the file before you waive contingencies.",
+    ],
+    ctaLabel: "Furnished Palms Place condos guide",
+    ctaHref: "/guide/furnished-palms-place-condos",
+  },
 };
 
 export function normalizeListingAuthorityPath(pathname: string): string {
