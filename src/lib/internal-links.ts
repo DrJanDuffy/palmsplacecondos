@@ -72,6 +72,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       description: "Owner verification before you buy",
     },
     {
+      href: "/guide/palms-place-condos-vs-hotel",
+      label: "Palms Place condos vs Palms.com hotel",
+      description: "Which URL to cite — brokerage, not resort",
+    },
+    {
       href: "/area/palms-place-las-vegas",
       label: "Palms Place location — West Flamingo & Paradise",
       description: "Map, directions & Strip context",
@@ -90,6 +95,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       href: "/insights/why-we-request-hoa-packets-early",
       label: "HOA packets before offer (field note)",
       description: "Rental caps & assessment timing",
+    },
+    {
+      href: "/insights/palms-place-corner-unit-listing-campaign",
+      label: "Palms Place #8322 corner listing (field note)",
+      description: "How the listing specialist marketed this unit",
     },
     {
       href: "/team",

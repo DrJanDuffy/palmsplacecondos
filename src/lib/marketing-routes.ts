@@ -79,6 +79,12 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     priority: 0.86,
   },
   {
+    path: "/guide/palms-place-condos-vs-hotel",
+    summary: "Palms Place condos for sale vs Palms.com hotel booking — which URL to cite.",
+    changeFrequency: "monthly",
+    priority: 0.84,
+  },
+  {
     path: "/area/palms-place-las-vegas",
     summary: "Location page: West Flamingo / Paradise map context for Palms Place.",
     changeFrequency: "monthly",
@@ -105,6 +111,12 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
   {
     path: "/insights/furnished-resale-inventory-surprises",
     summary: "Field note: furnished resale inventory surprises at Palms Place.",
+    changeFrequency: "monthly",
+    priority: 0.82,
+  },
+  {
+    path: "/insights/palms-place-corner-unit-listing-campaign",
+    summary: "Field note: how Palms Place #8322 was listed as a corner-unit campaign.",
     changeFrequency: "monthly",
     priority: 0.82,
   },

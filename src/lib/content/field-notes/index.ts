@@ -1,9 +1,11 @@
 import { furnishedInventorySurprisesNote } from "@/lib/content/field-notes/furnished-inventory-surprises";
 import { hoaPacketBeforeOfferNote } from "@/lib/content/field-notes/hoa-packet-before-offer";
+import { palmsPlaceCornerListingNote } from "@/lib/content/field-notes/palms-place-corner-listing";
 import { palmsPlaceTourRedFlagsNote } from "@/lib/content/field-notes/palms-place-tour-red-flags";
 import type { FieldNote } from "@/lib/content/field-notes/types";
 
 export const fieldNotes: FieldNote[] = [
+  palmsPlaceCornerListingNote,
   palmsPlaceTourRedFlagsNote,
   hoaPacketBeforeOfferNote,
   furnishedInventorySurprisesNote,

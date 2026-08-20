@@ -165,7 +165,7 @@ export function SiteFooter() {
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        Facebook
+                        Resort Facebook
                       </a>
                     </li>
                   ) : null}

@@ -1,4 +1,5 @@
 import { MarketingGuidePageShell } from "@/components/marketing/marketing-guide-page-shell";
+import { StripHighRiseComparisonTable } from "@/components/marketing/strip-high-rise-comparison-table";
 import { compareStripGuidePageFaq } from "@/lib/content/discoverability-page-faqs";
 import {
   compareStripHighRisesGuideMeta,
@@ -35,6 +36,7 @@ export function GuideCompareStripHighRisesPageBody() {
       ]}
       faqItems={compareStripGuidePageFaq}
       faqHeading="How do you compare Palms Place to other Strip high-rises?"
+      extraContent={<StripHighRiseComparisonTable />}
     />
   );
 }

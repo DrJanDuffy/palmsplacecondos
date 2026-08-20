@@ -83,7 +83,7 @@ export function AreaPalmsPlaceLasVegasPageBody() {
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Paradise is the broader Las Vegas valley address many Strip-adjacent towers use. Buyers
-          comparing schools, commute, or single-family neighborhoods should also review{" "}
+          comparing lot size, commute, or single-family neighborhoods should also review{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/communities">
             Las Vegas communities
           </Link>{" "}

@@ -59,12 +59,17 @@ export function WhyBuySection() {
             <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/under-500k">
               homes under $500K
             </Link>
-            . When you are ready to tour,{" "}
+            . When you are ready to tour, read the{" "}
             <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/guide/buying-palms-place">
               Palms Place buying field guide
             </Link>
-            , or{" "}
+            {" "}
+            or{" "}
             <CalendlyLink>schedule a showing</CalendlyLink>
+            . This site is Palms Place condos for sale, not hotel booking—see{" "}
+            <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/guide/palms-place-condos-vs-hotel">
+              Palms Place condos vs Palms.com hotel
+            </Link>
             . Thinking about selling? See{" "}
             <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/sell">
               Sell your Palms Place condo — free valuation

@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/layouts/site-footer";
 import { SiteHeader } from "@/components/layouts/site-header";
+import { PalmsPlaceListingAuthorityFromRequest } from "@/components/seo/palms-place-listing-authority-from-request";
 import { RealScoutOfficeListingsEmbed } from "@/components/seo/realscout-office-listings-embed";
 import { StructuredData } from "@/components/seo/structured-data";
 import { formatTeamPhrase, siteContact } from "@/lib/site-contact";
@@ -24,7 +25,6 @@ const displaySerif = Cormorant_Garamond({
 });
 
 const siteUrl = getSiteUrl();
-const googleSiteVerification = getGoogleSiteVerification();
 
 /** Shared fallback only — page routes should set their own title/description/OG via buildPageMetadata. */
 const rootDescription = [
@@ -60,13 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: getDefaultTwitterImages(),
   },
-  ...(googleSiteVerification
-    ? {
-        verification: {
-          google: googleSiteVerification,
-        },
-      }
-    : {}),
+  ...siteVerificationMetadata(),
 };
 
 function getGoogleSiteVerification(): string | undefined {
@@ -74,6 +68,25 @@ function getGoogleSiteVerification(): string | undefined {
     process.env.GOOGLE_SITE_VERIFICATION?.trim() ||
     process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
   return v || undefined;
+}
+
+function getBingSiteVerification(): string | undefined {
+  const v =
+    process.env.BING_SITE_VERIFICATION?.trim() ||
+    process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION?.trim();
+  return v || undefined;
+}
+
+function siteVerificationMetadata(): Pick<Metadata, "verification"> {
+  const google = getGoogleSiteVerification();
+  const bing = getBingSiteVerification();
+  if (!google && !bing) return {};
+  return {
+    verification: {
+      ...(google ? { google } : {}),
+      ...(bing ? { other: { "msvalidate.01": bing } } : {}),
+    },
+  };
 }
 
 export default function RootLayout({
@@ -97,6 +110,7 @@ export default function RootLayout({
           <SiteHeader />
           <main className="flex-1" id="main-content">
             {children}
+            <PalmsPlaceListingAuthorityFromRequest />
           </main>
           <RealScoutOfficeListingsEmbed />
           <SiteFooter />

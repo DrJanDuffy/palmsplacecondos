@@ -49,7 +49,7 @@ export function LuxuryHomesPageBody() {
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           When buyers search for expensive homes in Las Vegas or estate-caliber properties, they
-          usually balance schools, lot size, privacy, and commute. Your agent helps you compare
+          usually balance lot size, privacy, and commute. Your agent helps you compare
           active luxury inventory against recent sales—not generic online estimates—and aligns
           showings with disclosure review.
         </p>
@@ -63,7 +63,7 @@ export function LuxuryHomesPageBody() {
           Should you buy an estate or a Palms Place high-rise?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
-          Luxury single-family in Summerlin or Henderson often trades on land, schools, and outdoor
+          Luxury single-family in Summerlin or Henderson often trades on land, lot size, and outdoor
           space. Palms Place condos emphasize vertical living, HOA amenities, and Strip proximity.
           Many clients tour both—compare{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/condos">

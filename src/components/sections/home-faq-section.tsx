@@ -22,12 +22,19 @@ export function HomeFaqSection() {
           What do Palms Place buyers in Las Vegas ask first?
         </h2>
         <p className="mt-4 text-base leading-relaxed text-palms-cream/80">
-          Direct answers about Palms Place location, inventory, and how to tour with the local team.
-          For the building overview, see{" "}
+          Direct answers about Palms Place condos for sale—not hotel booking—plus inventory and how
+          to tour with the local listing specialist. For the building overview, see{" "}
           <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/palms-place">
             Palms Place Las Vegas guide
           </Link>
-          ; for tower history, amenities, and stay planning, see the{" "}
+          . This site is not Palms.com; see{" "}
+          <Link
+            className="font-medium text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-condos-vs-hotel"
+          >
+            Palms Place condos vs Palms.com hotel
+          </Link>
+          . For tower history, amenities, and stay planning, see the{" "}
           <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/faq">
             full FAQ
           </Link>
