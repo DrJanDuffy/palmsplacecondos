@@ -2,9 +2,12 @@
  * JSON-LD builders for GEO/SEO. NAP fields (telephone, address) are added only when
  * present in siteContact—must match visible copy and GBP (see site-contact.ts).
  */
+import { featuredListing, getFeaturedListingDetailsUrl } from "@/lib/content/featured-listing";
+import { getGalleryPhotoSrc, unit8322Gallery } from "@/lib/content/media-gallery";
 import { palmsPlaceTower } from "@/lib/content/palms-place-building";
 import { formatOfficeAddressLine, siteContact } from "@/lib/site-contact";
 import { getSiteUrl } from "@/lib/site-url";
+import { getDefaultOgImageAbsoluteUrl, OG_IMAGE_ALT, OG_IMAGE_SIZE } from "@/lib/social-images";
 
 const CONTEXT = "https://schema.org" as const;
 
@@ -99,6 +102,47 @@ function getSameAs(): string[] | undefined {
     }
   }
   return unique.length > 0 ? unique : undefined;
+}
+
+/** Shared brand ImageObject — WebSite/brokerage logo and WebPage primaryImageOfPage. */
+function getBrandLogoImageObject(siteUrl: string): Record<string, unknown> {
+  const url = getDefaultOgImageAbsoluteUrl(siteUrl);
+  return {
+    "@type": "ImageObject",
+    "@id": id(siteUrl, "logo"),
+    url,
+    contentUrl: url,
+    width: OG_IMAGE_SIZE.width,
+    height: OG_IMAGE_SIZE.height,
+    caption: OG_IMAGE_ALT,
+    name: `${siteContact.gbpBusinessName} logo`,
+  };
+}
+
+export type WebPageMainEntityKind = "listing-agent" | "palms-place" | "featured-listing" | "faq";
+
+function resolveWebPageMainEntityId(
+  kind: WebPageMainEntityKind | undefined,
+  siteUrl: string,
+  pageUrl: string,
+  explicit?: string,
+): string | undefined {
+  if (explicit) return explicit;
+  if (!kind) return undefined;
+  switch (kind) {
+    case "listing-agent":
+      return id(siteUrl, "dr-jan-duffy");
+    case "palms-place":
+      return id(siteUrl, "place-palms-place");
+    case "featured-listing":
+      return getFeaturedListingSchemaId(siteUrl);
+    case "faq":
+      return `${pageUrl}#faq`;
+    default: {
+      const exhaustive: never = kind;
+      return exhaustive;
+    }
+  }
 }
 
 function applyOfficeNapAndHours(
@@ -295,7 +339,7 @@ export function getBaseJsonLd(): JsonLdGraph {
   }
 
   const listingAgent: Record<string, unknown> = {
-    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "@type": ["RealEstateAgent", "LocalBusiness", "Person"],
     "@id": listingAgentId,
     // LocalBusiness.name must match Google Business Profile business name exactly.
     name: siteContact.gbpBusinessName,
@@ -362,14 +406,16 @@ export function getBaseJsonLd(): JsonLdGraph {
     { "@type": "AdministrativeArea", name: "Clark County" },
   ];
 
+  const origin = siteOrigin(siteUrl);
   listingAgent.knowsAbout = [
     { "@id": placePalmsId },
-    { "@type": "Thing", name: "Palms Place condos for sale" },
-    { "@type": "Thing", name: "Buying Palms Place condos" },
-    { "@type": "Thing", name: "Palms Place unit types" },
-    { "@type": "Thing", name: "Palms Place HOA and monthly costs" },
-    { "@type": "Thing", name: "Las Vegas Strip high-rise condos" },
-    { "@type": "Thing", name: "Furnished Palms Place resales" },
+    { "@type": "Thing", name: "Palms Place condos for sale", url: `${origin}/search` },
+    { "@type": "Thing", name: "Buying Palms Place condos", url: `${origin}/guide/buying-palms-place` },
+    { "@type": "Thing", name: "Selling Palms Place condos", url: `${origin}/guide/selling-palms-place` },
+    { "@type": "Thing", name: "Palms Place unit types", url: `${origin}/guide/palms-place-unit-types` },
+    { "@type": "Thing", name: "Palms Place HOA and monthly costs", url: `${origin}/guide/palms-place-hoa-and-monthly-costs` },
+    { "@type": "Thing", name: "Las Vegas Strip high-rise condos", url: `${origin}/high-rises` },
+    { "@type": "Thing", name: "Furnished Palms Place resales", url: `${origin}/guide/furnished-palms-place-condos` },
   ];
 
   const services = buildPalmsPlaceServices(siteUrl, placePalmsId, listingAgentId);
@@ -377,7 +423,15 @@ export function getBaseJsonLd(): JsonLdGraph {
     { "@id": id(siteUrl, "service-buy-palms-place") },
     { "@id": id(siteUrl, "service-sell-palms-place") },
   ];
-  const searchTarget = `${siteOrigin(siteUrl)}/search?q={search_term_string}`;
+  const logo = getBrandLogoImageObject(siteUrl);
+  const logoRef = { "@id": id(siteUrl, "logo") };
+  brokerage.logo = logoRef;
+  listingAgent.logo = logoRef;
+  if (!agentImage) {
+    listingAgent.image = logoRef;
+  }
+
+  const searchTarget = `${origin}/search?q={search_term_string}`;
 
   const website: Record<string, unknown> = {
     "@type": "WebSite",
@@ -387,6 +441,7 @@ export function getBaseJsonLd(): JsonLdGraph {
     description: defaultListingAgentDescription(),
     inLanguage: "en-US",
     publisher: { "@id": listingAgentId },
+    logo: logoRef,
     about: [
       { "@id": placePalmsId },
       { "@id": listingAgentId },
@@ -404,7 +459,7 @@ export function getBaseJsonLd(): JsonLdGraph {
 
   return {
     "@context": CONTEXT,
-    "@graph": [website, brokerage, listingAgent, palmsPlace, ...services],
+    "@graph": [logo, website, brokerage, listingAgent, palmsPlace, ...services],
   };
 }
 
@@ -412,25 +467,47 @@ export function getBaseJsonLd(): JsonLdGraph {
 export function getWebPageJsonLdForPath(
   pathname: string,
   page: { name: string; description: string },
-  options?: { aboutPalmsPlace?: boolean; aboutListingAgent?: boolean },
+  options?: {
+    aboutPalmsPlace?: boolean;
+    aboutListingAgent?: boolean;
+    mainEntity?: WebPageMainEntityKind;
+    mainEntityId?: string;
+    speakableSelectors?: string[];
+  },
 ): JsonLdGraph {
   const siteUrl = getSiteUrl();
   const webId = id(siteUrl, "website");
   const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
   const pageUrl = path === "/" ? `${siteOrigin(siteUrl)}/` : `${siteOrigin(siteUrl)}${path}`;
+  const placePalmsId = id(siteUrl, "place-palms-place");
+  const listingAgentId = id(siteUrl, "dr-jan-duffy");
+  const speakableSelectors = options?.speakableSelectors?.length
+    ? options.speakableSelectors
+    : ["h1"];
   const webPage: Record<string, unknown> = {
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
     name: page.name,
     description: page.description,
+    inLanguage: "en-US",
     isPartOf: { "@id": webId },
+    // Always attach both tower and agent so hub pages are not orphaned from the entity graph.
+    about: [{ "@id": placePalmsId }, { "@id": listingAgentId }],
+    primaryImageOfPage: { "@id": id(siteUrl, "logo") },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: speakableSelectors,
+    },
   };
-  if (options?.aboutPalmsPlace) {
-    webPage.about = { "@id": id(siteUrl, "place-palms-place") };
-  }
-  if (options?.aboutListingAgent) {
-    webPage.about = { "@id": id(siteUrl, "dr-jan-duffy") };
+  const mainEntityId = resolveWebPageMainEntityId(
+    options?.mainEntity,
+    siteUrl,
+    pageUrl,
+    options?.mainEntityId,
+  );
+  if (mainEntityId) {
+    webPage.mainEntity = { "@id": mainEntityId };
   }
   return {
     "@context": CONTEXT,
@@ -452,6 +529,7 @@ export function getHomeWebPageJsonLd(): JsonLdGraph {
     name: "Palms Place Condos for Sale | 4381 W Flamingo | Dr. Jan Duffy",
     description:
       "Browse Palms Place condos for sale at 4381 W Flamingo Road near the Las Vegas Strip. Compare studio and one-bedroom high-rise listings, HOA details, and tours with Dr. Jan Duffy, Realtor.",
+    inLanguage: "en-US",
     isPartOf: { "@id": webId },
     about: [
       { "@id": placePalmsId },
@@ -459,7 +537,9 @@ export function getHomeWebPageJsonLd(): JsonLdGraph {
       { "@id": id(siteUrl, "service-buy-palms-place") },
       { "@id": id(siteUrl, "service-sell-palms-place") },
     ],
+    mentions: { "@id": getFeaturedListingSchemaId(siteUrl) },
     mainEntity: { "@id": getHomeFaqSchemaId(siteUrl) },
+    primaryImageOfPage: { "@id": id(siteUrl, "logo") },
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: ["#hero-heading", "#home-faq-heading"],
@@ -493,6 +573,8 @@ export function getArticleJsonLdForPath(input: ArticleJsonLdInput): JsonLdGraph 
   const siteUrl = getSiteUrl();
   const path = input.pathname.startsWith("/") ? input.pathname : `/${input.pathname}`;
   const pageUrl = `${siteOrigin(siteUrl)}${path}`;
+  const listingAgentId = id(siteUrl, "dr-jan-duffy");
+  const brokerageId = id(siteUrl, "brokerage");
   const article: Record<string, unknown> = {
     "@type": "Article",
     "@id": `${pageUrl}#article`,
@@ -501,14 +583,18 @@ export function getArticleJsonLdForPath(input: ArticleJsonLdInput): JsonLdGraph 
     datePublished: input.datePublished,
     dateModified: input.dateModified,
     author: {
-      "@type": "Person",
+      "@id": listingAgentId,
+      "@type": ["Person", "RealEstateAgent"],
       name: input.authorName,
       jobTitle: input.authorJobTitle,
     },
     publisher: {
+      "@id": brokerageId,
       "@type": "Organization",
       name: siteContact.brokerage,
+      logo: { "@id": id(siteUrl, "logo") },
     },
+    image: getDefaultOgImageAbsoluteUrl(siteUrl),
     inLanguage: "en-US",
     mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
   };
@@ -530,8 +616,8 @@ export function getTeamPersonsJsonLd(): JsonLdGraph {
   const brokerageId = id(siteUrl, "brokerage");
 
   const jan: Record<string, unknown> = {
-    "@type": "Person",
-    "@id": `${listingAgentId}-person`,
+    "@type": ["Person", "RealEstateAgent"],
+    "@id": listingAgentId,
     name: siteContact.agentName,
     jobTitle: siteContact.agentTitle,
     url: `${origin}/team`,
@@ -590,6 +676,9 @@ export function getHomeFaqPageJsonLd(items: FaqItem[]): JsonLdGraph {
   const faqPage: Record<string, unknown> = {
     "@type": "FAQPage",
     "@id": getHomeFaqSchemaId(siteUrl),
+    inLanguage: "en-US",
+    isPartOf: { "@id": id(siteUrl, "website") },
+    about: { "@id": id(siteUrl, "place-palms-place") },
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -614,6 +703,10 @@ export function getFaqPageJsonLdForPath(pathname: string, items: FaqItem[]): Jso
   const faqPage: Record<string, unknown> = {
     "@type": "FAQPage",
     "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    inLanguage: "en-US",
+    isPartOf: { "@id": id(siteUrl, "website") },
+    about: { "@id": id(siteUrl, "place-palms-place") },
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -627,6 +720,37 @@ export function getFaqPageJsonLdForPath(pathname: string, items: FaqItem[]): Jso
   return {
     "@context": CONTEXT,
     "@graph": [faqPage],
+  };
+}
+
+/** HowTo JSON-LD for visible numbered checklists (AEO). Must match on-page steps. */
+export function getHowToJsonLdForPath(
+  pathname: string,
+  howTo: { name: string; description: string; steps: string[] },
+): JsonLdGraph {
+  const siteUrl = getSiteUrl();
+  const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const pageUrl = `${siteOrigin(siteUrl)}${path}`;
+  const howToNode: Record<string, unknown> = {
+    "@type": "HowTo",
+    "@id": `${pageUrl}#howto`,
+    name: howTo.name,
+    description: howTo.description,
+    url: pageUrl,
+    inLanguage: "en-US",
+    about: { "@id": id(siteUrl, "place-palms-place") },
+    author: { "@id": id(siteUrl, "dr-jan-duffy") },
+    step: howTo.steps.map((text, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: text,
+      text,
+    })),
+  };
+
+  return {
+    "@context": CONTEXT,
+    "@graph": [howToNode],
   };
 }
 
@@ -702,6 +826,7 @@ export function getFeaturedUnitListingJsonLd(
     postalCode: string;
     imageUrls: string[];
     detailsUrl: string;
+    datePosted?: string;
   },
 ): JsonLdGraph {
   const origin = siteOrigin(getSiteUrl());
@@ -720,7 +845,7 @@ export function getFeaturedUnitListingJsonLd(
     name: listing.name,
     description: listing.description,
     url: pageUrl,
-    datePosted: "2026-07-10",
+    datePosted: listing.datePosted ?? featuredListing.datePosted,
     image: images,
     offers: {
       "@type": "Offer",
@@ -759,4 +884,30 @@ export function getFeaturedUnitListingJsonLd(
     "@context": CONTEXT,
     "@graph": [realEstateListing],
   };
+}
+
+/** Stable @id for the current featured Palms Place unit (one listing entity sitewide). */
+export function getFeaturedListingSchemaId(siteUrl = getSiteUrl()): string {
+  return `${siteOrigin(siteUrl)}${unit8322Gallery.path}#listing`;
+}
+
+/** RealEstateListing graph for the current homepage spotlight — same @id as `/photos/unit-8322`. */
+export function getCurrentFeaturedListingJsonLd(): JsonLdGraph {
+  const imageUrls = unit8322Gallery.photos.map((photo) => getGalleryPhotoSrc(photo));
+  return getFeaturedUnitListingJsonLd(unit8322Gallery.path, {
+    name: `Palms Place #${featuredListing.unitNumber} — ${palmsPlaceTower.streetAddress}, Las Vegas`,
+    description: featuredListing.overview,
+    price: featuredListing.priceUsd,
+    mlsNumber: featuredListing.mlsNumber,
+    beds: featuredListing.bedsCount,
+    baths: featuredListing.bathsCount,
+    squareFeet: featuredListing.livingAreaSqFt,
+    streetAddress: `${palmsPlaceTower.streetAddress} #${featuredListing.unitNumber}`,
+    addressLocality: palmsPlaceTower.addressLocality,
+    addressRegion: palmsPlaceTower.addressRegion,
+    postalCode: palmsPlaceTower.postalCode,
+    imageUrls,
+    detailsUrl: getFeaturedListingDetailsUrl(),
+    datePosted: featuredListing.datePosted,
+  });
 }

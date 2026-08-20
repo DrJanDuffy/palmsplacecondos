@@ -32,7 +32,10 @@ export function ConnectPageBody() {
     process.env.NEXT_PUBLIC_YOUTUBE_URL ?? siteContact.youtubeUrl ?? "https://www.youtube.com/";
   const gbpHref = siteContact.googleBusinessProfileUrl?.trim();
   const writeReviewHref = siteContact.googleWriteReviewUrl?.trim();
-  const webPageJsonLd = getWebPageJsonLdForPath("/connect", pageMeta, { aboutListingAgent: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/connect", pageMeta, {
+    aboutListingAgent: true,
+    mainEntity: "listing-agent",
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/connect", [
     { name: "Home", path: "/" },
     { name: "Connect", path: "/connect" },

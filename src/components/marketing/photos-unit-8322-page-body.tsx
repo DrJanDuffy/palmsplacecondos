@@ -13,11 +13,10 @@ import {
   getGalleryPhotoSrc,
   unit8322Gallery,
 } from "@/lib/content/media-gallery";
-import { palmsPlaceTower } from "@/lib/content/palms-place-building";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import {
   getBreadcrumbListJsonLd,
-  getFeaturedUnitListingJsonLd,
+  getCurrentFeaturedListingJsonLd,
   getImageGalleryJsonLd,
   getWebPageJsonLdForPath,
 } from "@/lib/schema";
@@ -28,7 +27,6 @@ const path = unit8322Gallery.path;
 export function PhotosUnit8322PageBody() {
   const related = relatedLinksForPath(path);
   const photos = unit8322Gallery.photos;
-  const imageUrls = photos.map((p) => getGalleryPhotoSrc(p));
   const detailsUrl = getFeaturedListingDetailsUrl();
 
   const webPageJsonLd = getWebPageJsonLdForPath(
@@ -37,7 +35,7 @@ export function PhotosUnit8322PageBody() {
       name: unit8322Gallery.h1,
       description: unit8322Gallery.metaDescription,
     },
-    { aboutPalmsPlace: true },
+    { aboutPalmsPlace: true, mainEntity: "featured-listing" },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
@@ -55,21 +53,7 @@ export function PhotosUnit8322PageBody() {
       height: p.height,
     })),
   });
-  const listingJsonLd = getFeaturedUnitListingJsonLd(path, {
-    name: `Palms Place #8322 — ${palmsPlaceTower.streetAddress}, Las Vegas`,
-    description: featuredListing.overview,
-    price: 387777,
-    mlsNumber: featuredListing.mlsNumber,
-    beds: 1,
-    baths: 1.5,
-    squareFeet: 1220,
-    streetAddress: `${palmsPlaceTower.streetAddress} #8322`,
-    addressLocality: palmsPlaceTower.addressLocality,
-    addressRegion: palmsPlaceTower.addressRegion,
-    postalCode: palmsPlaceTower.postalCode,
-    imageUrls,
-    detailsUrl,
-  });
+  const listingJsonLd = getCurrentFeaturedListingJsonLd();
 
   return (
     <article className="mx-auto max-w-4xl px-6 py-12 md:py-16">

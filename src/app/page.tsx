@@ -8,7 +8,7 @@ import { WhyBuySection } from "@/components/sections/why-buy-section";
 import { StructuredData } from "@/components/seo/structured-data";
 import { buildPageMetadata } from "@/lib/metadata-helpers";
 import { siteContact } from "@/lib/site-contact";
-import { getHomeWebPageJsonLd } from "@/lib/schema";
+import { getCurrentFeaturedListingJsonLd, getHomeWebPageJsonLd } from "@/lib/schema";
 
 const homeTitle = "Palms Place Condos for Sale | 4381 W Flamingo | Dr. Jan Duffy";
 const homeDescription = `Palms Place condos for sale at 4381 W Flamingo Road, Las Vegas. Studio to penthouse residences. Call ${siteContact.phone} — ${siteContact.agentName}, ${siteContact.brokerage}.`;
@@ -41,6 +41,7 @@ export default function HomePage() {
   return (
     <>
       <StructuredData data={getHomeWebPageJsonLd()} />
+      <StructuredData data={getCurrentFeaturedListingJsonLd()} />
       <HeroPalmsPlace />
       <FeaturedListingBanner />
       <StaySection />

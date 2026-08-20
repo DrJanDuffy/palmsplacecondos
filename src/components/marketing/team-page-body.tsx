@@ -27,7 +27,10 @@ export function TeamPageBody() {
   const related = relatedLinksForPath("/team");
   const officeLine = formatOfficeAddressLine();
   const phone = siteContact.phone ?? "";
-  const webPageJsonLd = getWebPageJsonLdForPath("/team", pageMeta, { aboutListingAgent: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/team", pageMeta, {
+    aboutListingAgent: true,
+    mainEntity: "listing-agent",
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/team", [
     { name: "Home", path: "/" },
     { name: "Team", path: "/team" },

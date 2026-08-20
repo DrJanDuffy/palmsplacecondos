@@ -10,6 +10,7 @@ import type { BreadcrumbItem, FaqItem } from "@/lib/schema";
 import {
   getArticleJsonLdForPath,
   getBreadcrumbListJsonLd,
+  getHowToJsonLdForPath,
   getWebPageJsonLdForPath,
 } from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
@@ -56,10 +57,14 @@ export function MarketingGuidePageShell({
   faqItems,
   faqHeading = "Quick answers",
 }: MarketingGuidePageShellProps) {
-  const webPageJsonLd = getWebPageJsonLdForPath(path, {
-    name: meta.title,
-    description: meta.description,
-  }, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath(
+    path,
+    {
+      name: meta.title,
+      description: meta.description,
+    },
+    { aboutPalmsPlace: true },
+  );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, breadcrumbs);
   const articleJsonLd = getArticleJsonLdForPath({
     pathname: path,
@@ -71,12 +76,21 @@ export function MarketingGuidePageShell({
     authorJobTitle,
     aboutPalmsPlace: true,
   });
+  const howToJsonLd =
+    checklist && checklist.items.length > 0
+      ? getHowToJsonLdForPath(path, {
+          name: checklist.title,
+          description: lede,
+          steps: checklist.items,
+        })
+      : null;
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <StructuredData data={articleJsonLd} />
+      {howToJsonLd ? <StructuredData data={howToJsonLd} /> : null}
       <SectionEyebrow>{eyebrow}</SectionEyebrow>
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         {headline}

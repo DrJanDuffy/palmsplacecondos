@@ -10,7 +10,7 @@ import {
   palmsPlaceFaqPrimary,
 } from "@/lib/content/palms-place-faq";
 import { relatedLinksForPath } from "@/lib/internal-links";
-import { getBreadcrumbListJsonLd, getFaqPageJsonLdForPath } from "@/lib/schema";
+import { getBreadcrumbListJsonLd, getFaqPageJsonLdForPath, getWebPageJsonLdForPath } from "@/lib/schema";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
 function FaqAccordionList({ items }: { items: PalmsPlaceFaqEntry[] }) {
@@ -47,6 +47,14 @@ function FaqAccordionList({ items }: { items: PalmsPlaceFaqEntry[] }) {
 export function FaqPageBody() {
   const faqItems = palmsPlaceFaqAllAsFaqItems();
   const faqJsonLd = getFaqPageJsonLdForPath("/faq", faqItems);
+  const webPageJsonLd = getWebPageJsonLdForPath(
+    "/faq",
+    {
+      name: palmsPlaceFaqIntro.title,
+      description: palmsPlaceFaqIntro.description,
+    },
+    { aboutPalmsPlace: true, mainEntity: "faq", speakableSelectors: ["h1", "#faq-common-heading"] },
+  );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/faq", [
     { name: "Home", path: "/" },
     { name: "FAQ", path: "/faq" },
@@ -56,6 +64,7 @@ export function FaqPageBody() {
   return (
     <article className="border-t border-palms-gold/15 bg-palms-charcoal-muted/20">
       <StructuredData data={faqJsonLd} />
+      <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <div className="mx-auto max-w-3xl px-6 py-12 md:py-16">
         <SectionEyebrow>Questions</SectionEyebrow>

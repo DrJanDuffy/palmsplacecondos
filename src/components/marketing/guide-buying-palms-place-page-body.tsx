@@ -14,8 +14,12 @@ import {
 } from "@/lib/content/palms-place-buyer-guide";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
-import { getSiteUrl } from "@/lib/site-url";
+import {
+  getArticleJsonLdForPath,
+  getBreadcrumbListJsonLd,
+  getHowToJsonLdForPath,
+  getWebPageJsonLdForPath,
+} from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
@@ -24,47 +28,42 @@ const path = "/guide/buying-palms-place";
 export function GuideBuyingPalmsPlacePageBody() {
   const related = relatedLinksForPath(path);
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath(path, {
-    name: palmsPlaceBuyerGuideMeta.title,
-    description: palmsPlaceBuyerGuideMeta.description,
-  }, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath(
+    path,
+    {
+      name: palmsPlaceBuyerGuideMeta.title,
+      description: palmsPlaceBuyerGuideMeta.description,
+    },
+    { aboutPalmsPlace: true },
+  );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
     { name: "Buyers", path: "/buyers" },
     { name: "Buying guide", path },
   ]);
-
-  const pageUrl = `${getSiteUrl().replace(/\/$/, "")}${path}`;
-  const articleJsonLd = {
-    "@context": "https://schema.org" as const,
-    "@graph": [
-      {
-        "@type": "Article",
-        "@id": `${pageUrl}#article`,
-        headline: palmsPlaceBuyerGuideIntro.headline,
-        description: palmsPlaceBuyerGuideMeta.description,
-        datePublished: palmsPlaceBuyerGuideMeta.datePublished,
-        dateModified: palmsPlaceBuyerGuideMeta.dateModified,
-        author: {
-          "@type": "Person",
-          name: siteContact.agentName,
-          jobTitle: siteContact.agentTitle,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: siteContact.brokerage,
-        },
-        about: { "@type": "Place", name: "Palms Place" },
-        inLanguage: "en-US",
-      },
-    ],
-  };
+  const articleJsonLd = getArticleJsonLdForPath({
+    pathname: path,
+    headline: palmsPlaceBuyerGuideIntro.headline,
+    description: palmsPlaceBuyerGuideMeta.description,
+    datePublished: palmsPlaceBuyerGuideMeta.datePublished,
+    dateModified: palmsPlaceBuyerGuideMeta.dateModified,
+    authorName: siteContact.agentName,
+    authorJobTitle: siteContact.agentTitle,
+    aboutPalmsPlace: true,
+  });
+  const howToJsonLd = getHowToJsonLdForPath(path, {
+    name: "What should you ask on a Palms Place condo tour?",
+    description:
+      "Use this checklist on every Palms Place showing—especially furnished or rental-history units.",
+    steps: palmsPlaceTourChecklist,
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <StructuredData data={articleJsonLd} />
+      <StructuredData data={howToJsonLd} />
       <SectionEyebrow>Field guide</SectionEyebrow>
       <h1 className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         {palmsPlaceBuyerGuideIntro.headline}
