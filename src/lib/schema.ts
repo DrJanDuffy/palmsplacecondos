@@ -95,7 +95,7 @@ function defaultListingAgentDescription(): string {
   );
 }
 
-/** Optional profile URLs (Facebook, YouTube, GBP, etc.) — same as visible links only. */
+/** Optional profile URLs for the listing agent (YouTube, GBP). Hotel/resort Facebook is not the agent. */
 function getSameAs(): string[] | undefined {
   const raw = process.env.NEXT_PUBLIC_SAME_AS_URLS?.trim();
   const fromEnv = raw
@@ -105,8 +105,6 @@ function getSameAs(): string[] | undefined {
         .filter((s) => s.startsWith("http"))
     : [];
   const fromSite: string[] = [];
-  const fb = siteContact.facebookUrl?.trim();
-  if (fb?.startsWith("http")) fromSite.push(fb);
   const yt = siteContact.youtubeUrl?.trim();
   if (yt?.startsWith("http")) fromSite.push(yt);
   const gbp = siteContact.googleBusinessProfileUrl?.trim();
@@ -249,7 +247,11 @@ function buildPalmsPlaceEntity(siteUrl: string): Record<string, unknown> {
         value: String(palmsPlaceTower.openedYear),
       },
     ],
-    sameAs: [palmsPlaceTower.wikipediaUrl, palmsPlaceTower.officialResortUrl],
+    sameAs: [
+      palmsPlaceTower.wikipediaUrl,
+      palmsPlaceTower.officialResortUrl,
+      ...(siteContact.facebookUrl?.startsWith("http") ? [siteContact.facebookUrl] : []),
+    ],
   };
 
   if (b) {

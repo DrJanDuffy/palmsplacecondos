@@ -22,7 +22,15 @@ export function PalmsBridgeSection() {
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-palms-cream/85">
             Gaming, dining, and entertainment are steps away at Palms Casino Resort—separate from
-            condominium ownership and HOA rules. Explore{" "}
+            condominium ownership and HOA rules. This brokerage site is Palms Place condos for sale, not
+            hotel booking; see{" "}
+            <Link
+              className="font-medium text-palms-gold underline-offset-4 hover:underline"
+              href="/guide/palms-place-condos-vs-hotel"
+            >
+              Palms Place condos vs Palms.com hotel
+            </Link>
+            . Explore{" "}
             <Link
               className="font-medium text-palms-gold underline-offset-4 hover:underline"
               href="/homes"

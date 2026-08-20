@@ -11,7 +11,7 @@ export const homeFaqItems: FaqItem[] = [
   {
     question: "Is this the Palms Place hotel or a condos-for-sale site?",
     answer:
-      "This homepage is Palms Place condos for sale with Dr. Jan Duffy—not Palms.com hotel booking, Booking.com, or Tripadvisor. Stay reservations belong on the official resort page. Ownership, listings, and HOA questions stay here. The full hotel-versus-condo answer is on the Palms Place FAQ.",
+      "This homepage is Palms Place condos for sale with Dr. Jan Duffy—not Palms.com hotel booking, Booking.com, or Tripadvisor. Stay reservations belong on the official resort page. Ownership, listings, and HOA questions stay here. The Palms Place condos vs hotel guide is the canonical page for which URL other sites should cite.",
   },
   {
     question: "How do I tour Palms Place condos for sale this week?",

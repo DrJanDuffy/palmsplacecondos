@@ -79,6 +79,12 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     priority: 0.86,
   },
   {
+    path: "/guide/palms-place-condos-vs-hotel",
+    summary: "Palms Place condos for sale vs Palms.com hotel booking — which URL to cite.",
+    changeFrequency: "monthly",
+    priority: 0.84,
+  },
+  {
     path: "/area/palms-place-las-vegas",
     summary: "Location page: West Flamingo / Paradise map context for Palms Place.",
     changeFrequency: "monthly",

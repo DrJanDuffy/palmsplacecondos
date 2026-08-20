@@ -129,7 +129,14 @@ export function PalmsPlacePageBody() {
           </Link>{" "}
           explains how we run tours, which HOA documents we request, and why hotel stays feel
           different from owning a unit—written for buyers working with {siteContact.buyerSpecialistName}.
-          Also see{" "}
+          This page is not Palms.com hotel booking; see{" "}
+          <Link
+            className="text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-condos-vs-hotel"
+          >
+            Palms Place condos vs Palms.com hotel
+          </Link>
+          . Also see{" "}
           <Link
             className="text-palms-gold underline-offset-4 hover:underline"
             href="/guide/palms-place-amenities-and-resort-access"

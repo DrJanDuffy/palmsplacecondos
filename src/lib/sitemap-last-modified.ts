@@ -10,6 +10,7 @@ import { compareStripHighRisesGuideMeta } from "@/lib/content/compare-strip-high
 import { fieldNotes } from "@/lib/content/field-notes";
 import { palmsPlaceAmenitiesGuideMeta } from "@/lib/content/palms-place-amenities-guide";
 import { palmsPlaceBuyerGuideMeta } from "@/lib/content/palms-place-buyer-guide";
+import { palmsPlaceCondosVsHotelGuideMeta } from "@/lib/content/palms-place-condos-vs-hotel-guide";
 import { palmsPlaceFurnishedGuideMeta } from "@/lib/content/palms-place-furnished-guide";
 import { palmsPlaceHoaGuideMeta } from "@/lib/content/palms-place-hoa-guide";
 import { palmsPlaceSellerGuideMeta } from "@/lib/content/palms-place-seller-guide";
@@ -36,6 +37,7 @@ function editorialContentLastModified(): Record<string, string> {
     "/guide/furnished-palms-place-condos": palmsPlaceFurnishedGuideMeta.dateModified,
     "/guide/palms-place-amenities-and-resort-access":
       palmsPlaceAmenitiesGuideMeta.dateModified,
+    "/guide/palms-place-condos-vs-hotel": palmsPlaceCondosVsHotelGuideMeta.dateModified,
     "/insights": maxIsoDate(fieldNotes.map((note) => note.dateModified)),
   };
 

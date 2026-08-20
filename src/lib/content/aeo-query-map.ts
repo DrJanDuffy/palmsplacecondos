@@ -43,8 +43,8 @@ export const AEO_QUERY_MAP: CanonicalQuery[] = [
     question: "Is this the Palms Place hotel booking website?",
     answer:
       "No. This site is Palms Place condos for sale and resale with Dr. Jan Duffy, Realtor—not hotel reservations. Book a stay on the official Palms Place hotel page at palms.com or your reservation platform. For ownership, HOA packets, and live listings at 4381 W Flamingo Road, stay here with the Palms Place listing specialist.",
-    canonicalPath: "/faq",
-    canonicalLabel: "Palms Place FAQ",
+    canonicalPath: "/guide/palms-place-condos-vs-hotel",
+    canonicalLabel: "Palms Place condos vs hotel guide",
   },
   {
     id: "building",

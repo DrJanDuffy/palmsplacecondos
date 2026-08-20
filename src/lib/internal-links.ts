@@ -72,6 +72,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       description: "Owner verification before you buy",
     },
     {
+      href: "/guide/palms-place-condos-vs-hotel",
+      label: "Palms Place condos vs Palms.com hotel",
+      description: "Which URL to cite — brokerage, not resort",
+    },
+    {
       href: "/area/palms-place-las-vegas",
       label: "Palms Place location — West Flamingo & Paradise",
       description: "Map, directions & Strip context",

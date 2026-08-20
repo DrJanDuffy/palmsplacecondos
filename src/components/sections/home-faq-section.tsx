@@ -27,7 +27,14 @@ export function HomeFaqSection() {
           <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/palms-place">
             Palms Place Las Vegas guide
           </Link>
-          ; for tower history, amenities, and stay planning, see the{" "}
+          . This site is not Palms.com; see{" "}
+          <Link
+            className="font-medium text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-condos-vs-hotel"
+          >
+            Palms Place condos vs Palms.com hotel
+          </Link>
+          . For tower history, amenities, and stay planning, see the{" "}
           <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/faq">
             full FAQ
           </Link>

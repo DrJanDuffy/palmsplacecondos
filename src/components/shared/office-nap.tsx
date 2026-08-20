@@ -196,7 +196,7 @@ export function OfficeNap({
               rel="noopener noreferrer"
               target="_blank"
             >
-              Facebook
+              Resort Facebook
             </a>
           ) : null}
         </div>

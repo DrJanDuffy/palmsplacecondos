@@ -18,7 +18,7 @@ const realScoutSharedSearchHref = getRealScoutSharedSearchUrl();
 /** Top utility links (Connect + Facebook + YouTube) */
 export const utilityNav: NavItem[] = [
   { label: "Connect", href: "/connect" },
-  { label: "Facebook", href: facebookHref, external: true },
+  { label: "Resort Facebook", href: facebookHref, external: true },
   { label: "YouTube", href: youtubeHref, external: true },
 ];
 
@@ -52,6 +52,7 @@ export const popularNav: NavItem[] = [
   { label: "HOA & costs", href: "/guide/palms-place-hoa-and-monthly-costs" },
   { label: "Furnished guide", href: "/guide/furnished-palms-place-condos" },
   { label: "Amenities", href: "/guide/palms-place-amenities-and-resort-access" },
+  { label: "Condos vs hotel", href: "/guide/palms-place-condos-vs-hotel" },
   { label: "Location", href: "/area/palms-place-las-vegas" },
   { label: "Field notes", href: "/insights" },
   { label: "Team", href: "/team" },

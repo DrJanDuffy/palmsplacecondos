@@ -92,16 +92,29 @@ export function ConnectPageBody() {
           How do I follow Palms Place on social and video?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
-          Follow{" "}
+          Watch{" "}
           <a
             className="text-palms-gold underline-offset-4 hover:underline"
-            href={facebookHref}
+            href={youtubeHref}
             rel="noopener noreferrer"
             target="_blank"
           >
-            Palms Place on Facebook
+            Dr. Jan Duffy on YouTube
           </a>{" "}
-          for building and area updates
+          for tours and listing context
+          {gbpHref ? (
+            <>
+              ; open the{" "}
+              <a
+                className="text-palms-gold underline-offset-4 hover:underline"
+                href={gbpHref}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Google Business Profile for Palms Place Condos
+              </a>
+            </>
+          ) : null}
           {writeReviewHref ? (
             <>
               ;{" "}
@@ -115,31 +128,37 @@ export function ConnectPageBody() {
               </a>
             </>
           ) : null}
-          {gbpHref ? (
-            <>
-              ; open our{" "}
-              <a
-                className="text-palms-gold underline-offset-4 hover:underline"
-                href={gbpHref}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Google Business Profile
-              </a>
-            </>
-          ) : null}
-          ; and watch{" "}
+          . The{" "}
           <a
             className="text-palms-gold underline-offset-4 hover:underline"
-            href={youtubeHref}
+            href={facebookHref}
             rel="noopener noreferrer"
             target="_blank"
           >
-            YouTube
+            Palms Place Facebook page
           </a>{" "}
-          for tours and market context. For curated topic shortcuts, see{" "}
+          is building/resort context—not this brokerage’s listing profile. For topic shortcuts, see{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/popular-searches">
             popular Palms Place &amp; Las Vegas searches
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section className="mt-12" aria-labelledby="connect-cite-heading">
+        <h2 className="font-display text-2xl font-semibold text-palms-cream" id="connect-cite-heading">
+          How should other sites cite Palms Place Condos?
+        </h2>
+        <p className="mt-4 leading-relaxed text-palms-cream/85">
+          Use <strong className="text-palms-cream">https://www.palmsplacecondos.com</strong> (www). Suggested
+          anchor: “Palms Place condos for sale — Dr. Jan Duffy.” Do not cite Palms.com, Booking,
+          Tripadvisor, or Zillow as this brokerage. Owned profiles that should point here: Google
+          Business Profile website field, YouTube About, and the Berkshire Hathaway agent page. Read{" "}
+          <Link
+            className="text-palms-gold underline-offset-4 hover:underline"
+            href="/guide/palms-place-condos-vs-hotel"
+          >
+            Palms Place condos vs Palms.com hotel
           </Link>
           .
         </p>
@@ -170,7 +189,7 @@ export function ConnectPageBody() {
         pathname="/connect"
         headingId="connect-faq-heading"
         heading="How is Connect different from the Palms Place contact page?"
-        intro="How this page differs from contact and how office details stay aligned with GBP."
+        intro="How this page differs from contact, how office details stay aligned with GBP, and which URL other sites should cite."
         items={connectPageFaq}
       />
 

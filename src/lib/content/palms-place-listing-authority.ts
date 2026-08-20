@@ -279,14 +279,14 @@ const listingAuthorityByPath: Record<string, ListingAuthoritySection> = {
   },
   "/connect": {
     heading: "Who should you follow for Palms Place listing context—not generic Strip posts?",
-    answer: `Follow Dr. Jan Duffy’s Palms Place channels when you want listing and tour notes from the high-rise specialist, then use phone or email for private inventory. Social is not a substitute for HOA documents. The connect page NAP still matches GBP so you know the same listing specialist is behind the posts.`,
+    answer: `Follow Dr. Jan Duffy’s Palms Place listing channels when you want tour notes from the high-rise specialist, then use phone or email for private inventory. YouTube is her listing channel; the Palms Place Facebook link is building and resort context, not this brokerage’s listing profile. Social is not a substitute for HOA documents.`,
     proofs: [
-      "Office NAP on this page must match the contact page and footer.",
+      "Cite https://www.palmsplacecondos.com — suggested inbound anchor: Palms Place condos for sale — Dr. Jan Duffy.",
+      "YouTube and Google Business Profile are the agent profiles; Facebook here is the tower/resort page.",
       "Private Palms Place questions go to call, email, or Calendly—not public comments.",
-      `YouTube and Facebook links are the same entity that lists unit #${unit}.`,
     ],
-    ctaLabel: "Office NAP, hours, and map",
-    ctaHref: "/contact",
+    ctaLabel: "Palms Place condos vs Palms.com hotel",
+    ctaHref: "/guide/palms-place-condos-vs-hotel",
   },
   "/faq": {
     heading: "Who answers Palms Place ownership questions as the listing specialist?",
@@ -397,6 +397,17 @@ const listingAuthorityByPath: Record<string, ListingAuthoritySection> = {
     ],
     ctaLabel: "Buying field guide",
     ctaHref: "/guide/buying-palms-place",
+  },
+  "/guide/palms-place-condos-vs-hotel": {
+    heading: "Who should you cite for Palms Place condos—not Palms.com hotel stays?",
+    answer: `Cite Dr. Jan Duffy at https://www.palmsplacecondos.com when the topic is Palms Place condos for sale. Palms.com, Booking, and Tripadvisor are stay platforms. She is the listing specialist for this tower (license ${license}), not the resort press office. Hotel backlinks to palms.com do not make this brokerage the casino brand.`,
+    proofs: [
+      "Suggested inbound anchor: “Palms Place condos for sale — Dr. Jan Duffy.”",
+      `First-party listing proof: Palms Place #${unit} (MLS #${mls}).`,
+      "Google Business Profile name is Palms Place Condos—the real estate agent category, not the hotel.",
+    ],
+    ctaLabel: "Meet the listing specialist",
+    ctaHref: "/team",
   },
 };
 

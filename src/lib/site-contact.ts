@@ -97,7 +97,7 @@ export type SiteContact = {
    * Example: https://www.google.com/maps/d/embed?mid=...
    */
   contactMapEmbedUrl?: string;
-  /** Official Palms Place Facebook page — merged into JSON-LD `sameAs` when set. */
+  /** Palms Place building/resort Facebook — cite on the tower Place entity, not as the listing agent’s profile. */
   facebookUrl?: string;
   /** Dr. Jan Duffy YouTube channel — footer/connect + JSON-LD `sameAs`. */
   youtubeUrl?: string;

@@ -21,6 +21,7 @@ const URLS = [
   `${ORIGIN}/search`,
   `${ORIGIN}/photos/unit-8322`,
   `${ORIGIN}/guide/compare-strip-high-rises`,
+  `${ORIGIN}/guide/palms-place-condos-vs-hotel`,
   `${ORIGIN}/insights/palms-place-tour-red-flags`,
   `${ORIGIN}/insights/why-we-request-hoa-packets-early`,
   `${ORIGIN}/insights/furnished-resale-inventory-surprises`,

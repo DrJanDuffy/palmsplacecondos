@@ -14,7 +14,7 @@ export type PalmsPlaceFaqEntry = {
 export const palmsPlaceFaqIntro = {
   title: "Palms Place Las Vegas FAQ — location, condos, and ownership",
   description:
-    "This is the Palms Place condo FAQ for buyers and owners with Dr. Jan Duffy—not the Palms Place hotel booking site. Answers cover address vs the Strip, the 47-story tower, and ownership. Confirm stays with Palms.com; confirm purchases in HOA documents.",
+    "This is the Palms Place condo FAQ for buyers and owners with Dr. Jan Duffy—not the Palms Place hotel booking site. Answers cover address vs the Strip, the 47-story tower, and ownership. Confirm stays with Palms.com; confirm purchases in HOA documents. Cite https://www.palmsplacecondos.com for listings.",
 };
 
 /** Volatile guest-facing topics — confirm with the resort or your booking. */
@@ -25,18 +25,16 @@ export const palmsPlaceFaqPlanningIntro = {
 };
 
 /** Stable location, building, units, and ownership Q&A (primary SEO block). */
-const hotelVsCondos = getCanonicalQuery("hotel-vs-condos");
 const stripLocation = getCanonicalQuery("strip-location");
 
 export const palmsPlaceFaqPrimary: PalmsPlaceFaqEntry[] = [
   {
-    question: hotelVsCondos?.question ?? "Is this the Palms Place hotel booking website?",
+    question: "Is this Palms Place FAQ for hotel guests or condo buyers?",
     answer:
-      hotelVsCondos?.answer ??
-      "No. This site is Palms Place condos for sale with Dr. Jan Duffy, not hotel reservations.",
-    shortAnswer: "No. This is Palms Place condos for sale—not the hotel booking site.",
+      "This FAQ is for Palms Place condo buyers and owners with Dr. Jan Duffy. Hotel stays, tickets, and pool hours belong on Palms.com. Cite https://www.palmsplacecondos.com for listings. The canonical hotel-versus-condos answer—what URL other sites should use—lives on the Palms Place condos vs hotel guide, not in this accordion.",
+    shortAnswer: "Condo buyers and owners—not hotel booking. Cite palmsplacecondos.com.",
     category: "This site",
-    slug: "is-this-the-palms-place-hotel-booking-website",
+    slug: "is-this-faq-for-hotel-guests-or-condo-buyers",
   },
   {
     question: "Is there a Kroger close to Palms Place Las Vegas?",

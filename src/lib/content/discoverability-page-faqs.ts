@@ -40,7 +40,12 @@ export const connectPageFaq: FaqItem[] = [
   {
     question: "Does the office address match Google Business Profile?",
     answer:
-      "Yes—the same office NAP shown here should match GBP and visible footer copy. If you see a discrepancy after a GBP update, tell the team so the site and profile stay aligned.",
+      "Yes—the same office NAP shown here should match GBP and visible footer copy. If you see a discrepancy after a GBP update, tell the team so the site and profile stay aligned. Cite https://www.palmsplacecondos.com on GBP as the website—not palms.com.",
+  },
+  {
+    question: "How should other sites cite Palms Place Condos?",
+    answer:
+      "Use https://www.palmsplacecondos.com (www, https). Suggested inbound anchor: “Palms Place condos for sale — Dr. Jan Duffy.” Put that URL in the Google Business Profile website field, YouTube About, and the Berkshire Hathaway agent page. Do not cite Palms.com, Booking, Tripadvisor, or Zillow as this brokerage—those are hotel or portal sites.",
   },
 ];
 
@@ -287,6 +292,21 @@ export const amenitiesGuidePageFaq: FaqItem[] = [
     question: "Where is the full amenities FAQ on this site?",
     answer:
       "The main Palms Place FAQ page groups amenities, transportation, and booking-style questions. This guide focuses on owner verification before you buy.",
+  },
+];
+
+/** `/guide/palms-place-condos-vs-hotel` — must mirror visible FAQ on that page. */
+export const condosVsHotelGuidePageFaq: FaqItem[] = [
+  canonicalQueryAsFaqItem("hotel-vs-condos"),
+  {
+    question: "Which URL should blogs use for Palms Place condos for sale?",
+    answer:
+      "https://www.palmsplacecondos.com — www, https. Suggested anchor: “Palms Place condos for sale — Dr. Jan Duffy.” Do not link palms.com, Booking, Tripadvisor, or Zillow as if they were this brokerage. The apex without www redirects to www; cite the www host that matches Google Search Console.",
+  },
+  {
+    question: "Do hotel and ticket backlinks help this real estate site?",
+    answer:
+      "No. Links to Palms.com about pools, concerts, and suites describe the resort, not Dr. Jan Duffy’s listing practice. This site earns citations from owned profiles and first-party listing work such as Palms Place #8322—not from the casino’s travel-press graph.",
   },
 ];
 
