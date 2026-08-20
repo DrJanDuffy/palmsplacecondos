@@ -9,17 +9,16 @@ const FadeCarouselDynamic = dynamic(
       default: mod.FadeCarousel,
     })),
   {
-    ssr: false,
     loading: () => (
       <div
         aria-hidden
-        className="min-h-[280px] rounded-2xl bg-palms-charcoal-muted/40"
+        className="min-h-[520px] rounded-2xl bg-palms-charcoal-muted/40 md:min-h-[280px]"
       />
     ),
   },
 );
 
-/** Client-only carousel chunk so the main bundle stays smaller for mobile PSI. */
+/** Code-split carousel JS. SSR the first slide so the homepage does not CLS on hydrate. */
 export function StayCarousel(props: FadeCarouselProps) {
   return <FadeCarouselDynamic {...props} />;
 }

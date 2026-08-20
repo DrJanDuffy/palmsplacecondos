@@ -54,6 +54,7 @@ export function FeaturedListingBanner() {
             <Image
               alt={heroPhoto.alt}
               className="object-cover"
+              fetchPriority="low"
               fill
               sizes="(max-width: 1280px) 100vw, 1152px"
               src={heroSrc}
@@ -115,7 +116,7 @@ export function FeaturedListingBanner() {
                 </p>
                 <p className="text-xs text-palms-cream/55">
                   MLS #{featuredListing.mlsNumber} · {featuredListing.annualTax} · Source: GLVAR ·
-                  Listing offered by BHHS Nevada Properties
+                  Listing offered by {siteContact.brokerage}
                 </p>
               </div>
 

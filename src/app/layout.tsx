@@ -15,13 +15,19 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
+  adjustFontFallback: true,
+  // LCP on `/` is the hero image — do not preload the body font on the critical path.
+  preload: false,
 });
 
 const displaySerif = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "600", "700"],
+  // Headings/header use semibold/bold only (no font-display at weight 400).
+  weight: ["600", "700"],
   display: "swap",
+  adjustFontFallback: true,
+  preload: false,
 });
 
 const siteUrl = getSiteUrl();
@@ -95,10 +101,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${displaySerif.variable} min-h-screen bg-palms-charcoal text-palms-cream antialiased`}
-      >
+    <html className={`${geistSans.variable} ${displaySerif.variable}`} lang="en">
+      <body className="min-h-screen bg-palms-charcoal text-palms-cream antialiased">
         <StructuredData data={getBaseJsonLd()} />
         <div className="flex min-h-screen flex-col">
           <a

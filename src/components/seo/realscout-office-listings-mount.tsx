@@ -43,7 +43,7 @@ export function RealScoutOfficeListingsMount({ markup }: RealScoutOfficeListings
   }, [shouldLoad]);
 
   return (
-    <div className="min-h-[240px] w-full" ref={hostRef}>
+    <div className="min-h-[480px] w-full" ref={hostRef}>
       {shouldLoad ? (
         <>
           <Script src={REALSCOUT_SCRIPT_SRC} strategy="lazyOnload" />

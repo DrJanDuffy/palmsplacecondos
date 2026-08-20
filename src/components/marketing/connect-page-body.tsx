@@ -17,7 +17,7 @@ import {
 const pageMeta = {
   name: "Connect with the Palms Place team — Las Vegas Strip condos",
   description:
-    "Follow Palms Place updates, office NAP, and social channels for Las Vegas Strip high-rise condos with Dr. Jan Duffy at Berkshire Hathaway.",
+    "Follow Palms Place updates, office NAP, and social channels for Las Vegas Strip high-rise condos with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
 };
 
 /** Expanded /connect — stay in touch; aligns with utility nav + social links. */
@@ -29,7 +29,7 @@ export function ConnectPageBody() {
   const facebookHref =
     process.env.NEXT_PUBLIC_FACEBOOK_URL ?? siteContact.facebookUrl ?? "https://www.facebook.com/palmsplace";
   const youtubeHref =
-    process.env.NEXT_PUBLIC_YOUTUBE_URL ?? siteContact.youtubeUrl ?? "https://www.youtube.com/";
+    process.env.NEXT_PUBLIC_YOUTUBE_URL ?? siteContact.youtubeUrl ?? "https://www.youtube.com/@DrDuffy";
   const gbpHref = siteContact.googleBusinessProfileUrl?.trim();
   const writeReviewHref = siteContact.googleWriteReviewUrl?.trim();
   const webPageJsonLd = getWebPageJsonLdForPath("/connect", pageMeta, {

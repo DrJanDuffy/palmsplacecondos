@@ -32,6 +32,8 @@ export function GuideCompareStripHighRisesPageBody() {
       sections={compareStripHighRisesSections}
       footerCtas={[
         { href: "/palms-place", label: "Palms Place building guide" },
+        { href: "/guide/palms-place-hoa-and-monthly-costs", label: "Palms Place HOA and monthly costs" },
+        { href: "/guide/buying-palms-place", label: "Buying a Palms Place condo" },
         { href: "/high-rises", label: "Las Vegas high-rise condos" },
       ]}
       faqItems={compareStripGuidePageFaq}

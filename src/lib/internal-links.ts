@@ -164,5 +164,143 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
     if (normalized === "/search" && item.external && item.href === searchUrl) return false;
     return true;
   });
-  return filtered.slice(0, 5);
+
+  const byHref = new Map(filtered.map((item) => [item.href, item]));
+  const preferred: RelatedLink[] = [];
+  const seen = new Set<string>();
+
+  for (const href of preferredHrefsForPath(normalized)) {
+    const match =
+      href === "__search__"
+        ? filtered.find((item) => item.external && item.href === searchUrl)
+        : byHref.get(href);
+    if (!match || seen.has(match.href)) continue;
+    seen.add(match.href);
+    preferred.push(match);
+  }
+
+  const rest = filtered.filter((item) => !seen.has(item.href));
+  return [...preferred, ...rest].slice(0, 6);
+}
+
+/**
+ * Topic-cluster order so RelatedPages is not the same five hub links on every route.
+ * `__search__` resolves to the live RealScout shared-search URL.
+ */
+function preferredHrefsForPath(pathname: string): string[] {
+  if (pathname === "/") {
+    return ["/palms-place", "/guide/buying-palms-place", "/guide/palms-place-unit-types", "/photos", "__search__"];
+  }
+  if (pathname === "/guide/compare-strip-high-rises" || pathname === "/high-rises") {
+    return [
+      "/palms-place",
+      "/guide/palms-place-hoa-and-monthly-costs",
+      "/guide/buying-palms-place",
+      "/guide/palms-place-unit-types",
+      "/condos",
+    ];
+  }
+  if (
+    pathname === "/sellers" ||
+    pathname === "/sell" ||
+    pathname === "/guide/selling-palms-place"
+  ) {
+    return [
+      "/guide/selling-palms-place",
+      "/guide/furnished-palms-place-condos",
+      "/photos",
+      "/sell",
+      "/contact",
+    ];
+  }
+  if (
+    pathname === "/buyers" ||
+    pathname === "/buyers/calculators" ||
+    pathname === "/guide/buying-palms-place"
+  ) {
+    return [
+      "/guide/palms-place-hoa-and-monthly-costs",
+      "/guide/palms-place-unit-types",
+      "/photos",
+      "__search__",
+      "/guide/compare-strip-high-rises",
+    ];
+  }
+  if (pathname === "/guide/palms-place-hoa-and-monthly-costs") {
+    return [
+      "/guide/buying-palms-place",
+      "/insights/why-we-request-hoa-packets-early",
+      "/guide/selling-palms-place",
+      "/palms-place",
+      "/faq",
+    ];
+  }
+  if (pathname === "/guide/palms-place-amenities-and-resort-access") {
+    return [
+      "/palms-place",
+      "/guide/palms-place-hoa-and-monthly-costs",
+      "/area/palms-place-las-vegas",
+      "/communities",
+      "/faq",
+    ];
+  }
+  if (
+    pathname === "/guide/palms-place-unit-types" ||
+    pathname === "/guide/furnished-palms-place-condos"
+  ) {
+    return [
+      "/guide/palms-place-unit-types",
+      "/guide/furnished-palms-place-condos",
+      "/photos",
+      "/condos",
+      "/guide/buying-palms-place",
+    ];
+  }
+  if (pathname.startsWith("/insights")) {
+    return [
+      "/insights",
+      "/guide/buying-palms-place",
+      "/photos",
+      "/palms-place",
+      "/faq",
+    ];
+  }
+  if (pathname.startsWith("/photos") || pathname === "/featured") {
+    return ["/photos", "/photos/unit-8322", "/featured", "/palms-place", "__search__"];
+  }
+  if (
+    pathname === "/condos" ||
+    pathname === "/luxury-homes" ||
+    pathname === "/homes" ||
+    pathname === "/under-500k" ||
+    pathname === "/popular-searches"
+  ) {
+    return [
+      "/guide/compare-strip-high-rises",
+      "/palms-place",
+      "/condos",
+      "/high-rises",
+      "__search__",
+    ];
+  }
+  if (pathname === "/contact" || pathname === "/connect" || pathname === "/team") {
+    return ["/contact", "/team", "/buyers", "/sellers", "/palms-place"];
+  }
+  if (pathname === "/palms-place" || pathname === "/area/palms-place-las-vegas") {
+    return [
+      "/guide/palms-place-amenities-and-resort-access",
+      "/guide/palms-place-hoa-and-monthly-costs",
+      "/guide/buying-palms-place",
+      "/photos",
+      "/faq",
+    ];
+  }
+
+  return [
+    "/palms-place",
+    "/buyers",
+    "/guide/compare-strip-high-rises",
+    "/photos",
+    "/contact",
+  ];
 }

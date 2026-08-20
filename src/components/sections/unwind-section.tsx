@@ -33,11 +33,15 @@ export function UnwindSection() {
             program—verify hours, guest policies, and fees with disclosures and your agent.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">
-            Explore{" "}
+            Read the{" "}
+            <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/guide/palms-place-amenities-and-resort-access">
+              Palms Place amenities and resort access guide
+            </Link>
+            , the{" "}
             <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/communities">
               Las Vegas condo communities overview
-            </Link>{" "}
-            or{" "}
+            </Link>
+            , or{" "}
             <CalendlyLink>Schedule a Palms Place showing with Dr. Jan</CalendlyLink>
             .
           </p>
@@ -71,7 +75,11 @@ export function UnwindSection() {
         <p className="mt-3 text-palms-cream/80">
           HOA fees, special assessments, rental caps, and parking rules change. Review the latest
           HOA packet and resale package with your agent and a qualified professional before you
-          rely on any summary.
+          rely on any summary. Start with the{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/guide/palms-place-hoa-and-monthly-costs">
+            Palms Place HOA fees and monthly costs guide
+          </Link>
+          .
         </p>
       </div>
 

@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/shared/button-link";
 import { CalendlyButton } from "@/components/shared/calendly-link";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { getGbpDescription, getTelHref, siteContact } from "@/lib/site-contact";
+import heroTowerDusk from "../../../public/images/hero-tower-dusk.webp";
 
 export function HeroPalmsPlace() {
   const phone = siteContact.phone;
@@ -18,10 +19,11 @@ export function HeroPalmsPlace() {
           className="object-cover"
           fetchPriority="high"
           fill
+          placeholder="blur"
           priority
           quality={65}
           sizes="100vw"
-          src="/images/hero-tower-dusk.webp"
+          src={heroTowerDusk}
         />
         <div
           aria-hidden
@@ -34,7 +36,7 @@ export function HeroPalmsPlace() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-5xl flex-col justify-end px-6 pb-20 pt-32 md:pb-28 md:pt-36">
-        <div className="palms-reveal">
+        <div>
           <SectionEyebrow>Las Vegas Strip high-rise residences</SectionEyebrow>
 
           <h1
@@ -44,13 +46,13 @@ export function HeroPalmsPlace() {
             Palms Place Condos for Sale in Las Vegas
           </h1>
 
-          <p className="palms-reveal-delay-1 mt-6 max-w-2xl text-base leading-relaxed text-palms-cream/90 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-palms-cream/90 md:text-lg">
             {siteContact.gbpBusinessName} is a high-rise at 4381 W Flamingo Road, west of the Las
             Vegas Strip. {description ?? "Browse studio and one-bedroom inventory with Dr. Jan Duffy."}
           </p>
 
           {phone && tel ? (
-            <p className="palms-reveal-delay-2 mt-4 text-sm text-palms-cream/75 md:text-base">
+            <p className="mt-4 text-sm text-palms-cream/75 md:text-base">
               Call{" "}
               <a className="font-medium text-palms-gold underline-offset-4 hover:underline" href={tel}>
                 {phone}
@@ -60,7 +62,7 @@ export function HeroPalmsPlace() {
             </p>
           ) : null}
 
-          <div className="palms-reveal-delay-2 mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <ButtonLink href="/search" variant="primary">
               Browse listings
             </ButtonLink>
