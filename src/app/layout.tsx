@@ -24,7 +24,7 @@ const displaySerif = Cormorant_Garamond({
 });
 
 const siteUrl = getSiteUrl();
-const googleSiteVerification = getGoogleSiteVerification();
+const searchVerification = getSearchVerification();
 
 /** Shared fallback only — page routes should set their own title/description/OG via buildPageMetadata. */
 const rootDescription = [
@@ -60,20 +60,23 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: getDefaultTwitterImages(),
   },
-  ...(googleSiteVerification
-    ? {
-        verification: {
-          google: googleSiteVerification,
-        },
-      }
-    : {}),
+  ...(searchVerification ? { verification: searchVerification } : {}),
 };
 
-function getGoogleSiteVerification(): string | undefined {
-  const v =
+function getSearchVerification(): Metadata["verification"] | undefined {
+  const google =
     process.env.GOOGLE_SITE_VERIFICATION?.trim() ||
     process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
-  return v || undefined;
+  const bing =
+    process.env.BING_SITE_VERIFICATION?.trim() ||
+    process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION?.trim();
+  if (!google && !bing) {
+    return undefined;
+  }
+  return {
+    ...(google ? { google } : {}),
+    ...(bing ? { other: { "msvalidate.01": bing } } : {}),
+  };
 }
 
 export default function RootLayout({

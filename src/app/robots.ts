@@ -10,6 +10,12 @@ import { getSiteUrl } from "@/lib/site-url";
  * Extra AI crawler groups use the same Allow/Disallow as `*` so answer engines
  * can fetch marketing HTML. Do not add unsupported fields.
  *
+ * Production `https://www.palmsplacecondos.com/robots.txt` (fetched 2026-08-20)
+ * matches this module: Allow `/`, Disallow `/api/`, AI crawler group, and
+ * `Sitemap: https://www.palmsplacecondos.com/sitemap.xml`. That Disallow keeps
+ * `/api/indexnow` off crawlers; the IndexNow key file is at `/{key}.txt` (root,
+ * allowed). Do not add `Host:`.
+ *
  * @see https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt
  */
 const AI_CRAWLER_USER_AGENTS = [

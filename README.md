@@ -47,9 +47,24 @@ Keep **apex** (`palmsplacecondos.com`) and **`www`** on **DNS only** (gray cloud
   Live checks (2026-08-20): each returns a **single 301** to **`https://www.palmsplacecondos.com/`**. Sitemap and `robots.txt` already list only the `https://www` origin.
 - **Do not click Validate Fix** on that report. Google recrawls the same URLs, still sees a redirect, and marks validation **Failed**. That is the correct outcome. Validate Fix is only for *accidental* redirects you removed.
 - Confirm the destination instead: **URL Inspection** on **`https://www.palmsplacecondos.com/`** (expect **Indexed** / 200, `index, follow`). Do not try to get the HTTP or apex URLs indexed.
-- After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC.
+- After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC. Search Console Sitemaps export (2026-08-20): that URL is **Success**, **33 URLs discovered**, last processed **2026-08-18** (last *submitted* **2026-04-16** — resubmit after large content/lastmod waves if the report looks stale). Live `sitemap.xml` and `robots.txt` on **www** match this repo.
 - **robots.txt warnings:** GSC lists `http`/`https` and apex/`www` copies of `/robots.txt`. One warning on each was the unsupported `Host:` line (Yandex-only). Google only uses User-agent, Allow, Disallow, and Sitemap — that line is omitted in [`src/app/robots.ts`](src/app/robots.ts). Recrawl after deploy; do not treat the four URLs as four different files.
 - **Verification:** DNS **TXT** at the apex (as in your Cloudflare zone) **or** set `GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` per [`.env.example`](.env.example) for the HTML-tag method.
+
+### IndexNow (Bing and other participating engines)
+
+IndexNow is a URL-change ping so Bing, Yandex, Naver, Seznam.cz, and Yep can prioritize recrawl instead of waiting on organic discovery. It does **not** replace [`sitemap.xml`](src/app/sitemap.ts): sitemaps remain the full inventory; IndexNow notifies engines about **recent** adds, updates, and deletes ([IndexNow FAQ](https://www.indexnow.org/faq)).
+
+This Next.js app is not on a CMS with a native IndexNow plugin, so the site implements the protocol directly:
+
+1. **API key + verification (Option 1, site root).** The key file is [`public/26982a60fcd560afd3faf905245587a9.txt`](public/26982a60fcd560afd3faf905245587a9.txt), served at `https://www.palmsplacecondos.com/26982a60fcd560afd3faf905245587a9.txt`. The file body is the key only (UTF-8, no HTML). After deploy, open that URL and confirm it shows the key. Rotate by setting `INDEXNOW_KEY`, hosting `{new-key}.txt`, then submitting with the new key.
+2. **URL submission.** Production POST to `https://api.indexnow.org/indexnow` (global endpoint; engines share submissions). Batch limit is **10,000 URLs** per POST. This site submits the marketing route list from [`src/lib/marketing-routes.ts`](src/lib/marketing-routes.ts) via [`src/lib/indexnow.ts`](src/lib/indexnow.ts).
+3. **When we notify.** After content changes (deploy / lastmod bump), not for cosmetic-only edits, and not for URLs that only changed *before* IndexNow was enabled. Default job submits pages whose sitemap `lastmod` is within **14 days**. Use POST `{ "includeAll": true }` only after a migration or redesign. Same URL set is debounced for **5 minutes**. Deleted or redirected URLs should be submitted so engines can drop or retarget them.
+4. **Automation.** `GET /api/indexnow` is authorized with `CRON_SECRET` (or `INDEXNOW_SUBMIT_SECRET`). [Vercel Cron](https://vercel.com/docs/cron-jobs) runs Mondays (`vercel.json`) and sends `Authorization: Bearer $CRON_SECRET`. Preview deployments and `*.vercel.app` hosts never ping. Set `CRON_SECRET` in Vercel **Production**.
+5. **HTTP responses to log:** `200` received, `202` accepted (key validation pending on first use), `400` bad request, `403` key file invalid, `422` host/payload mismatch, `429` rate limit (wait and retry). Submissions **count toward crawl quota**; do not flood unchanged URLs.
+6. **Test:** `curl -H "Authorization: Bearer $CRON_SECRET" "https://www.palmsplacecondos.com/api/indexnow?dryRun=1"` then repeat without `dryRun=1` on production. Confirm the key file is `200` on **https www** (not a redirect to HTML).
+
+Optional: set `BING_SITE_VERIFICATION` from Bing Webmaster Tools (HTML `msvalidate.01` tag) so the Bing property matches this host. Cloudflare orange-cloud proxy is still **not** used in front of Vercel; Cloudflare’s native IndexNow feature is unused because DNS is gray-cloud / DNS-only.
 
 ### Optional: DMARC (email only)
 
