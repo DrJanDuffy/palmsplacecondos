@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/shared/button-link";
 import { CalendlyButton } from "@/components/shared/calendly-link";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { getGbpDescription, getTelHref, siteContact } from "@/lib/site-contact";
+import heroTowerDusk from "../../../public/images/hero-tower-dusk.webp";
 
 export function HeroPalmsPlace() {
   const phone = siteContact.phone;
@@ -18,10 +19,11 @@ export function HeroPalmsPlace() {
           className="object-cover"
           fetchPriority="high"
           fill
+          placeholder="blur"
           priority
           quality={65}
           sizes="100vw"
-          src="/images/hero-tower-dusk.webp"
+          src={heroTowerDusk}
         />
         <div
           aria-hidden

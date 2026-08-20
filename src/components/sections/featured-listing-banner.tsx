@@ -54,6 +54,7 @@ export function FeaturedListingBanner() {
             <Image
               alt={heroPhoto.alt}
               className="object-cover"
+              fetchPriority="low"
               fill
               sizes="(max-width: 1280px) 100vw, 1152px"
               src={heroSrc}

@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
 
   images: {
     formats: ["image/avif", "image/webp"],
+    // Homepage hero source is 1536px. Default 2048/3840 entries make 3x phones
+    // request a 1920+ LCP variant (and list empty upscales in the preload srcset).
+    deviceSizes: [640, 750, 828, 1080, 1200, 1536],
+    // Hero uses quality={65}; keep 75 as the next/image default.
+    qualities: [65, 75],
+    // Default TTL is 60s — too short for Vercel Image Optimization on a static marketing site.
+    minimumCacheTTL: 60 * 60 * 24 * 31,
     remotePatterns: [
       // Cloudflare Images delivery (set NEXT_PUBLIC_CLOUDFLARE_IMAGES_ACCOUNT_HASH)
       { protocol: "https", hostname: "imagedelivery.net", pathname: "/**" },
