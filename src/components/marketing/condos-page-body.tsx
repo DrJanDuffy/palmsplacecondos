@@ -7,7 +7,7 @@ import { CalendlyButton } from "@/components/shared/calendly-link";
 import { condosPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import { getBreadcrumbListJsonLd, getItemListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
@@ -27,16 +27,54 @@ export function CondosPageBody() {
     aboutPalmsPlace: true,
     pageType: "CollectionPage",
     hasFaq: true,
+    hasItemList: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/condos", [
     { name: "Home", path: "/" },
     { name: "Condos", path: "/condos" },
   ]);
+  const itemListJsonLd = getItemListJsonLd("/condos", {
+    name: "Las Vegas high-rise and Palms Place condo resources",
+    description: pageMeta.description,
+    items: [
+      {
+        name: "Palms Place building guide",
+        path: "/palms-place",
+        description: "Tower address, amenities context, and buying paths",
+      },
+      {
+        name: "Palms Place location — West Flamingo",
+        path: "/area/palms-place-las-vegas",
+        description: "Map and Strip adjacency",
+      },
+      {
+        name: "Palms Place HOA and monthly costs",
+        path: "/guide/palms-place-hoa-and-monthly-costs",
+        description: "Carry costs to verify in disclosures",
+      },
+      {
+        name: "Furnished Palms Place condos",
+        path: "/guide/furnished-palms-place-condos",
+        description: "What conveys and rental-rule checks",
+      },
+      {
+        name: "Search live listings",
+        path: "/search",
+        description: "Curated Palms Place and Las Vegas inventory",
+      },
+      {
+        name: "Las Vegas Strip high-rise condos",
+        path: "/high-rises",
+        description: "Towers buyers cross-shop with Palms Place",
+      },
+    ],
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Las Vegas high-rise &amp; Palms Place condos for sale
       </h1>

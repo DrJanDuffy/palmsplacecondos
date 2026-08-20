@@ -7,7 +7,7 @@ import { ButtonLink } from "@/components/shared/button-link";
 import { CalendlyButton } from "@/components/shared/calendly-link";
 import { sellersPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { relatedLinksForPath } from "@/lib/internal-links";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import { getBreadcrumbListJsonLd, getItemListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
@@ -22,16 +22,39 @@ export function SellersPageBody() {
   const webPageJsonLd = getWebPageJsonLdForPath("/sellers", pageMeta, {
     pageType: "CollectionPage",
     hasFaq: true,
+    hasItemList: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/sellers", [
     { name: "Home", path: "/" },
     { name: "Sellers", path: "/sellers" },
   ]);
+  const itemListJsonLd = getItemListJsonLd("/sellers", {
+    name: "Palms Place seller guides",
+    description: pageMeta.description,
+    items: [
+      {
+        name: "Selling a Palms Place condo — field guide",
+        path: "/guide/selling-palms-place",
+        description: "Listing prep checklist and HOA packets",
+      },
+      {
+        name: "Sell page overview",
+        path: "/sell",
+        description: "Valuation conversation and listing marketing",
+      },
+      {
+        name: "Buying field guide for co-owners",
+        path: "/guide/buying-palms-place",
+        description: "Tour and HOA notes sellers can share before showings",
+      },
+    ],
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Sell Palms Place &amp; Las Vegas condos
       </h1>

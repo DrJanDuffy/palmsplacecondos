@@ -7,6 +7,7 @@ import { getGalleryPhotoSrc, unit8322Gallery } from "@/lib/content/media-gallery
 import { palmsPlaceTower } from "@/lib/content/palms-place-building";
 import { formatOfficeAddressLine, siteContact } from "@/lib/site-contact";
 import { getSiteUrl } from "@/lib/site-url";
+import { getSitemapLastModified } from "@/lib/sitemap-last-modified";
 import { getDefaultOgImageAbsoluteUrl, OG_IMAGE_ALT, OG_IMAGE_SIZE } from "@/lib/social-images";
 
 const CONTEXT = "https://schema.org" as const;
@@ -16,17 +17,35 @@ export type JsonLdGraph = {
   "@graph": Record<string, unknown>[];
 };
 
+/**
+ * Site-level JSON-LD @id. Use the canonical homepage URL plus fragment so nodes
+ * merge (`https://www.example.com/#org`, not `https://www.example.com#org`).
+ */
 function id(siteUrl: string, fragment: string): string {
-  return `${siteUrl.replace(/\/$/, "")}#${fragment}`;
+  return `${siteUrl.replace(/\/$/, "")}/#${fragment}`;
 }
 
 function siteOrigin(siteUrl: string): string {
   return siteUrl.replace(/\/$/, "");
 }
 
+/** Public stable entity @id for llms.txt / docs — same string as JSON-LD. */
+export function getJsonLdEntityId(fragment: string, siteUrl = getSiteUrl()): string {
+  return id(siteUrl, fragment);
+}
+
 /** Stable FAQ graph id — homepage and FAQPage JSON-LD must match. */
 export function getHomeFaqSchemaId(siteUrl: string): string {
-  return `${siteOrigin(siteUrl)}#faq`;
+  return id(siteUrl, "faq");
+}
+
+function applySitemapDateModified(webPage: Record<string, unknown>, pathname: string): void {
+  const sitemapPath = pathname === "/" ? "" : pathname;
+  try {
+    webPage.dateModified = getSitemapLastModified(sitemapPath).toISOString().slice(0, 10);
+  } catch {
+    // Omit rather than invent a lastmod for unsitemap'd paths.
+  }
 }
 
 /** E.164-style telephone for structured data when digits are US-based. */
@@ -505,6 +524,10 @@ export function getWebPageJsonLdForPath(
     hasFaq?: boolean;
     /** When the route emits ItemList JSON-LD at `{url}#itemlist`. */
     hasItemList?: boolean;
+    /** When the route emits HowTo JSON-LD at `{url}#howto`. */
+    hasHowTo?: boolean;
+    /** Most marketing routes emit BreadcrumbList at `{url}#breadcrumb`. */
+    hasBreadcrumb?: boolean;
     mentionsFeaturedListing?: boolean;
   },
 ): JsonLdGraph {
@@ -533,6 +556,7 @@ export function getWebPageJsonLdForPath(
       cssSelector: speakableSelectors,
     },
   };
+  applySitemapDateModified(webPage, path);
   const mainEntityId = resolveWebPageMainEntityId(
     options?.mainEntity,
     siteUrl,
@@ -542,12 +566,18 @@ export function getWebPageJsonLdForPath(
   if (mainEntityId) {
     webPage.mainEntity = { "@id": mainEntityId };
   }
+  if (options?.hasBreadcrumb !== false) {
+    webPage.breadcrumb = { "@id": `${pageUrl}#breadcrumb` };
+  }
   const parts: { "@id": string }[] = [];
   if (options?.hasFaq) {
     parts.push({ "@id": `${pageUrl}#faq` });
   }
   if (options?.hasItemList) {
     parts.push({ "@id": `${pageUrl}#itemlist` });
+  }
+  if (options?.hasHowTo) {
+    parts.push({ "@id": `${pageUrl}#howto` });
   }
   if (parts.length === 1) {
     webPage.hasPart = parts[0];
@@ -594,6 +624,7 @@ export function getHomeWebPageJsonLd(): JsonLdGraph {
     },
     author: { "@id": listingAgentId },
   };
+  applySitemapDateModified(webPage, "/");
 
   return {
     "@context": CONTEXT,
