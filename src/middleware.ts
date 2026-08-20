@@ -4,6 +4,9 @@ import { NextResponse } from "next/server";
 /**
  * Consolidate non-canonical hosts and HTTP to `NEXT_PUBLIC_SITE_URL` (production: https://www…).
  * Cloudflare/Vercel may redirect before this runs; this covers apex, http://www, and direct hits.
+ *
+ * Google Search Console “Page with redirect” for http:// and apex URLs is expected.
+ * Do not remove these redirects to make GSC “Validate Fix” pass.
  */
 export function middleware(request: NextRequest) {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();

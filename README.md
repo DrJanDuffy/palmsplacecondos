@@ -39,8 +39,14 @@ Keep **apex** (`palmsplacecondos.com`) and **`www`** on **DNS only** (gray cloud
 
 ### Google Search Console
 
-- Add a **URL-prefix** property for **`https://www.palmsplacecondos.com`** (same host as `NEXT_PUBLIC_SITE_URL` and the app’s apex → `www` redirect).
-- **Page indexing → Page with redirect** for `http://palmsplacecondos.com/` or `http://www.palmsplacecondos.com/` is **expected**: those URLs 301/308 to `https://www.palmsplacecondos.com/`. Do not try to get the HTTP or apex URLs indexed—use **URL Inspection** on the **https www** homepage instead. The redirect report may keep listing legacy URLs while Google recrawls.
+- Add a **URL-prefix** property for **`https://www.palmsplacecondos.com`** (same host as `NEXT_PUBLIC_SITE_URL` and the app’s apex → `www` redirect). A **Domain** property (`sc-domain:palmsplacecondos.com`) will also list HTTP and apex variants.
+- **Page indexing → Page with redirect** is **not an error** for these homepage variants (they must stay redirected):
+  - `http://www.palmsplacecondos.com/`
+  - `https://palmsplacecondos.com/`
+  - `http://palmsplacecondos.com/`
+  Live checks (2026-08-20): each returns a **single 301** to **`https://www.palmsplacecondos.com/`**. Sitemap and `robots.txt` already list only the `https://www` origin.
+- **Do not click Validate Fix** on that report. Google recrawls the same URLs, still sees a redirect, and marks validation **Failed**. That is the correct outcome. Validate Fix is only for *accidental* redirects you removed.
+- Confirm the destination instead: **URL Inspection** on **`https://www.palmsplacecondos.com/`** (expect **Indexed** / 200, `index, follow`). Do not try to get the HTTP or apex URLs indexed.
 - After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC.
 - **Verification:** DNS **TXT** at the apex (as in your Cloudflare zone) **or** set `GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` per [`.env.example`](.env.example) for the HTML-tag method.
 

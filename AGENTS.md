@@ -47,6 +47,7 @@ This file is the **repository-specific** companion to the shared Cursor rules in
 ## Google Search Console
 
 - **Primary host is `www`.** Set **`NEXT_PUBLIC_SITE_URL`** to `https://www.yourdomain.com` (no trailing slash) and use the **same** URL-prefix property in GSC. Apex traffic is redirected to **`www`** via [`src/middleware.ts`](src/middleware.ts) when the env URL includes `www`.
+- **Page with redirect / Validation Failed** for `http://`, apex, or `http://www` URLs is **expected**. Those hosts 301 to `https://www…`. Do **not** click Validate Fix and do **not** remove the redirects so GSC will “pass.” Inspect the **https www** URL instead.
 - Submit **`https://www.yourdomain.com/sitemap.xml`** in GSC after deploy; **`robots.txt`** uses the same origin.
 - **LLM indexes:** [`/llms.txt`](src/app/llms.txt/route.ts) and [`/llms-full.txt`](src/app/llms-full.txt/route.ts) list public marketing routes (same set as [`src/lib/marketing-routes.ts`](src/lib/marketing-routes.ts)).
 - **Sitemap URL errors:** [`sitemap.ts`](src/app/sitemap.ts) and [`robots.ts`](src/app/robots.ts) resolve the public origin per request (so URLs match `www` or your custom domain). Still set **`NEXT_PUBLIC_SITE_URL`** on Vercel so metadata and JSON-LD stay aligned. Vercel also exposes **`VERCEL_PROJECT_PRODUCTION_URL`** as a build-time fallback for [`getSiteUrl()`](src/lib/site-url.ts) when the public env is unset (enable system env vars in the project).
