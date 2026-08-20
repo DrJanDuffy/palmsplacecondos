@@ -7,7 +7,7 @@ import { ButtonAnchor } from "@/components/shared/button-link";
 import { CalendlyLink } from "@/components/shared/calendly-link";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import { getBreadcrumbListJsonLd, getItemListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
 import { siteContact } from "@/lib/site-contact";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
@@ -23,16 +23,54 @@ export function BuyersPageBody() {
   const webPageJsonLd = getWebPageJsonLdForPath("/buyers", pageMeta, {
     pageType: "CollectionPage",
     hasFaq: true,
+    hasItemList: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/buyers", [
     { name: "Home", path: "/" },
     { name: "Buyers", path: "/buyers" },
   ]);
+  const itemListJsonLd = getItemListJsonLd("/buyers", {
+    name: "Palms Place buyer guides and tools",
+    description: pageMeta.description,
+    items: [
+      {
+        name: "Palms Place buying field guide",
+        path: "/guide/buying-palms-place",
+        description: "Tour checklist, HOA documents, and offer prep",
+      },
+      {
+        name: "Studios vs one-bedroom Palms Place guide",
+        path: "/guide/palms-place-unit-types",
+        description: "Floor-plan decision framework",
+      },
+      {
+        name: "Palms Place field notes",
+        path: "/insights",
+        description: "First-hand tour and listing notes",
+      },
+      {
+        name: "Search Palms Place listings",
+        path: "/search",
+        description: "Curated live inventory search",
+      },
+      {
+        name: "Buyer calculators",
+        path: "/buyers/calculators",
+        description: "Payment and HOA carry planning",
+      },
+      {
+        name: "Palms Place building guide",
+        path: "/palms-place",
+        description: "Tower address, amenities context, and buying paths",
+      },
+    ],
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Buy Palms Place &amp; Las Vegas high-rise condos
       </h1>

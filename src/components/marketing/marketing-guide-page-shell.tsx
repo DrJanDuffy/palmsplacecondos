@@ -66,6 +66,7 @@ export function MarketingGuidePageShell({
     {
       aboutPalmsPlace: true,
       hasFaq: Boolean(faqItems && faqItems.length > 0),
+      hasHowTo: Boolean(checklist && checklist.items.length > 0),
     },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, breadcrumbs);
