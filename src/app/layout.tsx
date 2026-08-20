@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteFooter } from "@/components/layouts/site-footer";
 import { SiteHeader } from "@/components/layouts/site-header";
 import { RealScoutOfficeListingsEmbed } from "@/components/seo/realscout-office-listings-embed";
+import { SiteBreadcrumbsFromRequest } from "@/components/seo/site-breadcrumbs-server";
 import { StructuredData } from "@/components/seo/structured-data";
 import { formatTeamPhrase, siteContact } from "@/lib/site-contact";
 import { getBaseJsonLd } from "@/lib/schema";
@@ -95,6 +96,7 @@ export default function RootLayout({
             Skip to site navigation
           </a>
           <SiteHeader />
+          <SiteBreadcrumbsFromRequest />
           <main className="flex-1" id="main-content">
             {children}
           </main>

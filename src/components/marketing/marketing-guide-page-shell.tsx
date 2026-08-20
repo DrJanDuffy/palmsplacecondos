@@ -1,5 +1,6 @@
 import { PageFaqSection } from "@/components/marketing/page-faq-section";
 import { RelatedPages } from "@/components/seo/related-pages";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { SourcesVerification } from "@/components/seo/sources-verification";
 import { StructuredData } from "@/components/seo/structured-data";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
@@ -135,6 +136,7 @@ export function MarketingGuidePageShell({
               {section.question}
             </h2>
             <p className="mt-3 leading-relaxed text-palms-cream/85">{section.answer}</p>
+            <SectionRelatedLinks pathname={path} sectionId={section.id} />
           </section>
         ))}
       </div>
@@ -172,7 +174,7 @@ export function MarketingGuidePageShell({
       ) : null}
 
       <SourcesVerification />
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

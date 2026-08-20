@@ -5,7 +5,9 @@ import { HomeFaqSection } from "@/components/sections/home-faq-section";
 import { StaySection } from "@/components/sections/stay-section";
 import { UnwindSection } from "@/components/sections/unwind-section";
 import { WhyBuySection } from "@/components/sections/why-buy-section";
+import { RelatedPages } from "@/components/seo/related-pages";
 import { StructuredData } from "@/components/seo/structured-data";
+import { relatedLinksForPath } from "@/lib/internal-links";
 import { buildPageMetadata } from "@/lib/metadata-helpers";
 import { siteContact } from "@/lib/site-contact";
 import { getCurrentFeaturedListingJsonLd, getHomeWebPageJsonLd } from "@/lib/schema";
@@ -48,6 +50,7 @@ export default function HomePage() {
       <WhyBuySection />
       <UnwindSection />
       <HomeFaqSection />
+      <RelatedPages pathname="/" links={relatedLinksForPath("/")} />
     </>
   );
 }

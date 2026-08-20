@@ -254,7 +254,7 @@ export function PopularSearchesPageBody() {
         items={popularSearchesPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/popular-searches" links={related} />
     </article>
   );
 }

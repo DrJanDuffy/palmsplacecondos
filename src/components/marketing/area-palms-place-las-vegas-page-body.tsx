@@ -156,7 +156,7 @@ export function AreaPalmsPlaceLasVegasPageBody() {
         items={areaPalmsPlacePageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

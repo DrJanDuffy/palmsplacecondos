@@ -195,7 +195,7 @@ export function TeamPageBody() {
         items={getTeamPageFaq()}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/team" links={related} />
     </article>
   );
 }

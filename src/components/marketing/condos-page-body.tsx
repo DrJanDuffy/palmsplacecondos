@@ -193,7 +193,7 @@ export function CondosPageBody() {
         items={condosPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/condos" links={related} />
     </article>
   );
 }

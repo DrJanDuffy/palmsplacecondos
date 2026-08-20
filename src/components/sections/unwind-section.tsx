@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ButtonAnchor } from "@/components/shared/button-link";
 import { CalendlyLink } from "@/components/shared/calendly-link";
 import { LuxuryPlaceholder } from "@/components/sections/luxury-placeholder";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 
 /**
@@ -41,6 +42,7 @@ export function UnwindSection() {
             <CalendlyLink>Schedule a Palms Place showing with Dr. Jan</CalendlyLink>
             .
           </p>
+          <SectionRelatedLinks pathname="/" sectionId="unwind-heading" />
         </div>
       </div>
 
@@ -72,6 +74,18 @@ export function UnwindSection() {
           HOA fees, special assessments, rental caps, and parking rules change. Review the latest
           HOA packet and resale package with your agent and a qualified professional before you
           rely on any summary.
+        </p>
+        <SectionRelatedLinks pathname="/" sectionId="unwind-hoa-heading" />
+        <p className="mt-4 text-sm">
+          Read the{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/guide/palms-place-hoa-and-monthly-costs">
+            Palms Place HOA fees and monthly costs guide
+          </Link>
+          {" "}and the{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/guide/palms-place-amenities-and-resort-access">
+            Palms Place amenities and resort access guide
+          </Link>
+          .
         </p>
       </div>
 

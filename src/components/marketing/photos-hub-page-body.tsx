@@ -103,7 +103,7 @@ export function PhotosHubPageBody() {
         items={photosHubPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

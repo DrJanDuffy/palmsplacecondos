@@ -174,7 +174,7 @@ export function ConnectPageBody() {
         items={connectPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/connect" links={related} />
     </article>
   );
 }

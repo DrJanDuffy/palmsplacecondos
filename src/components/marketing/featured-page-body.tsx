@@ -127,7 +127,7 @@ export function FeaturedPageBody() {
         items={featuredPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/featured" links={related} />
     </article>
   );
 }

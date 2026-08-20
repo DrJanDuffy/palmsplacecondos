@@ -203,7 +203,7 @@ export function PalmsPlacePageBody() {
       />
 
       <SourcesVerification />
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/palms-place" links={related} />
     </article>
   );
 }

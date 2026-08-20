@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/shared/button-link";
 import { CalendlyButton } from "@/components/shared/calendly-link";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { getGbpDescription, getTelHref, siteContact } from "@/lib/site-contact";
 
@@ -46,8 +47,18 @@ export function HeroPalmsPlace() {
 
           <p className="palms-reveal-delay-1 mt-6 max-w-2xl text-base leading-relaxed text-palms-cream/90 md:text-lg">
             {siteContact.gbpBusinessName} is a high-rise at 4381 W Flamingo Road, west of the Las
-            Vegas Strip. {description ?? "Browse studio and one-bedroom inventory with Dr. Jan Duffy."}
+            Vegas Strip. {description ?? "Browse studio and one-bedroom inventory with Dr. Jan Duffy."}{" "}
+            Read the{" "}
+            <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/palms-place">
+              Palms Place Las Vegas building guide
+            </Link>
+            {" "}or the{" "}
+            <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/area/palms-place-las-vegas">
+              West Flamingo location page
+            </Link>
+            .
           </p>
+          <SectionRelatedLinks pathname="/" sectionId="hero-heading" />
 
           {phone && tel ? (
             <p className="palms-reveal-delay-2 mt-4 text-sm text-palms-cream/75 md:text-base">

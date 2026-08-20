@@ -22,7 +22,7 @@ export function PagePlaceholder({ title, description, path }: PagePlaceholderPro
       <p className="mt-6 text-sm text-palms-cream/65">
         Page content is coming soon. Explore related topics below or use the site navigation.
       </p>
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </div>
   );
 }

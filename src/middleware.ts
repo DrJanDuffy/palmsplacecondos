@@ -8,27 +8,33 @@ import { NextResponse } from "next/server";
  * Google Search Console “Page with redirect” for http:// and apex URLs is expected.
  * Do not remove these redirects to make GSC “Validate Fix” pass.
  */
+function nextWithPathname(request: NextRequest): NextResponse {
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", request.nextUrl.pathname);
+  return NextResponse.next({ request: { headers: requestHeaders } });
+}
+
 export function middleware(request: NextRequest) {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (!raw) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   let canonical: URL;
   try {
     canonical = new URL(raw.replace(/\/$/, ""));
   } catch {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   const canonicalHost = canonical.hostname.toLowerCase();
   if (!canonicalHost.startsWith("www.")) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase();
   if (!host) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   const forwardedProto = request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim()?.toLowerCase();
@@ -40,7 +46,7 @@ export function middleware(request: NextRequest) {
     canonical.protocol === "https:" ? requestIsHttps : request.nextUrl.protocol === canonical.protocol;
 
   if (hostMatches && protocolMatches) {
-    return NextResponse.next();
+    return nextWithPathname(request);
   }
 
   const destination = new URL(

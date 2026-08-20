@@ -114,7 +114,7 @@ export function ContactPageBody() {
         items={getContactPageFaq()}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/contact" links={related} />
     </article>
   );
 }

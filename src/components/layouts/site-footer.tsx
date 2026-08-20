@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendlyLink } from "@/components/shared/calendly-link";
 import { popularNav, primaryNav, utilityNav } from "@/lib/navigation";
+import { geoCitationLinks } from "@/lib/internal-links";
 import {
   formatOfficeAddressLine,
   formatOfficeHoursWithSpecial,
@@ -46,6 +47,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
   const hoursLine = formatOfficeHoursWithSpecial();
   const tel = siteContact.phone ? getTelHref(siteContact.phone) : undefined;
+  const citations = geoCitationLinks().slice(0, 4);
 
   return (
     <footer
@@ -169,6 +171,18 @@ export function SiteFooter() {
                       </a>
                     </li>
                   ) : null}
+                  {citations.map((item) => (
+                    <li key={`footer-cite-${item.href}`}>
+                      <a
+                        className="font-medium text-palms-gold underline-offset-4 hover:underline"
+                        href={item.href}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
