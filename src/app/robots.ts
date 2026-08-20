@@ -3,8 +3,9 @@ import { getSiteUrl } from "@/lib/site-url";
 
 /**
  * Google honors User-agent, Allow, Disallow, and Sitemap only.
- * Do not emit `Host:` — Search Console flags it as a robots.txt warning.
- * Canonical host is https://www via redirects + sitemap URLs.
+ * Do not emit `Host:` — it is a Yandex leftover and Search Console flags it as
+ * the robots.txt warning on every protocol/host variant it fetches.
+ * Canonical host is https://www via redirects + sitemap URLs, not this file.
  *
  * @see https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt
  */
