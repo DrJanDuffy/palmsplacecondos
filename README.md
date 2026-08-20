@@ -47,9 +47,40 @@ Keep **apex** (`palmsplacecondos.com`) and **`www`** on **DNS only** (gray cloud
   Live checks (2026-08-20): each returns a **single 301** to **`https://www.palmsplacecondos.com/`**. Sitemap and `robots.txt` already list only the `https://www` origin.
 - **Do not click Validate Fix** on that report. Google recrawls the same URLs, still sees a redirect, and marks validation **Failed**. That is the correct outcome. Validate Fix is only for *accidental* redirects you removed.
 - Confirm the destination instead: **URL Inspection** on **`https://www.palmsplacecondos.com/`** (expect **Indexed** / 200, `index, follow`). Do not try to get the HTTP or apex URLs indexed.
-- After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC.
+- After deploy, submit **`https://www.palmsplacecondos.com/sitemap.xml`** in GSC. Search Console Sitemaps export (2026-08-20): that URL is **Success**, **33 URLs discovered**, last processed **2026-08-18** (last *submitted* **2026-04-16** — resubmit after large content/lastmod waves if the report looks stale). Live `sitemap.xml` and `robots.txt` on **www** match this repo.
 - **robots.txt warnings:** GSC lists `http`/`https` and apex/`www` copies of `/robots.txt`. One warning on each was the unsupported `Host:` line (Yandex-only). Google only uses User-agent, Allow, Disallow, and Sitemap — that line is omitted in [`src/app/robots.ts`](src/app/robots.ts). Recrawl after deploy; do not treat the four URLs as four different files.
 - **Verification:** DNS **TXT** at the apex (as in your Cloudflare zone) **or** set `GOOGLE_SITE_VERIFICATION` / `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` per [`.env.example`](.env.example) for the HTML-tag method.
+
+### IndexNow (Bing and other participating engines)
+
+IndexNow is a URL-change ping so Bing, Yandex, Naver, Seznam.cz, and Yep can prioritize recrawl instead of waiting on organic discovery. It does **not** replace [`sitemap.xml`](src/app/sitemap.ts): sitemaps remain the full inventory; IndexNow notifies engines about **recent** adds, updates, and deletes ([IndexNow FAQ](https://www.indexnow.org/faq)).
+
+This Next.js app is not on a CMS with a native IndexNow plugin, so the site implements the protocol directly:
+
+1. **API key + verification (Option 1, site root).** The key lives in [`src/lib/indexnow-key.ts`](src/lib/indexnow-key.ts) (override with `INDEXNOW_KEY`) and is served at `https://www.palmsplacecondos.com/{key}.txt` by [`src/middleware.ts`](src/middleware.ts). The response body is the key only (UTF-8, no HTML). After deploy, open that URL and confirm it shows the key.
+2. **URL submission.** Production POST to `https://api.indexnow.org/indexnow` (global endpoint; engines share submissions). Batch limit is **10,000 URLs** per POST. Run `npm run notify:indexnow` ([`scripts/ping-search-engines.mjs`](scripts/ping-search-engines.mjs)) using the marketing routes in [`src/lib/marketing-routes.ts`](src/lib/marketing-routes.ts).
+3. **When we notify.** After content changes (deploy / lastmod bump), not for cosmetic-only edits. IndexNow is not a retroactive dump of history — keep [`sitemap.xml`](src/app/sitemap.ts) for the full catalog.
+4. **HTTP responses:** `200` received, `202` accepted (key validation pending on first use), `400` bad request, `403` key file invalid, `422` host/payload mismatch, `429` rate limit. Submissions **count toward crawl quota**.
+
+Optional: set `BING_SITE_VERIFICATION` from Bing Webmaster Tools (HTML `msvalidate.01` tag) so the Bing property matches this host. Cloudflare orange-cloud proxy is still **not** used in front of Vercel; Cloudflare’s native IndexNow feature is unused because DNS is gray-cloud / DNS-only.
+
+### Bing Webmaster Tools backlinks (inbound links)
+
+Backlinks are links **from other sites** to this site. Bing Webmaster Tools can review yours and **compare** them to any other website. IndexNow only tells Bing that **our** URLs changed; it does not create inbound links.
+
+**Always compare the canonical host:** `https://www.palmsplacecondos.com/` (same as `NEXT_PUBLIC_SITE_URL` and the sitemap). Apex `https://palmsplacecondos.com/` 308s to **www**, so Bing’s backlink index for the apex host is often empty even when **www** has (or will have) data.
+
+Bing Webmaster Tools Backlinks compare, **2026-08-20** (UI paste):
+
+| Metric | `https://palmsplacecondos.com/` (apex) | `https://www.palms.com` |
+|---|---|---|
+| Total referring domains | No data (`-`) | 2.4K |
+| Anchor texts | No data (`-`) | 1.1K |
+| Top referring domains / top anchors | No data available | Casino/entertainment profile (see below) |
+
+`palms.com` top referring domains in that sample included blogspot.com, themogh.org, trazeetravel.com, uvtix.com, axs.com, vegasfamilyinsider.com, fodors.com, vegasnearme.com, yogonet.com, and boxofficehero.com. Top anchors were Palms / Palms Casino Resort / palms.com / Scotch 80 Prime / Press / tickets / a pool-opening press URL. That is a **hotel-casino and ticketing** link graph, not a Palms Place **resale condo** peer. Do not chase those domains or copy those anchors for this site.
+
+Re-run the same Bing compare with **`https://www.palmsplacecondos.com/`** as “your site.” If **www** is also “No data,” Bing has not sampled inbound links yet (new property, or none discovered)—that is not a robots/sitemap bug. First-party citations that can earn real links: Google Business Profile website field, the Palms Place Facebook page, BHHS Nevada Properties agent profile, and RealScout—keep NAP identical to [`src/lib/site-contact.ts`](src/lib/site-contact.ts). Do not invent review counts or “#1” claims.
 
 ### Optional: DMARC (email only)
 

@@ -52,6 +52,8 @@ This file is the **repository-specific** companion to the shared Cursor rules in
 - **LLM indexes:** [`/llms.txt`](src/app/llms.txt/route.ts) and [`/llms-full.txt`](src/app/llms-full.txt/route.ts) list public marketing routes (same set as [`src/lib/marketing-routes.ts`](src/lib/marketing-routes.ts)).
 - **Sitemap URL errors:** [`sitemap.ts`](src/app/sitemap.ts) and [`robots.ts`](src/app/robots.ts) resolve the public origin per request (so URLs match `www` or your custom domain). Still set **`NEXT_PUBLIC_SITE_URL`** on Vercel so metadata and JSON-LD stay aligned. Vercel also exposes **`VERCEL_PROJECT_PRODUCTION_URL`** as a build-time fallback for [`getSiteUrl()`](src/lib/site-url.ts) when the public env is unset (enable system env vars in the project).
 - Add **`GOOGLE_SITE_VERIFICATION`** (or `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`) from GSC’s HTML tag method so the site can be verified without extra file deploys.
+- **IndexNow** (Bing, Yandex, Naver, Seznam.cz, Yep): ownership key from [`src/lib/indexnow-key.ts`](src/lib/indexnow-key.ts) served at `/{key}.txt` on **www** via [`src/middleware.ts`](src/middleware.ts). Submit marketing URLs with `npm run notify:indexnow` ([`scripts/ping-search-engines.mjs`](scripts/ping-search-engines.mjs)). Keep **sitemaps** as the full URL catalog. Production **www** only.
+- **Bing Webmaster Tools backlinks:** review and compare inbound links on **`https://www.palmsplacecondos.com/`**, not apex. Apex 308s to www, so Bing often shows “No data” for `https://palmsplacecondos.com/`. IndexNow does not create backlinks. Do not treat `palms.com` (casino/tickets/press) as a peer link-profile for this condo site.
 
 ## Hosting
 

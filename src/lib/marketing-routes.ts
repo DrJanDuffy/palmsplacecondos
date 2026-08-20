@@ -1,6 +1,10 @@
 /**
- * Canonical marketing routes for sitemap, llms.txt, and internal SEO tooling.
+ * Canonical marketing routes for sitemap, llms.txt, IndexNow, and internal SEO tooling.
  * Keep in sync with public App Router page.tsx routes under src/app.
+ *
+ * GSC Sitemaps (2026-08-20): 33 URLs discovered on
+ * `https://www.palmsplacecondos.com/sitemap.xml` (Success). Count must stay
+ * aligned with this array.
  */
 
 export type MarketingRoute = {
