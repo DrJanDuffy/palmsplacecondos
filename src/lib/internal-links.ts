@@ -92,6 +92,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       description: "Rental caps & assessment timing",
     },
     {
+      href: "/insights/palms-place-corner-unit-listing-campaign",
+      label: "Palms Place #8322 corner listing (field note)",
+      description: "How the listing specialist marketed this unit",
+    },
+    {
       href: "/team",
       label: "Palms Place real estate team",
       description: "Dr. Jan Duffy — listings & buyers",

@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/lib/schema";
+import { getCanonicalQuery } from "@/lib/content/aeo-query-map";
 import { formatPalmsPlaceTowerAddressLine } from "@/lib/content/palms-place-building";
 
 /** Extended FAQ entry for on-page anchors and grouping (JSON-LD uses question + answer only). */
@@ -13,7 +14,7 @@ export type PalmsPlaceFaqEntry = {
 export const palmsPlaceFaqIntro = {
   title: "Palms Place Las Vegas FAQ — location, condos, and ownership",
   description:
-    "Clear answers on where Palms Place sits versus the Strip, the building and address, and how ownership works in the tower—what buyers, owners, and researchers usually want first. For anything tied to a stay, HOA rules, or a purchase, confirm with official disclosures, the property, or your Nevada real estate professional.",
+    "This is the Palms Place condo FAQ for buyers and owners with Dr. Jan Duffy—not the Palms Place hotel booking site. Answers cover address vs the Strip, the 47-story tower, and ownership. Confirm stays with Palms.com; confirm purchases in HOA documents.",
 };
 
 /** Volatile guest-facing topics — confirm with the resort or your booking. */
@@ -24,7 +25,19 @@ export const palmsPlaceFaqPlanningIntro = {
 };
 
 /** Stable location, building, units, and ownership Q&A (primary SEO block). */
+const hotelVsCondos = getCanonicalQuery("hotel-vs-condos");
+const stripLocation = getCanonicalQuery("strip-location");
+
 export const palmsPlaceFaqPrimary: PalmsPlaceFaqEntry[] = [
+  {
+    question: hotelVsCondos?.question ?? "Is this the Palms Place hotel booking website?",
+    answer:
+      hotelVsCondos?.answer ??
+      "No. This site is Palms Place condos for sale with Dr. Jan Duffy, not hotel reservations.",
+    shortAnswer: "No. This is Palms Place condos for sale—not the hotel booking site.",
+    category: "This site",
+    slug: "is-this-the-palms-place-hotel-booking-website",
+  },
   {
     question: "Is there a Kroger close to Palms Place Las Vegas?",
     answer:
@@ -54,17 +67,17 @@ export const palmsPlaceFaqPrimary: PalmsPlaceFaqEntry[] = [
   },
   {
     question: "What is the address of Palms Place Las Vegas?",
-    answer: `The address most commonly used for Palms Place is ${formatPalmsPlaceTowerAddressLine()}.`,
-    shortAnswer: `${formatPalmsPlaceTowerAddressLine()}.`,
+    answer: `The residential tower address is ${formatPalmsPlaceTowerAddressLine()}—use it for Palms Place condo tours and maps. That is not the team office on Lindell Road. Confirm stays and suite reservations on the official Palms Place hotel page; confirm purchases with Dr. Jan Duffy and HOA documents.`,
+    shortAnswer: `${formatPalmsPlaceTowerAddressLine()} (tower—not the sales office).`,
     category: "Location",
     slug: "what-is-the-address-of-palms-place-las-vegas",
   },
   {
     question: "Is Palms Place on the Las Vegas Strip?",
     answer:
-      "No. Palms Place is near the Strip, but it is not on Las Vegas Boulevard. It sits west of the main resort corridor and offers easier access to the Strip without being in the center of the traffic.",
-    shortAnswer:
-      "No. Palms Place is near the Strip, but it is not on Las Vegas Boulevard.",
+      stripLocation?.answer ??
+      "No. Palms Place sits west of Las Vegas Boulevard on Flamingo Road, adjacent to Palms Casino Resort.",
+    shortAnswer: "No. Palms Place is west of the Strip on Flamingo Road, not on Las Vegas Boulevard.",
     category: "Location",
     slug: "is-palms-place-on-the-strip",
   },
@@ -78,8 +91,9 @@ export const palmsPlaceFaqPrimary: PalmsPlaceFaqEntry[] = [
   },
   {
     question: "How many floors does Palms Place have?",
-    answer: "Palms Place is a 47-story tower.",
-    shortAnswer: "47 stories.",
+    answer:
+      "Palms Place is a 47-story residential high-rise at 4381 W Flamingo Road. Floor, view, and stack still vary by unit—confirm the listing record and tour the residence rather than assuming every floor matches a hotel-suite brochure. Dr. Jan Duffy lists condos in this tower, not hotel keys.",
+    shortAnswer: "47 stories—confirm the specific unit on the listing record.",
     category: "Building",
     slug: "how-many-floors-does-palms-place-have",
   },
@@ -103,8 +117,8 @@ export const palmsPlaceFaqPrimary: PalmsPlaceFaqEntry[] = [
   {
     question: "How old is Palms Place in Las Vegas?",
     answer:
-      "Palms Place opened in 2008, which makes it about 18 years old in 2026.",
-    shortAnswer: "Palms Place opened in 2008 and is about 18 years old in 2026.",
+      "Palms Place opened in 2008, which makes it about 18 years old in 2026. Vintage affects finishes, HOA history, and how a resale shows—not a hotel “new tower” claim. Verify assessments and governing documents for the unit you are buying with Dr. Jan Duffy; Wikipedia and the official resort page describe the building, not your HOA packet.",
+    shortAnswer: "Palms Place opened in 2008 (about 18 years old in 2026).",
     category: "Building",
     slug: "how-old-is-palms-place-in-las-vegas",
   },

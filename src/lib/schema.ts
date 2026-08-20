@@ -249,6 +249,7 @@ function buildPalmsPlaceEntity(siteUrl: string): Record<string, unknown> {
         value: String(palmsPlaceTower.openedYear),
       },
     ],
+    sameAs: [palmsPlaceTower.wikipediaUrl, palmsPlaceTower.officialResortUrl],
   };
 
   if (b) {

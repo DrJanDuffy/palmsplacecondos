@@ -1,4 +1,5 @@
 import type { FaqItem } from "@/lib/schema";
+import { canonicalQueryAsFaqItem } from "@/lib/content/aeo-query-map";
 import {
   formatOfficeAddressLine,
   formatOfficeHoursWithSpecial,
@@ -124,7 +125,7 @@ export const communitiesPageFaq: FaqItem[] = [
   {
     question: "How do Las Vegas communities compare to Palms Place?",
     answer:
-      "Master-planned and guard-gated neighborhoods emphasize yards, schools, and drive times. Palms Place is a Strip-adjacent high-rise with HOA amenities and lock-and-leave living—compare both product types before you tour.",
+      "Master-planned and guard-gated neighborhoods emphasize yards, lot size, and drive times. Palms Place is a Strip-adjacent high-rise with HOA amenities and lock-and-leave living—compare both product types before you tour.",
   },
   {
     question: "Should I tour communities and high-rises in the same weekend?",
@@ -167,7 +168,7 @@ export const homesPageFaq: FaqItem[] = [
   {
     question: "When should I choose a house instead of Palms Place?",
     answer:
-      "When schools, yard space, or neighborhood character matter more than resort-style amenities and Strip proximity. Monthly payment comparisons should include HOA vs maintenance, not list price alone.",
+      "When yard space, lot size, or a detached house matter more than resort-style amenities and Strip proximity. Monthly payment comparisons should include HOA vs maintenance, not list price alone.",
   },
   {
     question: "How do I search Las Vegas homes for sale here?",
@@ -181,17 +182,13 @@ export const buyingGuidePageFaq: FaqItem[] = [
   {
     question: "Is this guide official Palms Place or HOA documentation?",
     answer:
-      "No. It is a brokerage field guide based on tours and transactions—always verify rental rules, fees, and assessments in HOA resale certificates and listing disclosures.",
+      "No. It is a brokerage field guide based on Palms Place tours and transactions. Always verify rental rules, fees, and assessments in HOA resale certificates and listing disclosures for the unit you are buying. Dr. Jan Duffy uses this checklist on showings; official documents still control what you can do after closing.",
   },
-  {
-    question: "What is the first document to request before an offer?",
-    answer:
-      "HOA resale package and governing documents, plus a clear picture of parking, storage, and any special assessments. Your agent coordinates timing so you are not guessing from marketing copy alone.",
-  },
+  canonicalQueryAsFaqItem("buy-docs"),
   {
     question: "Who handles buyer tours versus listing marketing?",
     answer:
-      "Buyer tours, offer strategy, listing preparation, and marketing all route through Dr. Jan Duffy—listing specialist, team leader, and Palms Place Buyers Specialist.",
+      "Buyer tours, offer strategy, listing preparation, and marketing all route through Dr. Jan Duffy—listing specialist, team leader, and Palms Place Buyers Specialist. Role details are canonical on the team page; this guide is the tour-and-document workflow.",
   },
 ];
 
@@ -235,68 +232,52 @@ export const unitTypesGuidePageFaq: FaqItem[] = [
 
 /** `/guide/selling-palms-place` — must mirror visible FAQ on that page. */
 export const sellingGuidePageFaq: FaqItem[] = [
-  {
-    question: "When should a Palms Place seller order HOA documents?",
-    answer:
-      "Early in listing prep so marketing, pricing, and buyer questions reflect accurate rental rules, reserves, and assessments. Delays in HOA packets can slow escrow—not just marketing.",
-  },
+  canonicalQueryAsFaqItem("sell-hoa"),
   {
     question: "Does furnished staging change how buyers evaluate HOA rules?",
     answer:
-      "Furnished presentation can highlight lifestyle but does not replace disclosures. Buyers still underwrite rental caps, fees, and sound issues from official documents.",
+      "Furnished presentation can highlight lifestyle but does not replace disclosures. Palms Place buyers still underwrite rental caps, fees, and sound from official documents. Staging is not a substitute for the packet Dr. Jan Duffy orders early in listing prep.",
   },
   {
     question: "Who leads Palms Place listing strategy?",
     answer:
-      "Dr. Jan Duffy leads listing marketing and positioning; buyer inquiries on active listings are coordinated per brokerage workflow. Use the sell page for valuation conversations.",
+      "Dr. Jan Duffy leads listing marketing and positioning; buyer inquiries on active listings are coordinated per brokerage workflow. Use the sell page for valuation conversations and the #8322 field note to see how a Palms Place corner campaign is actually written.",
   },
 ];
 
 /** `/guide/palms-place-hoa-and-monthly-costs` — must mirror visible FAQ on that page. */
 export const hoaGuidePageFaq: FaqItem[] = [
-  {
-    question: "Where do I find Palms Place HOA fees for a specific unit?",
-    answer:
-      "In the HOA resale certificate and governing documents for that unit—not on a generic blog average. Your agent requests the packet early so assessments, parking, and any special assessments are visible before you offer.",
-  },
+  canonicalQueryAsFaqItem("hoa-fees"),
   {
     question: "Does this page quote current Palms Place HOA dollar amounts?",
     answer:
-      "No. Assessments change and vary by unit. Use this guide to know what to ask for, then confirm numbers in official documents and with your lender for payment modeling.",
+      "No. Assessments change and vary by unit. Use this guide to know what to ask for, then confirm numbers in official documents and with your lender for payment modeling. Dr. Jan Duffy will not publish a blog average that can be wrong next quarter.",
   },
   {
     question: "How does HOA review connect to the buyer calculators page?",
     answer:
-      "Calculators help you frame lender questions; HOA documents supply the monthly assessment and fee lines to plug into your carry estimate. Both are needed for a realistic budget.",
+      "Calculators help you frame lender questions; HOA documents supply the monthly assessment and fee lines to plug into your carry estimate. Both are needed for a realistic Palms Place budget. Neither page is a rate quote from a licensed lender.",
   },
 ];
 
 /** `/guide/furnished-palms-place-condos` — must mirror visible FAQ on that page. */
 export const furnishedGuidePageFaq: FaqItem[] = [
-  {
-    question: "Are all furnished Palms Place listings investor-ready?",
-    answer:
-      "Not automatically. Furnishing and rental eligibility are separate questions—HOA rental caps and registration rules in the resale certificate govern what you can do after closing.",
-  },
+  canonicalQueryAsFaqItem("furnished"),
   {
     question: "What if furniture in photos is not included in the sale?",
     answer:
-      "The purchase agreement and listing remarks control what conveys. Clarify personal property in writing before you assume a turnkey package from marketing photos.",
+      "The purchase agreement and listing remarks control what conveys. Clarify personal property in writing before you assume a turnkey package from marketing photos. Palms Place #8322 is marketed furnished—still read the inventory exhibit Dr. Jan Duffy uses on that listing.",
   },
   {
     question: "Where can I read team field notes on furnished surprises?",
     answer:
-      "See the furnished resale inventory surprises field note under insights—it complements this guide but does not replace unit-specific HOA documents.",
+      "See the furnished resale inventory surprises field note under insights—it complements this guide but does not replace unit-specific HOA documents. The #8322 corner-listing note shows how remarks separate furniture from rental permission.",
   },
 ];
 
 /** `/guide/palms-place-amenities-and-resort-access` — must mirror visible FAQ on that page. */
 export const amenitiesGuidePageFaq: FaqItem[] = [
-  {
-    question: "Do Palms Place owners get the same access as hotel guests?",
-    answer:
-      "Residential ownership follows HOA and building rules—not a nightly hotel folio. Verify owner amenity rights and any separate fees in the resale certificate for your unit.",
-  },
+  canonicalQueryAsFaqItem("amenities"),
   {
     question: "Can amenities change after you buy?",
     answer:
@@ -311,20 +292,16 @@ export const amenitiesGuidePageFaq: FaqItem[] = [
 
 /** `/area/palms-place-las-vegas` — must mirror visible FAQ on that page. */
 export const areaPalmsPlacePageFaq: FaqItem[] = [
-  {
-    question: "What is the official address of Palms Place?",
-    answer:
-      "The residential tower is at 4381 W Flamingo Road, Las Vegas, NV 89103. That is the building address for tours and maps—not the team office address on the contact page.",
-  },
+  canonicalQueryAsFaqItem("address"),
   {
     question: "Is Palms Place in the City of Las Vegas or Paradise?",
     answer:
-      "Many Strip-adjacent properties use Paradise or Las Vegas addressing in public records and maps. Use the tower address and ZIP 89103 for directions; confirm tour meeting points with your agent.",
+      "Many Strip-adjacent properties use Paradise or Las Vegas addressing in public records and maps. Use the tower address 4381 W Flamingo Road and ZIP 89103 for directions. Confirm the tour meeting point with Dr. Jan Duffy so you are not sent to the Lindell Road office when the showing is in the residential tower.",
   },
   {
     question: "How far is Palms Place from the Las Vegas Strip?",
     answer:
-      "It is west of the Strip corridor on Flamingo Road—close enough for resort-adjacent living but not interchangeable with every venue on Las Vegas Boulevard. Tour at the times you plan to come and go.",
+      "It is west of the Strip corridor on Flamingo Road—close enough for resort-adjacent living but not interchangeable with every venue on Las Vegas Boulevard. Drive times change with traffic. Tour at the hours you plan to come and go. The Strip yes/no answer lives on the Palms Place FAQ page.",
   },
 ];
 
@@ -333,12 +310,12 @@ export const condosPageFaq: FaqItem[] = [
   {
     question: "Does this page list every Palms Place condo for sale?",
     answer:
-      "No. It orients you to high-rise and Palms Place context, then points to live RealScout search for current MLS inventory. Status and pricing change daily.",
+      "No. It orients you to high-rise and Palms Place context, then points to live RealScout search for current inventory. Status and pricing change daily—unlike a frozen Zillow or hotel-suite grid.",
   },
   {
-    question: "How is this different from the Palms Place building guide?",
+    question: "How is this different from Palms.com, Booking, or Zillow?",
     answer:
-      "The building guide focuses on Palms Place specifically. This condos hub also covers comparable Strip and west-of-Strip towers buyers cross-shop.",
+      "Palms.com is the resort hotel. Booking and Tripadvisor are stay platforms. Zillow is a third-party portal. This page is Dr. Jan Duffy’s Palms Place condo brokerage hub—listings, HOA due diligence, and tours in the tower at 4381 W Flamingo Road.",
   },
   {
     question: "Where do I compare HOA costs before I offer?",
@@ -357,7 +334,7 @@ export const luxuryHomesPageFaq: FaqItem[] = [
   {
     question: "When should I choose a luxury home instead of Palms Place?",
     answer:
-      "When land, schools, and outdoor space outweigh lock-and-leave amenities and Strip proximity. Compare monthly carry including HOA versus maintenance, not list price alone.",
+      "When land, lot size, and outdoor space outweigh lock-and-leave amenities and Strip proximity. Compare monthly carry including HOA versus maintenance, not list price alone.",
   },
   {
     question: "How do I search luxury homes near Las Vegas?",
@@ -368,20 +345,16 @@ export const luxuryHomesPageFaq: FaqItem[] = [
 
 /** `/search` — must mirror visible FAQ on that page. */
 export const searchPageFaq: FaqItem[] = [
+  canonicalQueryAsFaqItem("search"),
   {
-    question: "What does the curated RealScout search include?",
+    question: "Is this search the same as Zillow or a hotel booking site?",
     answer:
-      "The team’s saved RealScout search filters Palms Place and comparable Las Vegas-area inventory by price, property type, and status. Availability changes daily—confirm every field with your agent before you offer.",
-  },
-  {
-    question: "Is this search the same as the MLS website?",
-    answer:
-      "It is a curated brokerage search experience, not an unfiltered national feed. Use it to narrow tours, then verify status, HOA, and square footage in official listing records.",
+      "No. This is Dr. Jan Duffy’s curated brokerage search for Palms Place and Las Vegas-area listings—not Zillow, Booking.com, Tripadvisor, or Palms.com hotel reservations. Use it to narrow tours, then verify status, HOA, and square footage in official listing records.",
   },
   {
     question: "Who should I call after I find a unit I like?",
     answer:
-      "Buyer and seller questions both go to Dr. Jan Duffy. Use the contact page or the office phone shown in the footer.",
+      "Buyer and seller questions both go to Dr. Jan Duffy. Use the contact page or the office phone shown in the footer. She is the Palms Place listing specialist—not a portal lead center.",
   },
 ];
 
@@ -425,22 +398,17 @@ export const sellersPageFaq: FaqItem[] = [
 
 /** `/contact` — built from site-contact so NAP/hours never drift from GBP. */
 export function getContactPageFaq(): FaqItem[] {
-  const address = formatOfficeAddressLine();
   const hours = formatOfficeHoursWithSpecial();
-  const phone = siteContact.phone ?? "";
   return [
-    {
-      question: `What is the office address and phone for ${siteContact.gbpBusinessName}?`,
-      answer: `The office is at ${address}. Call ${phone}. That NAP matches the Google Business Profile (${siteContact.gbpBusinessName}) and the site footer.`,
-    },
+    canonicalQueryAsFaqItem("contact"),
     {
       question: "What are office hours?",
-      answer: `${hours}. Book tours and calls on Calendly (Schedule an appointment on this page)—evening slots depend on availability.`,
+      answer: `${hours}. Book tours and calls on Calendly (Schedule an appointment on this page)—evening slots depend on availability. Hours are meant to match the Google Business Profile for Palms Place Condos; report drift so the site and profile stay aligned.`,
     },
     {
       question: "Who do I email for listings vs buyers?",
       answer:
-        "Use the listings inbox for listing questions and the general inbox for buyer or general inquiries—both reach Dr. Jan Duffy when those addresses are shown on this page.",
+        "Use the listings inbox for listing questions and the general inbox for buyer or general inquiries—both reach Dr. Jan Duffy when those addresses are shown on this page. There is not a separate Palms Place buyers agent. Full role details live on the team page.",
     },
   ];
 }
@@ -450,13 +418,10 @@ export function getTeamPageFaq(): FaqItem[] {
   const address = formatOfficeAddressLine();
   const hours = formatOfficeHoursWithSpecial();
   return [
-    {
-      question: "Who is the Palms Place listing specialist?",
-      answer: `${siteContact.agentName}, Realtor, listing specialist and team leader for Palms Place (Nevada license ${siteContact.license}) at ${siteContact.brokerage}.`,
-    },
+    canonicalQueryAsFaqItem("listing-specialist"),
     {
       question: "Who helps Palms Place buyers?",
-      answer: `${siteContact.buyerSpecialistName}, Realtor, is the ${siteContact.buyerSpecialistTitle} (Nevada license ${siteContact.buyerSpecialistLicense}). Buyer tours, filters, and offer prep start with Dr. Jan.`,
+      answer: `${siteContact.buyerSpecialistName}, Realtor, is the ${siteContact.buyerSpecialistTitle} (Nevada license ${siteContact.buyerSpecialistLicense}). Buyer tours, filters, and offer prep start with Dr. Jan—the same listing specialist, not a second agent. Use the buyers hub and buying field guide before the first tower showing.`,
     },
     {
       question: "Does team contact info match Google Business Profile?",
@@ -467,20 +432,16 @@ export function getTeamPageFaq(): FaqItem[] {
 
 /** `/palms-place` — must mirror visible FAQ on that page. */
 export const palmsPlacePageFaq: FaqItem[] = [
-  {
-    question: "What is the Palms Place building address?",
-    answer:
-      "Palms Place is at 4381 W Flamingo Road, Las Vegas, NV 89103—a 47-story tower connected to Palms Casino Resort, west of the Las Vegas Strip. That is the tower address, not the team office.",
-  },
+  canonicalQueryAsFaqItem("building"),
   {
     question: "What unit types are typically for sale?",
     answer:
-      "Active inventory often includes studios and one-bedroom layouts, with select upper-floor or penthouse-style residences when listed. Confirm floor plans and HOA assessments per unit.",
+      "Active inventory often includes studios and one-bedroom layouts, with select upper-floor or penthouse-style residences when listed. Confirm floor plans, views, and HOA assessments per unit—not from a building average. Compare live listings with Dr. Jan Duffy, then read the unit-types guide before you assume two stacks feel the same.",
   },
   {
     question: "How do I buy or sell at Palms Place with this team?",
     answer:
-      "Buyers use the curated search and buying field guide; sellers start with the selling field guide and a valuation conversation with Dr. Jan Duffy.",
+      "Buyers use the curated search and buying field guide; sellers start with the selling field guide and a valuation conversation with Dr. Jan Duffy. She is the listing specialist and Palms Place Buyers Specialist, so both paths stay in this tower’s workflow instead of a rotating metro desk.",
   },
 ];
 

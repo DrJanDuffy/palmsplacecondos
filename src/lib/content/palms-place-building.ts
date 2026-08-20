@@ -19,6 +19,13 @@ export const palmsPlaceTower = {
   longitude: -115.198705,
   /** Canonical building page on this site. */
   pagePath: "/palms-place",
+  /**
+   * Official resort hotel page (stays / suites) — cite for the tower entity, not as this site’s purpose.
+   * This brokerage site is Palms Place condos for sale, not hotel reservations.
+   */
+  officialResortUrl: "https://www.palms.com/palms-place",
+  /** Citable encyclopedia entity for GEO — do not copy hotel OTA copy. */
+  wikipediaUrl: "https://en.wikipedia.org/wiki/Palms_Place",
 } as const;
 
 export function formatPalmsPlaceTowerAddressLine(): string {

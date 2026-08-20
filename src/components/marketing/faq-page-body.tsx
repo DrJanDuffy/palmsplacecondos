@@ -1,5 +1,7 @@
 import type { PalmsPlaceFaqEntry } from "@/lib/content/palms-place-faq";
+import { AeoQueryMapSection } from "@/components/seo/aeo-query-map-section";
 import { RelatedPages } from "@/components/seo/related-pages";
+import { SourcesVerification } from "@/components/seo/sources-verification";
 import { StructuredData } from "@/components/seo/structured-data";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import {
@@ -101,6 +103,10 @@ export function FaqPageBody() {
           </p>
           <FaqAccordionList items={palmsPlaceFaqPlanningStay} />
         </section>
+
+        <AeoQueryMapSection />
+
+        <SourcesVerification />
 
         <RelatedPages className="mt-16" links={related} />
       </div>

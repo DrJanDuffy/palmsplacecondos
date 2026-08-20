@@ -46,3 +46,56 @@ export const compareStripHighRisesSections: {
       "We usually tour Palms Place first when it is the lead building, then one comparable tower the same day if scheduling allows—HOA documents are easier to contrast when views and noise are still top of mind. Bring assessment sheets and take photos of parking and lobby flows; marketing sites rarely show those details.",
   },
 ];
+
+export const compareStripHighRisesTableCaption =
+  "How Dr. Jan Duffy compares Palms Place to other Strip-area high-rises on tour—process columns only, not a ranked scorecard or invented HOA dollar averages.";
+
+export const compareStripHighRisesTableHeaders = [
+  "What to compare",
+  "Palms Place (4381 W Flamingo Road)",
+  "Other Strip-area towers",
+] as const;
+
+export type CompareStripHighRiseTableRow = {
+  factor: string;
+  palmsPlace: string;
+  otherTowers: string;
+};
+
+export const compareStripHighRisesTableRows: CompareStripHighRiseTableRow[] = [
+  {
+    factor: "When it fits",
+    palmsPlace:
+      "Resort-adjacent living west of the Strip, Sky Tube context, studio and one-bedroom inventory, lock-and-leave HOA amenities.",
+    otherTowers:
+      "Newer vintage, more bedrooms, a different rental program, or a fee band that only shows up in that building’s packet.",
+  },
+  {
+    factor: "Documents to pull first",
+    palmsPlace:
+      "HOA resale certificate, rental rules, parking/storage, special assessments—for the specific Palms Place unit.",
+    otherTowers:
+      "The same categories, from that association. Never copy Palms Place rules onto another tower.",
+  },
+  {
+    factor: "Tour focus",
+    palmsPlace:
+      "Valet flow, connector access, sound at the hours you will use the home, furnished vs what actually conveys.",
+    otherTowers:
+      "Lobby and parking patterns, amenity access, and noise at those same hours so the comparison is like-for-like.",
+  },
+  {
+    factor: "Who sequences the day",
+    palmsPlace:
+      "Dr. Jan Duffy lists in this tower, so Palms Place is usually first when it is the lead building.",
+    otherTowers:
+      "One comparable high-rise the same day while views and HOA facts are still fresh—not scattered weekends.",
+  },
+  {
+    factor: "What this table will not do",
+    palmsPlace:
+      "No “best building” rank, review-count badge, or published HOA dollar average that can be wrong next quarter.",
+    otherTowers:
+      "No invented amenity scores. Confirm every number in that tower’s disclosures.",
+  },
+];

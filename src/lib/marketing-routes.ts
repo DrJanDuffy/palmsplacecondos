@@ -109,6 +109,12 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     priority: 0.82,
   },
   {
+    path: "/insights/palms-place-corner-unit-listing-campaign",
+    summary: "Field note: how Palms Place #8322 was listed as a corner-unit campaign.",
+    changeFrequency: "monthly",
+    priority: 0.82,
+  },
+  {
     path: "/team",
     summary: "Dr. Jan Duffy — Palms Place listing lead and buyers specialist NAP.",
     changeFrequency: "monthly",

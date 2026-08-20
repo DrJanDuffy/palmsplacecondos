@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { PageFaqSection } from "@/components/marketing/page-faq-section";
 import { RelatedPages } from "@/components/seo/related-pages";
 import { SourcesVerification } from "@/components/seo/sources-verification";
@@ -38,6 +39,7 @@ type MarketingGuidePageShellProps = {
   footerCtas: FooterCta[];
   faqItems?: FaqItem[];
   faqHeading?: string;
+  extraContent?: ReactNode;
 };
 
 export function MarketingGuidePageShell({
@@ -56,6 +58,7 @@ export function MarketingGuidePageShell({
   footerCtas,
   faqItems,
   faqHeading = "What quick answers does this Palms Place guide cover?",
+  extraContent,
 }: MarketingGuidePageShellProps) {
   const webPageJsonLd = getWebPageJsonLdForPath(
     path,
@@ -138,6 +141,8 @@ export function MarketingGuidePageShell({
           </section>
         ))}
       </div>
+
+      {extraContent}
 
       <div className="mt-12 flex flex-wrap gap-4">
         {footerCtas.map((cta) =>

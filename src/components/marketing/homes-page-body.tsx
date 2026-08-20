@@ -50,7 +50,7 @@ export function HomesPageBody() {
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Many clients compare single-family product in Summerlin or Henderson with Strip-adjacent
-          high-rises. Houses trade on schools, yards, and HOA character; Palms Place emphasizes
+          high-rises. Houses trade on lot size, yards, and commute times; Palms Place emphasizes
           amenities, lock-and-leave living, and Strip proximity. Read the{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/palms-place">
             Palms Place building guide
