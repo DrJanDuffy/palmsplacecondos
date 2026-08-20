@@ -20,7 +20,11 @@ const pageMeta = {
 export function HighRisesPageBody() {
   const related = relatedLinksForPath("/high-rises");
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath("/high-rises", pageMeta, { aboutPalmsPlace: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/high-rises", pageMeta, {
+    aboutPalmsPlace: true,
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/high-rises", [
     { name: "Home", path: "/" },
     { name: "High-rises", path: "/high-rises" },

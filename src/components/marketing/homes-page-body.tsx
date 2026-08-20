@@ -19,7 +19,10 @@ const pageMeta = {
 export function HomesPageBody() {
   const related = relatedLinksForPath("/homes");
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath("/homes", pageMeta);
+  const webPageJsonLd = getWebPageJsonLdForPath("/homes", pageMeta, {
+    pageType: "CollectionPage",
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/homes", [
     { name: "Home", path: "/" },
     { name: "Homes", path: "/homes" },

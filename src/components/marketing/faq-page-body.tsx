@@ -53,7 +53,7 @@ export function FaqPageBody() {
       name: palmsPlaceFaqIntro.title,
       description: palmsPlaceFaqIntro.description,
     },
-    { aboutPalmsPlace: true, mainEntity: "faq", speakableSelectors: ["h1", "#faq-common-heading"] },
+    { aboutPalmsPlace: true, mainEntity: "faq", speakableSelectors: ["h1", "#faq-common-heading"], hasFaq: true },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/faq", [
     { name: "Home", path: "/" },

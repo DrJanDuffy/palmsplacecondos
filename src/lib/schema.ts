@@ -121,6 +121,33 @@ function getBrandLogoImageObject(siteUrl: string): Record<string, unknown> {
 
 export type WebPageMainEntityKind = "listing-agent" | "palms-place" | "featured-listing" | "faq";
 
+export type WebPageSchemaType =
+  | "WebPage"
+  | "CollectionPage"
+  | "ContactPage"
+  | "ProfilePage"
+  | "SearchResultsPage";
+
+function webPageSchemaTypes(pageType: WebPageSchemaType | undefined): string | string[] {
+  const kind = pageType ?? "WebPage";
+  switch (kind) {
+    case "WebPage":
+      return "WebPage";
+    case "CollectionPage":
+      return ["WebPage", "CollectionPage"];
+    case "ContactPage":
+      return ["WebPage", "ContactPage"];
+    case "ProfilePage":
+      return ["WebPage", "ProfilePage"];
+    case "SearchResultsPage":
+      return ["WebPage", "SearchResultsPage"];
+    default: {
+      const exhaustive: never = kind;
+      return exhaustive;
+    }
+  }
+}
+
 function resolveWebPageMainEntityId(
   kind: WebPageMainEntityKind | undefined,
   siteUrl: string,
@@ -473,6 +500,12 @@ export function getWebPageJsonLdForPath(
     mainEntity?: WebPageMainEntityKind;
     mainEntityId?: string;
     speakableSelectors?: string[];
+    pageType?: WebPageSchemaType;
+    /** When the route emits FAQPage JSON-LD at `{url}#faq`. */
+    hasFaq?: boolean;
+    /** When the route emits ItemList JSON-LD at `{url}#itemlist`. */
+    hasItemList?: boolean;
+    mentionsFeaturedListing?: boolean;
   },
 ): JsonLdGraph {
   const siteUrl = getSiteUrl();
@@ -485,7 +518,7 @@ export function getWebPageJsonLdForPath(
     ? options.speakableSelectors
     : ["h1"];
   const webPage: Record<string, unknown> = {
-    "@type": "WebPage",
+    "@type": webPageSchemaTypes(options?.pageType),
     "@id": `${pageUrl}#webpage`,
     url: pageUrl,
     name: page.name,
@@ -508,6 +541,21 @@ export function getWebPageJsonLdForPath(
   );
   if (mainEntityId) {
     webPage.mainEntity = { "@id": mainEntityId };
+  }
+  const parts: { "@id": string }[] = [];
+  if (options?.hasFaq) {
+    parts.push({ "@id": `${pageUrl}#faq` });
+  }
+  if (options?.hasItemList) {
+    parts.push({ "@id": `${pageUrl}#itemlist` });
+  }
+  if (parts.length === 1) {
+    webPage.hasPart = parts[0];
+  } else if (parts.length > 1) {
+    webPage.hasPart = parts;
+  }
+  if (options?.mentionsFeaturedListing) {
+    webPage.mentions = { "@id": getFeaturedListingSchemaId(siteUrl) };
   }
   return {
     "@context": CONTEXT,
@@ -679,6 +727,7 @@ export function getHomeFaqPageJsonLd(items: FaqItem[]): JsonLdGraph {
     inLanguage: "en-US",
     isPartOf: { "@id": id(siteUrl, "website") },
     about: { "@id": id(siteUrl, "place-palms-place") },
+    mainEntityOfPage: { "@id": `${siteOrigin(siteUrl)}/#webpage` },
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -707,6 +756,7 @@ export function getFaqPageJsonLdForPath(pathname: string, items: FaqItem[]): Jso
     inLanguage: "en-US",
     isPartOf: { "@id": id(siteUrl, "website") },
     about: { "@id": id(siteUrl, "place-palms-place") },
+    mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -720,6 +770,54 @@ export function getFaqPageJsonLdForPath(pathname: string, items: FaqItem[]): Jso
   return {
     "@context": CONTEXT,
     "@graph": [faqPage],
+  };
+}
+
+export type ItemListJsonLdItem = {
+  name: string;
+  path: string;
+  description?: string;
+};
+
+/** ItemList for visible hub catalogs (photo galleries, field notes, popular searches). */
+export function getItemListJsonLd(
+  pathname: string,
+  list: { name: string; description?: string; items: ItemListJsonLdItem[] },
+): JsonLdGraph {
+  const origin = siteOrigin(getSiteUrl());
+  const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const pageUrl = `${origin}${path}`;
+  const itemList: Record<string, unknown> = {
+    "@type": "ItemList",
+    "@id": `${pageUrl}#itemlist`,
+    name: list.name,
+    numberOfItems: list.items.length,
+    itemListElement: list.items.map((item, index) => {
+      const itemPath = item.path.startsWith("/") ? item.path : `/${item.path}`;
+      const itemUrl = item.path.startsWith("http")
+        ? item.path
+        : itemPath === "/"
+          ? `${origin}/`
+          : `${origin}${itemPath}`;
+      const element: Record<string, unknown> = {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.name,
+        url: itemUrl,
+      };
+      if (item.description) {
+        element.description = item.description;
+      }
+      return element;
+    }),
+  };
+  if (list.description) {
+    itemList.description = list.description;
+  }
+
+  return {
+    "@context": CONTEXT,
+    "@graph": [itemList],
   };
 }
 
@@ -827,6 +925,7 @@ export function getFeaturedUnitListingJsonLd(
     imageUrls: string[];
     detailsUrl: string;
     datePosted?: string;
+    virtualTourUrl?: string;
   },
 ): JsonLdGraph {
   const origin = siteOrigin(getSiteUrl());
@@ -879,6 +978,13 @@ export function getFeaturedUnitListingJsonLd(
     },
     identifier: listing.mlsNumber,
   };
+  if (listing.virtualTourUrl) {
+    realEstateListing.potentialAction = {
+      "@type": "ViewAction",
+      name: featuredListing.tourLabel,
+      target: listing.virtualTourUrl,
+    };
+  }
 
   return {
     "@context": CONTEXT,
@@ -909,5 +1015,6 @@ export function getCurrentFeaturedListingJsonLd(): JsonLdGraph {
     imageUrls,
     detailsUrl: getFeaturedListingDetailsUrl(),
     datePosted: featuredListing.datePosted,
+    virtualTourUrl: featuredListing.virtualTourUrl,
   });
 }

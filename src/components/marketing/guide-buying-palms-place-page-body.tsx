@@ -34,7 +34,7 @@ export function GuideBuyingPalmsPlacePageBody() {
       name: palmsPlaceBuyerGuideMeta.title,
       description: palmsPlaceBuyerGuideMeta.description,
     },
-    { aboutPalmsPlace: true },
+    { aboutPalmsPlace: true, hasFaq: true },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },

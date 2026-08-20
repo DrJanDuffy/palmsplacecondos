@@ -30,6 +30,8 @@ export function TeamPageBody() {
   const webPageJsonLd = getWebPageJsonLdForPath("/team", pageMeta, {
     aboutListingAgent: true,
     mainEntity: "listing-agent",
+    pageType: "ProfilePage",
+    hasFaq: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/team", [
     { name: "Home", path: "/" },

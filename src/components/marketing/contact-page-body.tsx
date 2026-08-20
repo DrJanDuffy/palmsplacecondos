@@ -41,6 +41,8 @@ export function ContactPageBody() {
   const webPageJsonLd = getWebPageJsonLdForPath("/contact", pageMeta, {
     aboutListingAgent: true,
     mainEntity: "listing-agent",
+    pageType: "ContactPage",
+    hasFaq: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/contact", [
     { name: "Home", path: "/" },

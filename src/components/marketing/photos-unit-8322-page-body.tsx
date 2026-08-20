@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { PageFaqSection } from "@/components/marketing/page-faq-section";
 import { PhotoGalleryGrid } from "@/components/seo/photo-gallery-grid";
 import { RelatedPages } from "@/components/seo/related-pages";
 import { StructuredData } from "@/components/seo/structured-data";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 import { ButtonAnchor, ButtonLink } from "@/components/shared/button-link";
 import { CalendlyButton } from "@/components/shared/calendly-link";
+import { unit8322PhotosPageFaq } from "@/lib/content/discoverability-page-faqs";
 import {
   featuredListing,
   getFeaturedListingDetailsUrl,
@@ -35,7 +37,7 @@ export function PhotosUnit8322PageBody() {
       name: unit8322Gallery.h1,
       description: unit8322Gallery.metaDescription,
     },
-    { aboutPalmsPlace: true, mainEntity: "featured-listing" },
+    { aboutPalmsPlace: true, mainEntity: "featured-listing", hasFaq: true },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
@@ -88,23 +90,13 @@ export function PhotosUnit8322PageBody() {
 
       <PhotoGalleryGrid photos={photos} />
 
-      <section className="mt-12" aria-labelledby="unit-photos-faq-heading">
-        <h2
-          className="font-display text-2xl font-semibold text-palms-cream"
-          id="unit-photos-faq-heading"
-        >
-          What should buyers know about these photos?
-        </h2>
-        <p className="mt-4 leading-relaxed text-palms-cream/85">
-          These are professional listing photos for MLS #{featuredListing.mlsNumber}. Furnishings,
-          art, and electronics convey only as stated in the inventory exhibit—not by photo alone.
-          Views, light, and sound vary by time of day; tour the unit before you write an offer.
-        </p>
-        <p className="mt-4 leading-relaxed text-palms-cream/85">
-          Represented by {siteContact.agentName}, {siteContact.brokerage}. Service area:{" "}
-          {siteContact.primaryServiceArea}.
-        </p>
-      </section>
+      <PageFaqSection
+        pathname={path}
+        headingId="unit-photos-faq-heading"
+        heading="Photo FAQ"
+        intro={`Represented by ${siteContact.agentName}, ${siteContact.brokerage}. Service area: ${siteContact.primaryServiceArea}.`}
+        items={unit8322PhotosPageFaq}
+      />
 
       <div className="mt-10 flex flex-wrap gap-4">
         <CalendlyButton variant="primary">Schedule a showing</CalendlyButton>

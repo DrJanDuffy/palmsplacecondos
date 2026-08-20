@@ -5,7 +5,11 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { popularSearchesPageFaq } from "@/lib/content/discoverability-page-faqs";
 import { relatedLinksForPath } from "@/lib/internal-links";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
-import { getBreadcrumbListJsonLd, getWebPageJsonLdForPath } from "@/lib/schema";
+import {
+  getBreadcrumbListJsonLd,
+  getItemListJsonLd,
+  getWebPageJsonLdForPath,
+} from "@/lib/schema";
 import { AgentHeroBadge } from "@/components/shared/agent-hero-badge";
 
 type PopularSearchLink = {
@@ -143,16 +147,34 @@ const pageMeta = {
 export function PopularSearchesPageBody() {
   const related = relatedLinksForPath("/popular-searches");
   const searchUrl = getRealScoutSharedSearchUrl();
-  const webPageJsonLd = getWebPageJsonLdForPath("/popular-searches", pageMeta, { aboutPalmsPlace: true });
+  const uniqueLinks = staticLinks.filter((link, index, all) =>
+    all.findIndex((entry) => entry.href === link.href) === index,
+  );
+  const webPageJsonLd = getWebPageJsonLdForPath("/popular-searches", pageMeta, {
+    aboutPalmsPlace: true,
+    pageType: "CollectionPage",
+    hasFaq: true,
+    hasItemList: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/popular-searches", [
     { name: "Home", path: "/" },
     { name: "Popular searches", path: "/popular-searches" },
   ]);
+  const itemListJsonLd = getItemListJsonLd("/popular-searches", {
+    name: "Popular Palms Place and Las Vegas searches",
+    description: pageMeta.description,
+    items: uniqueLinks.map((link) => ({
+      name: link.label,
+      path: link.href,
+      description: link.description,
+    })),
+  });
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
+      <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
         Popular Palms Place &amp; Las Vegas real estate searches
       </h1>

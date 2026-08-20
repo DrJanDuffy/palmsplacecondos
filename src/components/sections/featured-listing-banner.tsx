@@ -50,7 +50,6 @@ export function FeaturedListingBanner() {
               alt={heroPhoto.alt}
               className="object-cover"
               fill
-              priority
               sizes="(max-width: 1280px) 100vw, 1152px"
               src={heroSrc}
               title={heroPhoto.title}

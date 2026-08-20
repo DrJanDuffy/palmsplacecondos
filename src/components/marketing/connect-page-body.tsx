@@ -35,6 +35,8 @@ export function ConnectPageBody() {
   const webPageJsonLd = getWebPageJsonLdForPath("/connect", pageMeta, {
     aboutListingAgent: true,
     mainEntity: "listing-agent",
+    pageType: "ContactPage",
+    hasFaq: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/connect", [
     { name: "Home", path: "/" },

@@ -63,7 +63,10 @@ export function MarketingGuidePageShell({
       name: meta.title,
       description: meta.description,
     },
-    { aboutPalmsPlace: true },
+    {
+      aboutPalmsPlace: true,
+      hasFaq: Boolean(faqItems && faqItems.length > 0),
+    },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, breadcrumbs);
   const articleJsonLd = getArticleJsonLdForPath({

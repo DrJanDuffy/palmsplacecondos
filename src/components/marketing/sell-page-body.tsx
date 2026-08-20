@@ -23,7 +23,10 @@ export function SellPageBody() {
   const related = relatedLinksForPath("/sell");
   const phone = siteContact.phone;
   const tel = phone ? `tel:${phone.replace(/\D/g, "")}` : undefined;
-  const webPageJsonLd = getWebPageJsonLdForPath("/sell", pageMeta, { aboutListingAgent: true });
+  const webPageJsonLd = getWebPageJsonLdForPath("/sell", pageMeta, {
+    aboutListingAgent: true,
+    hasFaq: true,
+  });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/sell", [
     { name: "Home", path: "/" },
     { name: "Sell", path: "/sell" },

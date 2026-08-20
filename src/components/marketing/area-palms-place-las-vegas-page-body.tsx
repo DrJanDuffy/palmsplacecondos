@@ -34,6 +34,7 @@ export function AreaPalmsPlaceLasVegasPageBody() {
   const webPageJsonLd = getWebPageJsonLdForPath(path, pageMeta, {
     aboutPalmsPlace: true,
     mainEntity: "palms-place",
+    hasFaq: true,
   });
   const breadcrumbJsonLd = getBreadcrumbListJsonLd(path, [
     { name: "Home", path: "/" },
