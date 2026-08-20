@@ -120,7 +120,7 @@ export function PalmsPlacePageBody() {
         aria-labelledby="palms-place-team-guide-heading"
       >
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="palms-place-team-guide-heading">
-          From the Palms Place team — not a generic tower brochure
+          Why is this Palms Place guide different from a tower brochure?
         </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
           Competitor pages often repeat the same pool-and-penthouse script. Our{" "}
@@ -183,8 +183,10 @@ export function PalmsPlacePageBody() {
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-palms-gold/15 bg-palms-charcoal-muted/30 p-6">
-        <h2 className="font-display text-xl font-semibold text-palms-cream">Listing data disclaimer</h2>
+      <section className="mt-12 rounded-xl border border-palms-gold/15 bg-palms-charcoal-muted/30 p-6" aria-labelledby="palms-place-disclaimer-heading">
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="palms-place-disclaimer-heading">
+          How should you treat Palms Place listing and amenity summaries?
+        </h2>
         <p className="mt-3 text-sm leading-relaxed text-palms-cream/70">
           Building facts and amenities summaries are for orientation only. Verify price, square
           footage, HOA fees, and status with your agent and official sources—not intended as legal or
@@ -195,7 +197,7 @@ export function PalmsPlacePageBody() {
       <PageFaqSection
         pathname="/palms-place"
         headingId="palms-place-faq-heading"
-        heading="Palms Place building FAQ"
+        heading="What should you know about Palms Place before you tour?"
         intro="Tower address, unit types, and how to buy or sell with this team."
         items={palmsPlacePageFaq}
       />

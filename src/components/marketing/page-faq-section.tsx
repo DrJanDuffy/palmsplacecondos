@@ -26,7 +26,9 @@ export function PageFaqSection({ pathname, headingId, heading, intro, items }: P
       <dl className="mt-8 space-y-8">
         {items.map((item) => (
           <div key={item.question}>
-            <dt className="text-lg font-semibold text-palms-cream">{item.question}</dt>
+            <dt>
+              <h3 className="text-lg font-semibold text-palms-cream">{item.question}</h3>
+            </dt>
             <dd className="mt-3 text-base leading-relaxed text-palms-cream/80">{item.answer}</dd>
           </div>
         ))}

@@ -42,7 +42,7 @@ export function InsightsHubPageBody() {
       <StructuredData data={breadcrumbJsonLd} />
       <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
-        Palms Place field notes
+        Palms Place field notes — Las Vegas high-rise tours
       </h1>
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">
@@ -52,7 +52,7 @@ export function InsightsHubPageBody() {
 
       <section className="mt-10" aria-labelledby="non-commodity-framing">
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="non-commodity-framing">
-          How these pages differ from commodity content
+          How are Palms Place field notes different from generic condo articles?
         </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
           Google’s people-first guidance rewards content with first-hand experience, original analysis, and
@@ -80,7 +80,7 @@ export function InsightsHubPageBody() {
             className="rounded-xl border border-palms-cream/15 bg-palms-cream/5 p-6"
           >
             <p className="text-xs font-medium uppercase tracking-wide text-palms-gold">{note.eyebrow}</p>
-            <h2 className="mt-2 font-display text-xl font-semibold text-palms-cream">
+            <h2 className="mt-2 font-display text-xl font-semibold text-palms-cream" id={`insights-${note.slug}`}>
               <Link
                 className="underline-offset-4 hover:underline"
                 href={`/insights/${note.slug}`}
@@ -99,7 +99,7 @@ export function InsightsHubPageBody() {
       <PageFaqSection
         pathname="/insights"
         headingId="insights-faq-heading"
-        heading="Field notes FAQ"
+        heading="What are Palms Place field notes, and how should you use them?"
         intro="What these notes are, what they are not, and how dates work."
         items={insightsHubPageFaq}
       />

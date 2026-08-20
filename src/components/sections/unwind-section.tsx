@@ -25,7 +25,7 @@ export function UnwindSection() {
             className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl"
             id="unwind-heading"
           >
-            Palms Place Real Estate — Resort Amenities Included
+            Which Palms Place amenities do Las Vegas owners actually get?
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-palms-cream/85">
             HOA amenities Palms Place documents describe can include resort-style pool and outdoor
@@ -45,8 +45,11 @@ export function UnwindSection() {
       </div>
 
       <div className="mx-auto mt-16 max-w-5xl rounded-2xl border border-palms-gold/15 bg-palms-charcoal-elevated/80 p-8 shadow-xl shadow-black/20 backdrop-blur-sm md:mt-20 md:p-10">
-        <h3 className="font-display text-xl font-semibold text-palms-cream md:text-2xl">
-          Pool, Cabanas &amp; Resort-Style Living
+        <h3
+          className="font-display text-xl font-semibold text-palms-cream md:text-2xl"
+          id="unwind-pool-heading"
+        >
+          Do Palms Place owners get the same pool and cabana access as hotel guests?
         </h3>
         <p className="mt-3 text-palms-cream/80">
           Hotel-adjacent pool experiences may be available through the resort; ownership benefits
@@ -59,8 +62,11 @@ export function UnwindSection() {
       </div>
 
       <div className="mx-auto mt-10 max-w-5xl rounded-2xl border border-palms-gold/15 bg-palms-charcoal-elevated/80 p-8 shadow-xl shadow-black/20 backdrop-blur-sm md:p-10">
-        <h3 className="font-display text-xl font-semibold text-palms-cream md:text-2xl">
-          HOA Fees, Rules &amp; What&apos;s Included
+        <h3
+          className="font-display text-xl font-semibold text-palms-cream md:text-2xl"
+          id="unwind-hoa-heading"
+        >
+          What do Palms Place HOA fees cover in Las Vegas?
         </h3>
         <p className="mt-3 text-palms-cream/80">
           HOA fees, special assessments, rental caps, and parking rules change. Review the latest
@@ -71,8 +77,11 @@ export function UnwindSection() {
 
       <div className="mx-auto mt-10 max-w-5xl rounded-2xl border border-palms-gold/15 bg-palms-charcoal-muted/60 px-6 py-12 md:flex md:items-center md:justify-between md:gap-14 md:py-16">
         <div>
-          <h3 className="font-display text-xl font-semibold text-palms-cream md:text-2xl">
-            Steps From Palms Casino Resort
+          <h3
+            className="font-display text-xl font-semibold text-palms-cream md:text-2xl"
+            id="unwind-resort-heading"
+          >
+            How close is Palms Place to Palms Casino Resort?
           </h3>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-palms-cream/85">
             Gaming, dining, and entertainment are steps away at Palms Casino Resort—separate from

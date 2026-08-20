@@ -74,15 +74,38 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           </ButtonAnchor>
           <p className="text-sm text-palms-cream/55">Opens in a new tab · RealScout</p>
         </div>
-        <p className="mt-10 max-w-2xl text-sm leading-relaxed text-palms-cream/60">
-          Listing disclaimer: Information deemed reliable but not guaranteed. Verify listing details
-          with your agent and official sources. Not intended as legal or tax advice.
-        </p>
+
+        <section className="mt-12" aria-labelledby="search-how-heading">
+          <h2
+            className="font-display text-2xl font-semibold text-palms-cream"
+            id="search-how-heading"
+          >
+            How do I search Palms Place condos for sale in Las Vegas?
+          </h2>
+          <p className="mt-4 leading-relaxed text-palms-cream/85">
+            Open the curated RealScout search to filter by price, property type, and status. Inventory
+            at 4381 W Flamingo Road changes daily—confirm availability with {siteContact.agentName}{" "}
+            before you tour.
+          </p>
+        </section>
+
+        <section className="mt-12" aria-labelledby="search-disclaimer-heading">
+          <h2
+            className="font-display text-xl font-semibold text-palms-cream"
+            id="search-disclaimer-heading"
+          >
+            Where does Palms Place listing information come from?
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-palms-cream/70">
+            Listing data is deemed reliable but not guaranteed. Verify listing details with your agent
+            and official sources. Not intended as legal or tax advice.
+          </p>
+        </section>
 
         <PageFaqSection
           pathname="/search"
           headingId="search-faq-heading"
-          heading="Search FAQ"
+          heading="How does Palms Place listing search work?"
           intro="How curated search differs from a raw feed and who to call next."
           items={searchPageFaq}
         />

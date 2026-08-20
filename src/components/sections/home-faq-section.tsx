@@ -36,7 +36,9 @@ export function HomeFaqSection() {
         <dl className="mt-10 space-y-10">
           {homeFaqItems.map((item) => (
             <div key={item.question}>
-              <dt className="text-lg font-semibold text-palms-cream">{item.question}</dt>
+              <dt>
+                <h3 className="text-lg font-semibold text-palms-cream">{item.question}</h3>
+              </dt>
               <dd className="mt-3 text-base leading-relaxed text-palms-cream/80">{item.answer}</dd>
             </div>
           ))}

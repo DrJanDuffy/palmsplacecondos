@@ -97,7 +97,7 @@ export function AreaPalmsPlaceLasVegasPageBody() {
 
       <section className="mt-12" aria-labelledby="area-map-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="area-map-heading">
-          Map — Palms Place tower (4381 W Flamingo Rd)
+          Where is Palms Place on the map at 4381 W Flamingo Road?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Use the map for directions to the building. Listing tours and office meetings may use
@@ -151,7 +151,7 @@ export function AreaPalmsPlaceLasVegasPageBody() {
       <PageFaqSection
         pathname={path}
         headingId="area-palms-place-faq-heading"
-        heading="Palms Place location FAQ"
+        heading="Where is Palms Place in Las Vegas, and how do I get there?"
         intro="Building address, Strip adjacency, and how this differs from the team office."
         items={areaPalmsPlacePageFaq}
       />

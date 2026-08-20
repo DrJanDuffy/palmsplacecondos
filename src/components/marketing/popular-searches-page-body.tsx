@@ -187,7 +187,7 @@ export function PopularSearchesPageBody() {
 
       <section className="mt-10" aria-labelledby="popular-on-site-heading">
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="popular-on-site-heading">
-          Browse by topic on this site
+          Which Palms Place and Las Vegas topics do buyers search most?
         </h2>
         <ul className="mt-6 space-y-4">
           {staticLinks.map((item) => (
@@ -228,7 +228,7 @@ export function PopularSearchesPageBody() {
 
       <section className="mt-12" aria-labelledby="popular-guides-heading">
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="popular-guides-heading">
-          Palms Place guides buyers search most
+          Which Palms Place guides do buyers search most?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/guide/buying-palms-place">
@@ -249,7 +249,7 @@ export function PopularSearchesPageBody() {
       <PageFaqSection
         pathname="/popular-searches"
         headingId="popular-searches-faq-heading"
-        heading="Popular searches FAQ"
+        heading="How should you use this Palms Place search hub?"
         intro="How this hub relates to the building guide and live listing search."
         items={popularSearchesPageFaq}
       />

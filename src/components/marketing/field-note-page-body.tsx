@@ -42,10 +42,13 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
     authorJobTitle: note.authorJobTitle,
     aboutPalmsPlace: true,
   });
-  const faqItems: FaqItem[] = note.sections.slice(0, 3).map((section) => ({
-    question: section.heading.endsWith("?") ? section.heading : `${section.heading}?`,
-    answer: section.body,
-  }));
+  const faqItems: FaqItem[] = note.sections
+    .filter((section) => section.heading.trim().endsWith("?"))
+    .slice(0, 3)
+    .map((section) => ({
+      question: section.heading,
+      answer: section.body,
+    }));
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:py-16">
@@ -87,8 +90,12 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
 
       <section className="mt-10 rounded-xl border border-palms-gold/25 bg-palms-gold/5 p-6" aria-labelledby="what-we-do-next">
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="what-we-do-next">
-          What we do on the next tour or listing
+          What do we do on the next Palms Place tour or listing?
         </h2>
+        <p className="mt-3 leading-relaxed text-palms-cream/85">
+          These are the next steps Dr. Jan Duffy&apos;s team typically takes after this field note—verify
+          facts for the specific unit before you offer or list.
+        </p>
         <ul className="mt-4 list-disc space-y-2 pl-5 text-palms-cream/85">
           {note.whatWeDoNext.map((item) => (
             <li key={item} className="leading-relaxed">
@@ -116,7 +123,7 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
         <PageFaqSection
           pathname={path}
           headingId={`${note.slug}-faq`}
-          heading="Quick answers from this field note"
+          heading="What quick answers come from this Palms Place field note?"
           items={faqItems}
         />
       ) : null}

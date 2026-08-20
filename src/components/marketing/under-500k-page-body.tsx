@@ -90,7 +90,7 @@ export function Under500kPageBody() {
 
       <section className="mt-12" aria-labelledby="under-500k-sfh-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="under-500k-sfh-heading">
-          Condos vs single-family under $500K in Las Vegas
+          Should you buy a Las Vegas condo or a single-family home under $500K?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Condos and townhomes may cluster in this range in select buildings; single-family homes often
@@ -113,7 +113,7 @@ export function Under500kPageBody() {
       <PageFaqSection
         pathname="/under-500k"
         headingId="under-500k-faq-heading"
-        heading="Under $500K FAQ"
+        heading="Are there Palms Place condos and Las Vegas homes under $500K?"
         intro="Price-band search realities for Palms Place and valley inventory."
         items={under500kPageFaq}
       />

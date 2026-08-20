@@ -55,7 +55,7 @@ export function MarketingGuidePageShell({
   sections,
   footerCtas,
   faqItems,
-  faqHeading = "Quick answers",
+  faqHeading = "What quick answers does this Palms Place guide cover?",
 }: MarketingGuidePageShellProps) {
   const webPageJsonLd = getWebPageJsonLdForPath(
     path,
@@ -114,6 +114,10 @@ export function MarketingGuidePageShell({
           >
             {checklist.title}
           </h2>
+          <p className="mt-4 leading-relaxed text-palms-cream/85">
+            Work this Palms Place checklist first so photography, remarks, and HOA packets match the
+            unit you are listing or touring. Confirm every item in official documents.
+          </p>
           <ol className="mt-4 list-decimal space-y-3 pl-5 text-palms-cream/85">
             {checklist.items.map((item) => (
               <li key={item} className="leading-relaxed">

@@ -7,7 +7,7 @@ export const palmsPlaceTourRedFlagsNote: FieldNote = {
   description:
     "Specific Palms Place tour signals—sound, furnished mismatches, parking, and SkyTube access—that Dr. Jan Duffy’s buyer tours address before offers, not generic high-rise tips.",
   datePublished: "2026-05-15",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-20",
   eyebrow: "Field note · Buyer tours",
   headline: "Palms Place tour red flags we actually walk buyers past",
   lede:
@@ -21,25 +21,25 @@ export const palmsPlaceTourRedFlagsNote: FieldNote = {
   sections: [
     {
       id: "sound-not-view",
-      heading: "When the view sells the tour but sound sells the neighbor",
+      heading: "What if the Palms Place view sells the tour but sound sells the neighbor?",
       body:
         "A west-facing unit can look perfect at 2 p.m. on a quiet weekday. We still ask buyers to stand in the bedroom with hallway doors closed and listen for elevator machinery, ice machines, or adjacent party walls—especially on floors where hotel operations sit closer to residential stacks. If you only tour once, schedule a second pass during a busier window when you can.",
     },
     {
       id: "furnished-ghost",
-      heading: "Furnished listings where the furniture is not really “included”",
+      heading: "What if a furnished Palms Place listing does not really include the furniture?",
       body:
         "Remarks sometimes say furnished while the seller plans to swap staging pieces, remove art, or strip linens before closing. We photograph built-ins and serial-tagged items on tour and require an exhibit list in the contract when conveyance matters. A Palms Place furnished resale is not the same product category as an unfurnished one-bedroom—treat them as different comp sets.",
     },
     {
       id: "parking-on-paper",
-      heading: "Parking that exists on the listing but not on the assignment letter",
+      heading: "What if Palms Place parking exists on the listing but not on the assignment letter?",
       body:
         "Valet stacks, owner parking, and guest privileges differ by unit. We verify the deeded or assigned space number against HOA resale documents before buyers waive contingencies—not against the marketing flyer alone.",
     },
     {
       id: "skytube-assumption",
-      heading: "Assuming SkyTube access works like a hotel key",
+      heading: "Does Palms Place SkyTube access work like a hotel key?",
       body:
         "Residential owners do not always have the same connector privileges guests assume from a weekend stay. We confirm which amenities attach to the unit’s HOA schedule and what requires separate resort credentials, so buyers are not surprised after closing when guest policies change.",
     },

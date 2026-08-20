@@ -87,7 +87,7 @@ export function BuyersPageBody() {
         aria-labelledby="buyers-field-guide-heading"
       >
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="buyers-field-guide-heading">
-          First-hand Palms Place buyer guide
+          Where should Palms Place buyers start in Las Vegas?
         </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
           Our team published a field guide—not a recycled amenities brochure—with a tour checklist,
@@ -191,7 +191,7 @@ export function BuyersPageBody() {
           className="font-display text-2xl font-semibold text-palms-cream"
           id="buyers-next-heading"
         >
-          Ready to tour or write an offer?
+          How do you tour or write an offer at Palms Place?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           <CalendlyLink>Schedule a conversation</CalendlyLink>
@@ -211,7 +211,7 @@ export function BuyersPageBody() {
       <PageFaqSection
         pathname="/buyers"
         headingId="buyers-faq-heading"
-        heading="Palms Place buyer FAQ"
+        heading="What do Palms Place buyers ask first?"
         intro="Starting your search, team roles, and live inventory."
         items={buyersPageFaq}
       />

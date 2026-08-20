@@ -30,7 +30,7 @@ export function GuidePalmsPlaceAmenitiesPageBody() {
       searchUrl={getRealScoutSharedSearchUrl()}
       sections={palmsPlaceAmenitiesSections}
       faqItems={amenitiesGuidePageFaq}
-      faqHeading="Palms Place amenities FAQ"
+      faqHeading="What Palms Place amenities should owners verify?"
       footerCtas={[
         { href: "/faq", label: "Full Palms Place FAQ" },
         { href: "/area/palms-place-las-vegas", label: "Location & directions" },

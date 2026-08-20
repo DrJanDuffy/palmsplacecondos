@@ -7,11 +7,11 @@ export const palmsPlaceSellerGuideMeta = {
   description:
     "How Dr. Jan Duffy's Palms Place listing team prepares furnished and owner-occupied resales: pricing context, HOA packets, photography timing, and buyer questions to expect.",
   datePublished: "2026-05-01",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-20",
 };
 
 export const palmsPlaceSellerGuideIntro = {
-  headline: "Selling a Palms Place condo — what our listing team does before MLS goes live",
+  headline: "Selling a Palms Place condo in Las Vegas — what our listing team does before going live",
   lede:
     "Generic Las Vegas seller pages talk about “maximum exposure.” This guide explains how we prepare Palms Place listings when units mix furnished turnovers, rental history, and owner-occupant layouts—work Dr. Jan Duffy leads as listing specialist for the tower.",
 };

@@ -122,7 +122,7 @@ export function FeaturedPageBody() {
       <PageFaqSection
         pathname="/featured"
         headingId="featured-faq-heading"
-        heading="Featured listings FAQ"
+        heading="How do featured Palms Place listings work on this site?"
         intro="Quick answers about how spotlight inventory works on this Palms Place marketing site."
         items={featuredPageFaq}
       />

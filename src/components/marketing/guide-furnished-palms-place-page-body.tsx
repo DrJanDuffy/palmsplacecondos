@@ -30,7 +30,7 @@ export function GuideFurnishedPalmsPlacePageBody() {
       searchUrl={getRealScoutSharedSearchUrl()}
       sections={palmsPlaceFurnishedSections}
       faqItems={furnishedGuidePageFaq}
-      faqHeading="Furnished Palms Place FAQ"
+      faqHeading="What should you verify on a furnished Palms Place condo?"
       footerCtas={[
         { href: "/insights/furnished-resale-inventory-surprises", label: "Furnished field note" },
         { href: "/palms-place", label: "Palms Place building guide" },

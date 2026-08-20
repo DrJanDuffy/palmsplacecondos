@@ -8,7 +8,7 @@ type RelatedPagesProps = {
 };
 
 export function RelatedPages({
-  title = "Related pages",
+  title = "Which Palms Place pages should you read next?",
   links,
   className = "",
 }: RelatedPagesProps) {
@@ -16,7 +16,12 @@ export function RelatedPages({
 
   return (
     <nav aria-label={title} className={`mt-10 border-t border-palms-gold/15 pt-8 ${className}`}>
-      <h2 className="font-display text-lg font-semibold tracking-tight text-palms-cream">{title}</h2>
+      <h2
+        className="font-display text-lg font-semibold tracking-tight text-palms-cream"
+        id="related-pages-heading"
+      >
+        {title}
+      </h2>
       <ul className="mt-4 flex flex-col gap-3">
         {links.map((item) => (
           <li key={`${item.href}-${item.label}`}>

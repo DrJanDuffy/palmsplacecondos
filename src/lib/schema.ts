@@ -539,7 +539,9 @@ export function getWebPageJsonLdForPath(
   const listingAgentId = id(siteUrl, "dr-jan-duffy");
   const speakableSelectors = options?.speakableSelectors?.length
     ? options.speakableSelectors
-    : ["h1"];
+    : options?.hasFaq
+      ? ["h1", "h2", "h3"]
+      : ["h1", "h2"];
   const webPage: Record<string, unknown> = {
     "@type": webPageSchemaTypes(options?.pageType),
     "@id": `${pageUrl}#webpage`,
@@ -620,7 +622,15 @@ export function getHomeWebPageJsonLd(): JsonLdGraph {
     primaryImageOfPage: { "@id": id(siteUrl, "logo") },
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["#hero-heading", "#home-faq-heading"],
+      cssSelector: [
+        "#hero-heading",
+        "#featured-listing-heading",
+        "#stay-heading",
+        "#why-buy-heading",
+        "#unwind-heading",
+        "#home-faq-heading",
+        "#listings-heading",
+      ],
     },
     author: { "@id": listingAgentId },
   };

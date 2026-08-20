@@ -29,12 +29,12 @@ export function GuideSellingPalmsPlacePageBody() {
       authorJobTitle={siteContact.agentTitle}
       related={relatedLinksForPath(path)}
       checklist={{
-        title: "Listing prep checklist (Palms Place sellers)",
+        title: "What listing prep should Palms Place sellers finish first?",
         items: palmsPlaceSellerPrepChecklist,
       }}
       sections={palmsPlaceSellerGuideSections}
       faqItems={sellingGuidePageFaq}
-      faqHeading="Selling guide FAQ"
+      faqHeading="What do Palms Place sellers ask in this field guide?"
       footerCtas={[
         { href: "/sell", label: "Sell with the team" },
         {

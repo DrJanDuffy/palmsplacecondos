@@ -10,15 +10,21 @@ export function StaySection() {
 
   return (
     <section
-      aria-label="Studio and one-bedroom condos for sale at Palms Place"
+      aria-labelledby="stay-heading"
       className="border-t border-palms-gold/15 bg-palms-charcoal-elevated px-6 py-20 md:py-28"
     >
       <div className="mx-auto max-w-5xl">
         <SectionEyebrow>Stay</SectionEyebrow>
+        <h2
+          className="font-display mt-6 max-w-3xl text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl"
+          id="stay-heading"
+        >
+          Which Palms Place condos are for sale near the Las Vegas Strip?
+        </h2>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-palms-cream/85">
-          Palms Place condos for sale include studio and one-bedroom Las Vegas high-rise condos near
-          the Palms Casino Resort. Compare Strip-adjacent residences below, then search live
-          inventory or ask {siteContact.agentName} for Palms Place floor plans and HOA details.
+          Palms Place inventory at 4381 W Flamingo Road typically includes studio and one-bedroom Las
+          Vegas high-rise condos near Palms Casino Resort. Compare floor plans below, then search live
+          listings or ask {siteContact.agentName} for current HOA details.
         </p>
 
         <div className="mt-12 overflow-hidden rounded-2xl border border-palms-gold/15 shadow-2xl shadow-black/40">
@@ -36,16 +42,17 @@ export function StaySection() {
                       variant="stay"
                     />
                     <div className="flex flex-col justify-center bg-palms-charcoal-muted p-8 md:p-10">
-                      <h2 className="font-display text-2xl font-semibold text-palms-cream md:text-3xl">
-                        Studio Condos for Sale at Palms Place
-                      </h2>
-                      <h3 className="font-display mt-4 text-xl font-semibold text-palms-cream">
-                        Studio Floor Plans &amp; Pricing
+                      <h3
+                        className="font-display text-2xl font-semibold text-palms-cream md:text-3xl"
+                        id="stay-studio-heading"
+                      >
+                        Are studio condos for sale at Palms Place?
                       </h3>
-                      <p className="mt-3 text-palms-cream/80">
-                        Efficient layouts suit many lock-and-leave Las Vegas condo buyers. Pricing
-                        and availability for Palms Place condos for sale change with the market—
-                        verify with your agent and the official listing information before you offer.
+                      <p className="mt-4 text-palms-cream/80">
+                        Yes, when they are actively listed. Efficient studio layouts suit many
+                        lock-and-leave Las Vegas condo buyers. Pricing and availability change with
+                        the market—verify with your agent and official listing information before you
+                        offer.
                       </p>
                       <div className="mt-6 flex flex-wrap gap-3">
                         <Link
@@ -78,17 +85,17 @@ export function StaySection() {
                       variant="stay"
                     />
                     <div className="flex flex-col justify-center bg-palms-charcoal-muted p-8 md:p-10">
-                      <h2 className="font-display text-2xl font-semibold text-palms-cream md:text-3xl">
-                        One-Bedroom Condos for Sale at Palms Place
-                      </h2>
-                      <h3 className="font-display mt-4 text-xl font-semibold text-palms-cream">
-                        One-Bedroom Floor Plans &amp; Pricing
+                      <h3
+                        className="font-display text-2xl font-semibold text-palms-cream md:text-3xl"
+                        id="stay-one-bed-heading"
+                      >
+                        Are one-bedroom condos for sale at Palms Place?
                       </h3>
-                      <p className="mt-3 text-palms-cream/80">
-                        Extra space supports work-from-home and hosting. Compare HOA amenities
-                        Palms Place disclosures describe for one-bedroom homes, and use your
-                        agent for condo investment Las Vegas questions that depend on rent rules and
-                        fees.
+                      <p className="mt-4 text-palms-cream/80">
+                        Yes, when they are on the market. Extra space supports work-from-home and
+                        hosting. Compare HOA amenities Palms Place disclosures describe for
+                        one-bedroom homes, and use your agent for questions that depend on rent rules
+                        and fees.
                       </p>
                       <div className="mt-6 flex flex-wrap gap-3">
                         <Link

@@ -36,7 +36,7 @@ export function BuyerCalculatorsPageBody() {
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
-        Palms Place buyer calculators &amp; payment planning
+        Palms Place buyer calculators &amp; payment planning in Las Vegas
       </h1>
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">
@@ -145,7 +145,7 @@ export function BuyerCalculatorsPageBody() {
       <PageFaqSection
         pathname="/buyers/calculators"
         headingId="calculators-faq-heading"
-        heading="Buyer calculators FAQ"
+        heading="How should Palms Place buyers plan payments and HOA?"
         intro="Payment planning for Palms Place and Las Vegas high-rise purchases—without live rate quotes on this site."
         items={buyerCalculatorsPageFaq}
       />
