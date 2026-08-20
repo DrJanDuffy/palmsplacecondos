@@ -169,7 +169,7 @@ export function ConnectPageBody() {
       <PageFaqSection
         pathname="/connect"
         headingId="connect-faq-heading"
-        heading="Connect FAQ"
+        heading="How is Connect different from the Palms Place contact page?"
         intro="How this page differs from contact and how office details stay aligned with GBP."
         items={connectPageFaq}
       />

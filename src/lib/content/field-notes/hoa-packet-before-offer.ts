@@ -7,7 +7,7 @@ export const hoaPacketBeforeOfferNote: FieldNote = {
   description:
     "A Palms Place–specific look at rental caps, special assessments, and resale certificate timing from Dr. Jan Duffy’s listing team—why early HOA review beats waiving contingencies to “win.”",
   datePublished: "2026-05-16",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-20",
   eyebrow: "Field note · Due diligence",
   headline: "Why we request Palms Place HOA packets before—not after—an offer",
   lede:
@@ -21,25 +21,25 @@ export const hoaPacketBeforeOfferNote: FieldNote = {
   sections: [
     {
       id: "rental-cap-surprise",
-      heading: "Rental caps that do not match how you plan to use the home",
+      heading: "What happens when Palms Place rental caps do not match how you plan to use the home?",
       body:
         "A buyer intending to lease the unit between personal visits may discover minimum lease terms, rental caps, or owner-occupancy floors that were never mentioned on the tour. We read rental restrictions before offer—not because we expect to talk you out of the purchase, but because the use case may require a different building entirely.",
     },
     {
       id: "assessment-letter",
-      heading: "Special assessment letters buried in resale packets",
+      heading: "Where are special assessment letters buried in Palms Place resale packets?",
       body:
         "Palms Place assessments and reserve studies update on association timelines, not listing launch dates. We look for pending or contemplated special assessments in minutes and manager letters, then map them to your planned hold period. A “great price” can be ordinary once a six-figure assessment is annualized.",
     },
     {
       id: "certificate-timeline",
-      heading: "Resale certificate timing vs. your loan clock",
+      heading: "How does Palms Place resale certificate timing affect your loan clock?",
       body:
         "If the association requires a formal resale certificate, production time can overlap with lender conditions. We build that timeline into the contract calendar so you are not forced to waive inspection or HOA review simply because the certificate arrived late.",
     },
     {
       id: "hotel-program-history",
-      heading: "When prior short-term rental use triggers extra questions",
+      heading: "When does prior short-term rental use trigger extra Palms Place questions?",
       body:
         "Units with hotel-program or host history sometimes need trailing operating statements the seller is willing—but not required—to share. We ask early so income representations in remarks can be compared to actuals before you rely on them for financing or cash-flow planning.",
     },

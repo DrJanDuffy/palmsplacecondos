@@ -45,15 +45,23 @@ export function OfficeNap({
 
   return (
     <section
+      aria-labelledby="office-nap-heading"
       className={cn(
         "rounded-lg border border-palms-gold/20 bg-palms-charcoal-elevated/80 p-6",
         className,
       )}
     >
-      <h2 className="font-display text-xl font-semibold text-palms-cream">
-        {siteContact.gbpBusinessName}
+      <h2 className="font-display text-xl font-semibold text-palms-cream" id="office-nap-heading">
+        Where is the Palms Place Condos office in Las Vegas?
       </h2>
+      <p className="mt-3 font-display text-lg font-semibold text-palms-cream">
+        {siteContact.gbpBusinessName}
+      </p>
       <p className="mt-1 text-sm text-palms-cream/65">Real estate agent · {siteContact.brokerage}</p>
+      <p className="mt-4 leading-relaxed text-palms-cream/85">
+        The sales office is at {officeLine || "the Las Vegas address on this Google Business Profile"}
+        —not the Palms Place tower at 4381 W Flamingo Road. Call, map, and hours below match GBP.
+      </p>
 
       {showDescription && description ? (
         <p className="mt-4 leading-relaxed text-palms-cream/85">{description}</p>
@@ -113,8 +121,11 @@ export function OfficeNap({
 
       {(siteContact.emailGeneral || siteContact.emailListings) && (
         <div className="mt-5">
-          <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-palms-gold-muted">
-            Email
+          <h3
+            className="text-xs font-semibold uppercase tracking-[0.12em] text-palms-gold-muted"
+            id="office-email-heading"
+          >
+            Which email should Palms Place buyers and sellers use?
           </h3>
           <ul className="mt-2 space-y-2 text-palms-cream/90">
             {siteContact.emailGeneral ? (

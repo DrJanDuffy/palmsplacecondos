@@ -175,8 +175,10 @@ export function CondosPageBody() {
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-palms-gold/15 bg-palms-charcoal-muted/30 p-6">
-        <h2 className="font-display text-xl font-semibold text-palms-cream">Listing data disclaimer</h2>
+      <section className="mt-12 rounded-xl border border-palms-gold/15 bg-palms-charcoal-muted/30 p-6" aria-labelledby="condos-disclaimer-heading">
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="condos-disclaimer-heading">
+          How should you treat Las Vegas condo listing data?
+        </h2>
         <p className="mt-3 text-sm leading-relaxed text-palms-cream/70">
           Information is deemed reliable but not guaranteed. Verify price, square footage, HOA
           fees, and status with your agent and official sources—not intended as legal or tax advice.
@@ -186,7 +188,7 @@ export function CondosPageBody() {
       <PageFaqSection
         pathname="/condos"
         headingId="condos-faq-heading"
-        heading="Las Vegas condos FAQ"
+        heading="What do Las Vegas high-rise condo buyers ask first?"
         intro="High-rise search, Palms Place context, and HOA planning."
         items={condosPageFaq}
       />

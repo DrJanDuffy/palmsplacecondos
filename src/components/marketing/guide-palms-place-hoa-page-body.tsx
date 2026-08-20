@@ -30,7 +30,7 @@ export function GuidePalmsPlaceHoaPageBody() {
       searchUrl={getRealScoutSharedSearchUrl()}
       sections={palmsPlaceHoaSections}
       faqItems={hoaGuidePageFaq}
-      faqHeading="Palms Place HOA FAQ"
+      faqHeading="What should Palms Place buyers know about HOA fees?"
       footerCtas={[
         { href: "/buyers/calculators", label: "Buyer payment planning" },
         { href: "/guide/buying-palms-place", label: "Buying field guide" },

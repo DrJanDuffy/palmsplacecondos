@@ -41,7 +41,7 @@ export function RealScoutOfficeListingsEmbed() {
           className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl"
           id="listings-heading"
         >
-          Featured Palms Place Listings
+          Which Palms Place listings are for sale right now?
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-palms-cream/70">
           Browse Palms Place condos for sale and nearby Las Vegas high-rise listings shown here.

@@ -133,7 +133,7 @@ export function CommunitiesPageBody() {
       <PageFaqSection
         pathname="/communities"
         headingId="communities-faq-heading"
-        heading="Las Vegas communities FAQ"
+        heading="How do Las Vegas communities compare to Palms Place living?"
         intro="Comparing neighborhoods, guard-gated product, and Palms Place high-rise living."
         items={communitiesPageFaq}
       />

@@ -117,7 +117,7 @@ export function GuideBuyingPalmsPlacePageBody() {
           className="font-display text-xl font-semibold text-palms-cream"
           id="guide-next-steps-heading"
         >
-          Next steps with the Palms Place team
+          What are the next steps after this Palms Place buying guide?
         </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
           Search live inventory, read{" "}
@@ -146,7 +146,7 @@ export function GuideBuyingPalmsPlacePageBody() {
       <PageFaqSection
         pathname={path}
         headingId="buying-guide-faq-heading"
-        heading="Buying guide FAQ"
+        heading="What do Palms Place buyers ask in this field guide?"
         intro="Field-guide scope, HOA documents, and team roles—not official HOA materials."
         items={buyingGuidePageFaq}
       />

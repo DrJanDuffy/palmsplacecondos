@@ -50,7 +50,7 @@ export function PhotosHubPageBody() {
       <StructuredData data={breadcrumbJsonLd} />
       <StructuredData data={itemListJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
-        Palms Place condo photos
+          Palms Place condo photos in Las Vegas
       </h1>
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">
@@ -64,7 +64,7 @@ export function PhotosHubPageBody() {
           className="font-display text-2xl font-semibold text-palms-cream"
           id="photo-galleries-heading"
         >
-          Live photo galleries
+          Which Palms Place photo galleries are live?
         </h2>
         <ul className="mt-6 space-y-4">
           {photoGalleries.map((gallery) => (
@@ -83,7 +83,7 @@ export function PhotosHubPageBody() {
 
       <section className="mt-12" aria-labelledby="photos-next-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="photos-next-heading">
-          Tour what you see in photos
+          How do you tour a Palms Place unit you saw in photos?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           <CalendlyLink>Schedule a showing</CalendlyLink>
@@ -99,7 +99,7 @@ export function PhotosHubPageBody() {
       <PageFaqSection
         pathname={path}
         headingId="photos-hub-faq-heading"
-        heading="Photo gallery FAQ"
+        heading="What should buyers know about Palms Place listing photos?"
         items={photosHubPageFaq}
       />
 

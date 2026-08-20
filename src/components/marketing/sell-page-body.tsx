@@ -68,7 +68,7 @@ export function SellPageBody() {
 
       <section className="mt-12" aria-labelledby="sell-prep-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="sell-prep-heading">
-          What listing prep looks like at Palms Place
+          What listing prep do Palms Place sellers need?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           {siteContact.agentName} approaches Palms Place listings as a building-specific campaign—not
@@ -87,7 +87,7 @@ export function SellPageBody() {
 
       <section className="mt-12" aria-labelledby="sell-marketing-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="sell-marketing-heading">
-          Listing strategy &amp; marketing
+          How does Palms Place listing marketing work in Las Vegas?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Plans can include professional media, syndication to major listing sites, and targeted
@@ -98,7 +98,7 @@ export function SellPageBody() {
 
       <section className="mt-12" aria-labelledby="sell-crosslinks-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="sell-crosslinks-heading">
-          Buyers still searching? Cross-links
+          Which pages should co-buyers read while you list?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Share{" "}
@@ -115,7 +115,7 @@ export function SellPageBody() {
 
       <section className="mt-12" aria-labelledby="sell-next-heading">
         <h2 className="font-display text-2xl font-semibold text-palms-cream" id="sell-next-heading">
-          Get started
+          How do you start a Palms Place listing conversation?
         </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           <CalendlyLink>Schedule a seller consult</CalendlyLink>
@@ -130,7 +130,7 @@ export function SellPageBody() {
       <PageFaqSection
         pathname="/sell"
         headingId="sell-faq-heading"
-        heading="Sell FAQ"
+        heading="What do Palms Place sellers ask about valuation and listing?"
         intro="Valuation vs appraisal, listing prep, and where sellers start."
         items={sellPageFaq}
       />

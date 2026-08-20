@@ -8,11 +8,11 @@ export const palmsPlaceBuyerGuideMeta = {
   description:
     "A practical Palms Place buyer guide from Dr. Jan Duffy—listing specialist and Palms Place Buyers Specialist: tour checklist, HOA documents, owner vs rental-pool context, and offer prep.",
   datePublished: "2026-05-01",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-20",
 };
 
 export const palmsPlaceBuyerGuideIntro = {
-  headline: "Buying a Palms Place condo — what our team does differently on tours",
+  headline: "Buying a Palms Place condo in Las Vegas — what our team does differently on tours",
   lede:
     "Most Palms Place pages online recycle the same tower amenities list. This guide is written from how Dr. Jan Duffy actually runs buyer tours and offer prep in Las Vegas—as both listing specialist and Palms Place Buyers Specialist, not a generic call center. Situation-specific tour and HOA notes live in our separate field notes hub.",
 };

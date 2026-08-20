@@ -105,7 +105,7 @@ export function HomesPageBody() {
       <PageFaqSection
         pathname="/homes"
         headingId="homes-faq-heading"
-        heading="Las Vegas homes FAQ"
+        heading="How do Las Vegas homes for sale compare to Palms Place?"
         intro="Single-family search versus Palms Place and high-rise alternatives."
         items={homesPageFaq}
       />

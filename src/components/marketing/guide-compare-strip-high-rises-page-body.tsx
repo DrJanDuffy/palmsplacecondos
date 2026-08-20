@@ -34,7 +34,7 @@ export function GuideCompareStripHighRisesPageBody() {
         { href: "/high-rises", label: "Las Vegas high-rise condos" },
       ]}
       faqItems={compareStripGuidePageFaq}
-      faqHeading="Strip comparison FAQ"
+      faqHeading="How do you compare Palms Place to other Strip high-rises?"
     />
   );
 }

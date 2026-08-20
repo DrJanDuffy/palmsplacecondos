@@ -70,6 +70,20 @@ export function PhotosUnit8322PageBody() {
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">{unit8322Gallery.lede}</p>
 
+      <section className="mt-10" aria-labelledby="unit-photos-facts-heading">
+        <h2
+          className="font-display text-2xl font-semibold text-palms-cream"
+          id="unit-photos-facts-heading"
+        >
+          What are the listing facts for Palms Place #8322?
+        </h2>
+        <p className="mt-4 leading-relaxed text-palms-cream/85">
+          Price, status, beds, baths, and square footage below are from the current featured listing
+          record. Verify every field with {siteContact.agentName} and official sources before you
+          offer—photos do not replace disclosures.
+        </p>
+      </section>
+
       <ul className="mt-6 flex flex-wrap gap-2" aria-label="Listing facts">
         {[
           featuredListing.price,
@@ -90,10 +104,24 @@ export function PhotosUnit8322PageBody() {
 
       <PhotoGalleryGrid photos={photos} />
 
+      <section className="mt-12" aria-labelledby="unit-photos-tour-heading">
+        <h2
+          className="font-display text-2xl font-semibold text-palms-cream"
+          id="unit-photos-tour-heading"
+        >
+          How do you tour Palms Place #8322 or see furnishings in person?
+        </h2>
+        <p className="mt-4 leading-relaxed text-palms-cream/85">
+          Schedule a showing, open the virtual tour, or review the listing record. Furnishings,
+          parking, and HOA rights in photos may not match what conveys—confirm in writing with your
+          agent.
+        </p>
+      </section>
+
       <PageFaqSection
         pathname={path}
         headingId="unit-photos-faq-heading"
-        heading="Photo FAQ"
+        heading="What do Palms Place #8322 photos show versus the listing?"
         intro={`Represented by ${siteContact.agentName}, ${siteContact.brokerage}. Service area: ${siteContact.primaryServiceArea}.`}
         items={unit8322PhotosPageFaq}
       />

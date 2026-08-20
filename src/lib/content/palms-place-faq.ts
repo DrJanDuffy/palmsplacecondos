@@ -18,7 +18,7 @@ export const palmsPlaceFaqIntro = {
 
 /** Volatile guest-facing topics — confirm with the resort or your booking. */
 export const palmsPlaceFaqPlanningIntro = {
-  heading: "Planning your stay",
+  heading: "What should you confirm before a Palms Place stay?",
   description:
     "Pool hours, shuttles, on-property dining, and fees change with season and operations. Use this section as a starting point, then confirm current details with Palms, your host, or your reservation platform before you travel.",
 };

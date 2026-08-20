@@ -39,9 +39,14 @@ export function FeaturedListingBanner() {
     >
       <div className="mx-auto max-w-6xl">
         <article className="overflow-hidden rounded-xl border border-palms-gold/35 shadow-2xl shadow-black/50">
-          <div className="flex items-center justify-center gap-2 bg-palms-gold px-4 py-2.5 text-center text-xs font-bold tracking-[0.2em] text-palms-charcoal uppercase md:text-sm">
+          <div className="flex items-center justify-center gap-2 bg-palms-gold px-4 py-2.5 text-center text-palms-charcoal">
             <StarIcon />
-            <span id="featured-listing-heading">Just listed — featured property</span>
+            <h2
+              className="text-xs font-bold tracking-[0.2em] uppercase md:text-sm"
+              id="featured-listing-heading"
+            >
+              Which Palms Place condo is featured right now?
+            </h2>
             <StarIcon />
           </div>
 

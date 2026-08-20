@@ -18,7 +18,7 @@ export function PalmsBridgeSection() {
             className="font-display mt-6 text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl"
             id="palms-bridge-heading"
           >
-            Casino Resort
+            How close is Palms Place to Palms Casino Resort?
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-palms-cream/85">
             Gaming, dining, and entertainment are steps away at Palms Casino Resort—separate from

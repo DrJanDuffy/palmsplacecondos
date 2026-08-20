@@ -119,7 +119,7 @@ export function HighRisesPageBody() {
       <PageFaqSection
         pathname="/high-rises"
         headingId="high-rises-faq-heading"
-        heading="Strip high-rise FAQ"
+        heading="How do you compare Las Vegas Strip high-rise condos?"
         intro="Tower comparisons, Palms Place context, and live search."
         items={highRisesPageFaq}
       />

@@ -110,7 +110,7 @@ export function TeamPageBody() {
         aria-labelledby="team-nap-heading"
       >
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="team-nap-heading">
-          Office contact (NAP)
+          Where is the Palms Place team office, and what is the NAP?
         </h2>
         <ul className="mt-4 space-y-2 text-palms-cream/85">
           <li>
@@ -190,7 +190,7 @@ export function TeamPageBody() {
       <PageFaqSection
         pathname="/team"
         headingId="team-faq-heading"
-        heading="Team FAQ"
+        heading="Who is on the Palms Place real estate team?"
         intro="Listing and buyer representation with Dr. Jan Duffy, plus NAP alignment with GBP."
         items={getTeamPageFaq()}
       />

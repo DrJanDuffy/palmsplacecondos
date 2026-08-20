@@ -67,8 +67,14 @@ export function ContactPageBody() {
         footnote={`NAP, hours, and service area match the Google Business Profile for ${siteContact.gbpBusinessName}.`}
       />
 
-      <section className="mt-10" aria-label="Office location map">
-        <h2 className="font-display text-xl font-semibold text-palms-cream">Map</h2>
+      <section className="mt-10" aria-labelledby="contact-map-heading">
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="contact-map-heading">
+          How do I get directions to the Palms Place Condos office?
+        </h2>
+        <p className="mt-3 leading-relaxed text-palms-cream/85">
+          Use the map for the team office NAP—not the Palms Place tower at 4381 W Flamingo Road.
+          Confirm which pin applies to your appointment before you drive.
+        </p>
         <div className="mt-4 overflow-hidden rounded-lg border border-palms-gold/15">
           <iframe
             allowFullScreen
@@ -81,8 +87,10 @@ export function ContactPageBody() {
         </div>
       </section>
 
-      <section className="mt-10">
-        <h2 className="font-display text-xl font-semibold text-palms-cream">Browse while you reach out</h2>
+      <section className="mt-10" aria-labelledby="contact-browse-heading">
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="contact-browse-heading">
+          What can I browse while I contact the Palms Place team?
+        </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/condos">
             Palms Place &amp; high-rise condos
@@ -101,7 +109,7 @@ export function ContactPageBody() {
       <PageFaqSection
         pathname="/contact"
         headingId="contact-faq-heading"
-        heading="Contact FAQ"
+        heading="How do I contact the Palms Place real estate team?"
         intro="Office NAP, hours, and which inbox to use."
         items={getContactPageFaq()}
       />

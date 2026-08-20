@@ -104,7 +104,7 @@ export function LuxuryHomesPageBody() {
       <PageFaqSection
         pathname="/luxury-homes"
         headingId="luxury-homes-faq-heading"
-        heading="Luxury homes FAQ"
+        heading="How do Las Vegas luxury homes compare to Palms Place condos?"
         intro="Estates versus Palms Place high-rise living in Las Vegas."
         items={luxuryHomesPageFaq}
       />

@@ -7,11 +7,11 @@ export const furnishedInventorySurprisesNote: FieldNote = {
   description:
     "How listing prep at Palms Place handles art, linens, built-ins, and “furnished” remarks when sellers and buyers disagree at walkthrough—not generic staging advice.",
   datePublished: "2026-05-18",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-20",
   eyebrow: "Field note · Listing prep",
   headline: "Furnished Palms Place resales: inventory surprises we catch before closing",
   lede:
-    "A furnished Palms Place unit can show beautifully on a Saturday tour and still close with disputes over wine fridges, wall-mounted TVs, or custom window treatments. This note explains how our listing team documents conveyance before MLS photos go live—so buyers are not negotiating furniture on the eve of closing.",
+    "A furnished Palms Place unit can show beautifully on a Saturday tour and still close with disputes over wine fridges, wall-mounted TVs, or custom window treatments. This note explains how our listing team documents conveyance before listing photos go live—so buyers are not negotiating furniture on the eve of closing.",
   authorName: siteContact.agentName,
   authorJobTitle: siteContact.agentTitle,
   howCreated:
@@ -21,25 +21,25 @@ export const furnishedInventorySurprisesNote: FieldNote = {
   sections: [
     {
       id: "remarks-vs-reality",
-      heading: "When “fully furnished” means different things to seller and buyer",
+      heading: "What if “fully furnished” means different things to a Palms Place seller and buyer?",
       body:
         "Sellers sometimes intend to remove personal art, replace mattresses, or swap TVs while buyers assume everything in photos conveys. We resolve that gap in remarks and exhibits before the first showing, not at final walkthrough.",
     },
     {
       id: "built-in-vs-loose",
-      heading: "Built-ins that look permanent but are not deeded fixtures",
+      heading: "Which Palms Place built-ins look permanent but are not deeded fixtures?",
       body:
         "Custom closet systems, motorized shades, and some AV racks may be bolted in yet still excluded unless listed. We photograph each category and label it in the inventory exhibit so there is no debate about what stays.",
     },
     {
       id: "linens-and-consumables",
-      heading: "Linens, pantry stock, and consumables",
+      heading: "Do Palms Place linens, pantry stock, and consumables convey?",
       body:
         "Hotel-style turnovers often include linens and starter pantry items that sellers view as consumable and buyers view as part of the purchase. We set expectations in writing—typically consumables do not convey unless explicitly listed.",
     },
     {
       id: "buyer-walkthrough",
-      heading: "Why buyers should tour with the exhibit in hand",
+      heading: "Why should Palms Place buyers tour with the inventory exhibit in hand?",
       body:
         "On the buyer side, Dr. Jan Duffy’s tours cross-check the exhibit against what is in the unit before removal contingencies expire. If a piece in photos is missing on tour, we fix it in the contract or adjust price—before appraisal and loan docs assume a furnished sale.",
     },

@@ -70,10 +70,10 @@ export function SellersPageBody() {
         aria-labelledby="sellers-field-guide-heading"
       >
         <h2 className="font-display text-xl font-semibold text-palms-cream" id="sellers-field-guide-heading">
-          First-hand Palms Place selling field guide
+          How should you prepare to sell a Palms Place condo in Las Vegas?
         </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
-          HOA packets, furnished inventory, and buyer questions differ at Palms Place. Read the team’s
+          Start with the field guide. HOA packets, furnished inventory, and buyer questions differ at Palms Place. Read the team&apos;s
           listing prep checklist before you price or photograph.
         </p>
         <p className="mt-4">
@@ -86,8 +86,10 @@ export function SellersPageBody() {
         </p>
       </section>
 
-      <section className="mt-10">
-        <h2 className="font-display text-2xl font-semibold text-palms-cream">Listing services</h2>
+      <section className="mt-10" aria-labelledby="sellers-listing-services-heading">
+        <h2 className="font-display text-2xl font-semibold text-palms-cream" id="sellers-listing-services-heading">
+          What listing services does the Palms Place team offer?
+        </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           The expanded{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/sell">
@@ -103,8 +105,10 @@ export function SellersPageBody() {
         </div>
       </section>
 
-      <section className="mt-10">
-        <h2 className="font-display text-2xl font-semibold text-palms-cream">Help buyers understand your building</h2>
+      <section className="mt-10" aria-labelledby="sellers-buyer-context-heading">
+        <h2 className="font-display text-2xl font-semibold text-palms-cream" id="sellers-buyer-context-heading">
+          How can sellers help Palms Place buyers understand the building?
+        </h2>
         <p className="mt-4 leading-relaxed text-palms-cream/85">
           Share our{" "}
           <Link className="text-palms-gold underline-offset-4 hover:underline" href="/guide/buying-palms-place">
@@ -121,7 +125,7 @@ export function SellersPageBody() {
       <PageFaqSection
         pathname="/sellers"
         headingId="sellers-faq-heading"
-        heading="Sellers FAQ"
+        heading="What do Palms Place sellers ask before listing?"
         intro="How this hub differs from /sell and who lists Palms Place."
         items={sellersPageFaq}
       />

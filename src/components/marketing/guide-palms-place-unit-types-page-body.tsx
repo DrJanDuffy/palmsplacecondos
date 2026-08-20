@@ -37,7 +37,7 @@ export function GuidePalmsPlaceUnitTypesPageBody() {
       searchUrl={getRealScoutSharedSearchUrl()}
       sections={[sizeContextSection, ...palmsPlaceUnitTypesSections]}
       faqItems={unitTypesGuidePageFaq}
-      faqHeading="Unit types FAQ"
+      faqHeading="How do you choose a Palms Place studio vs one-bedroom?"
       footerCtas={[
         { href: "/guide/buying-palms-place", label: "Buying field guide" },
         { href: "/buyers", label: "Buyer hub" },

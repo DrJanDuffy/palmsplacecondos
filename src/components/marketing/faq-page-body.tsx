@@ -22,8 +22,8 @@ function FaqAccordionList({ items }: { items: PalmsPlaceFaqEntry[] }) {
           className="group rounded-lg border border-palms-gold/15 bg-palms-charcoal-muted/30 px-4 open:border-palms-gold/25"
           id={item.slug}
         >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 font-semibold text-palms-cream marker:content-none [&::-webkit-details-marker]:hidden">
-            <span>{item.question}</span>
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 marker:content-none [&::-webkit-details-marker]:hidden">
+            <h3 className="text-base font-semibold text-palms-cream">{item.question}</h3>
             <span
               aria-hidden
               className="shrink-0 text-palms-gold transition-transform duration-200 group-open:rotate-180"
@@ -53,7 +53,12 @@ export function FaqPageBody() {
       name: palmsPlaceFaqIntro.title,
       description: palmsPlaceFaqIntro.description,
     },
-    { aboutPalmsPlace: true, mainEntity: "faq", speakableSelectors: ["h1", "#faq-common-heading"], hasFaq: true },
+    {
+      aboutPalmsPlace: true,
+      mainEntity: "faq",
+      speakableSelectors: ["h1", "#faq-common-heading", "#faq-planning-heading", "h3"],
+      hasFaq: true,
+    },
   );
   const breadcrumbJsonLd = getBreadcrumbListJsonLd("/faq", [
     { name: "Home", path: "/" },
@@ -79,7 +84,7 @@ export function FaqPageBody() {
             className="font-display text-2xl font-semibold tracking-tight text-palms-cream md:text-3xl"
             id="faq-common-heading"
           >
-            Common questions
+            What are the most common Palms Place condo questions?
           </h2>
           <FaqAccordionList items={palmsPlaceFaqPrimary} />
         </section>
@@ -97,7 +102,7 @@ export function FaqPageBody() {
           <FaqAccordionList items={palmsPlaceFaqPlanningStay} />
         </section>
 
-        <RelatedPages className="mt-16" links={related} title="Related pages" />
+        <RelatedPages className="mt-16" links={related} />
       </div>
     </article>
   );

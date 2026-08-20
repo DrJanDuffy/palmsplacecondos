@@ -41,14 +41,13 @@ export function HeroPalmsPlace() {
             className="font-display mt-8 max-w-3xl text-balance text-4xl font-semibold leading-[1.08] tracking-tight text-palms-cream md:text-5xl lg:text-6xl"
             id="hero-heading"
           >
-            {siteContact.gbpBusinessName}
+            Palms Place Condos for Sale in Las Vegas
           </h1>
 
-          {description ? (
-            <p className="palms-reveal-delay-1 mt-6 max-w-2xl text-base leading-relaxed text-palms-cream/90 md:text-lg">
-              {description}
-            </p>
-          ) : null}
+          <p className="palms-reveal-delay-1 mt-6 max-w-2xl text-base leading-relaxed text-palms-cream/90 md:text-lg">
+            {siteContact.gbpBusinessName} is a high-rise at 4381 W Flamingo Road, west of the Las
+            Vegas Strip. {description ?? "Browse studio and one-bedroom inventory with Dr. Jan Duffy."}
+          </p>
 
           {phone && tel ? (
             <p className="palms-reveal-delay-2 mt-4 text-sm text-palms-cream/75 md:text-base">
