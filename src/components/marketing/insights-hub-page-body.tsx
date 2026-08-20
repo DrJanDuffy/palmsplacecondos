@@ -73,28 +73,38 @@ export function InsightsHubPageBody() {
         </p>
       </section>
 
-      <ul className="mt-10 space-y-6">
-        {fieldNotes.map((note) => (
-          <li
-            key={note.slug}
-            className="rounded-xl border border-palms-cream/15 bg-palms-cream/5 p-6"
-          >
-            <p className="text-xs font-medium uppercase tracking-wide text-palms-gold">{note.eyebrow}</p>
-            <h2 className="mt-2 font-display text-xl font-semibold text-palms-cream" id={`insights-${note.slug}`}>
-              <Link
-                className="underline-offset-4 hover:underline"
-                href={`/insights/${note.slug}`}
-              >
-                {note.headline}
-              </Link>
-            </h2>
-            <p className="mt-2 text-sm text-palms-cream/75">
-              {note.authorName} · Updated {note.dateModified}
-            </p>
-            <p className="mt-3 leading-relaxed text-palms-cream/85">{note.description}</p>
-          </li>
-        ))}
-      </ul>
+      <section className="mt-10" aria-labelledby="insights-list-heading">
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="insights-list-heading">
+          Which Palms Place field notes should you read?
+        </h2>
+        <p className="mt-3 leading-relaxed text-palms-cream/85">
+          Start with the note that matches your next tour or listing—sound and parking, HOA packets,
+          or furnished inventory. Each article is first-hand from Dr. Jan Duffy&apos;s Palms Place
+          work in Las Vegas, not a generic high-rise checklist.
+        </p>
+        <ul className="mt-6 space-y-6">
+          {fieldNotes.map((note) => (
+            <li
+              key={note.slug}
+              className="rounded-xl border border-palms-cream/15 bg-palms-cream/5 p-6"
+            >
+              <p className="text-xs font-medium uppercase tracking-wide text-palms-gold">{note.eyebrow}</p>
+              <h3 className="mt-2 font-display text-xl font-semibold text-palms-cream" id={`insights-${note.slug}`}>
+                <Link
+                  className="underline-offset-4 hover:underline"
+                  href={`/insights/${note.slug}`}
+                >
+                  {note.headline}
+                </Link>
+              </h3>
+              <p className="mt-2 text-sm text-palms-cream/75">
+                {note.authorName} · Updated {note.dateModified}
+              </p>
+              <p className="mt-3 leading-relaxed text-palms-cream/85">{note.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <PageFaqSection
         pathname="/insights"

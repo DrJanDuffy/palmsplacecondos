@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata-helpers";
 
 export const metadata: Metadata = buildPageMetadata({
   path: "/insights",
-  title: "Palms Place field notes | Team insights",
+  title: "Palms Place field notes | Las Vegas high-rise tours",
   description: fieldNotesHubMeta.description,
 });
 

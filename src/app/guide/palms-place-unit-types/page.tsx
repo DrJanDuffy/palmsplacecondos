@@ -6,7 +6,7 @@ const path = "/guide/palms-place-unit-types";
 
 export const metadata: Metadata = buildPageMetadata({
   path: path,
-  title: "Palms Place studios vs one-bedroom | Buyer guide",
+  title: "Palms Place studios vs one-bedroom condos in Las Vegas | Buyer guide",
   description: "Choose Palms Place studios vs one-bedroom layouts—square footage, HOA, and tour questions—with a buyer decision guide for the Las Vegas tower.",
 });
 

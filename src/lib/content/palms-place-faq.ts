@@ -11,7 +11,7 @@ export type PalmsPlaceFaqEntry = {
 };
 
 export const palmsPlaceFaqIntro = {
-  title: "Palms Place Las Vegas FAQ",
+  title: "Palms Place Las Vegas FAQ — location, condos, and ownership",
   description:
     "Clear answers on where Palms Place sits versus the Strip, the building and address, and how ownership works in the tower—what buyers, owners, and researchers usually want first. For anything tied to a stay, HOA rules, or a purchase, confirm with official disclosures, the property, or your Nevada real estate professional.",
 };

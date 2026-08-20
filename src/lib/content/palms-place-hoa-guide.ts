@@ -1,15 +1,15 @@
 /** Palms Place HOA & monthly carry — buyer due diligence (not legal advice). */
 
 export const palmsPlaceHoaGuideMeta = {
-  title: "Palms Place HOA fees & monthly costs — buyer guide",
+  title: "Palms Place HOA fees in Las Vegas — buyer monthly cost guide",
   description:
     "How to read Palms Place HOA assessments, reserves, parking line items, and true monthly carry before you tour or write an offer on a Las Vegas high-rise condo.",
   datePublished: "2026-05-27",
-  dateModified: "2026-05-27",
+  dateModified: "2026-08-20",
 };
 
 export const palmsPlaceHoaIntro = {
-  headline: "Palms Place HOA fees & true monthly cost — what buyers should model",
+  headline: "Palms Place HOA fees in Las Vegas — what buyers should model",
   lede:
     "List price is only one line on a high-rise spreadsheet. This guide explains how our team reviews HOA resale certificates, assessments, and parking-related fees at Palms Place—verify every number in official documents, not marketing summaries.",
 };

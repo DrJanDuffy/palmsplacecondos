@@ -67,9 +67,12 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
 
       <aside
         className="mt-8 rounded-xl border border-palms-cream/15 bg-palms-cream/5 p-5 text-sm leading-relaxed text-palms-cream/80"
-        aria-label="How and why this field note was published"
+        aria-labelledby="how-why-heading"
       >
-        <p>
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="how-why-heading">
+          How and why was this Palms Place field note written?
+        </h2>
+        <p className="mt-3">
           <strong className="text-palms-cream">How:</strong> {note.howCreated}
         </p>
         <p className="mt-3">

@@ -48,7 +48,7 @@ export function ConnectPageBody() {
       <StructuredData data={webPageJsonLd} />
       <StructuredData data={breadcrumbJsonLd} />
       <h1 className="font-display text-3xl font-semibold tracking-tight text-palms-cream md:text-4xl">
-        Connect with the Palms Place team
+        Connect with the Palms Place team in Las Vegas
       </h1>
       <AgentHeroBadge className="mt-6" />
       <p className="mt-4 text-lg leading-relaxed text-palms-cream/85">

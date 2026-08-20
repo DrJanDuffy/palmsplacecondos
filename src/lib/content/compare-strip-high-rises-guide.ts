@@ -7,7 +7,7 @@ export const compareStripHighRisesGuideMeta = {
   description:
     "A practical framework for comparing Palms Place to other Las Vegas Strip and west-of-Strip towers—HOA culture, use case, and tour order—from the Palms Place real estate team.",
   datePublished: "2026-05-12",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-20",
 };
 
 export const compareStripHighRisesIntro = {
