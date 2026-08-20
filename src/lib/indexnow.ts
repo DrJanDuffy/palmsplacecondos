@@ -6,6 +6,8 @@
  *
  * Keep XML sitemaps (`src/app/sitemap.ts`) as the full URL inventory. IndexNow
  * is only for recent adds/updates/deletes — not a retroactive dump of history.
+ * IndexNow does **not** create backlinks; Bing Webmaster Tools Backlinks is a
+ * separate inbound-link report (compare **www**, not apex).
  *
  * Source of URLs: the same 33 `https://www.palmsplacecondos.com/…` loc values
  * Google Search Console reported as Success on 2026-08-20 (`MARKETING_ROUTES`).

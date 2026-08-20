@@ -53,6 +53,7 @@ This file is the **repository-specific** companion to the shared Cursor rules in
 - **Sitemap URL errors:** [`sitemap.ts`](src/app/sitemap.ts) and [`robots.ts`](src/app/robots.ts) resolve the public origin per request (so URLs match `www` or your custom domain). Still set **`NEXT_PUBLIC_SITE_URL`** on Vercel so metadata and JSON-LD stay aligned. Vercel also exposes **`VERCEL_PROJECT_PRODUCTION_URL`** as a build-time fallback for [`getSiteUrl()`](src/lib/site-url.ts) when the public env is unset (enable system env vars in the project).
 - Add **`GOOGLE_SITE_VERIFICATION`** (or `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`) from GSC’s HTML tag method so the site can be verified without extra file deploys.
 - **IndexNow** (Bing, Yandex, Naver, Seznam.cz, Yep): key file at [`public/26982a60fcd560afd3faf905245587a9.txt`](public/26982a60fcd560afd3faf905245587a9.txt) (`/{key}.txt` on **www**). Submit recent marketing URLs via [`/api/indexnow`](src/app/api/indexnow/route.ts) (Vercel Cron + `CRON_SECRET`). Keep **sitemaps** for the full URL catalog; do not treat IndexNow as a retroactive dump. Production **www** only — never ping from preview `*.vercel.app` hosts.
+- **Bing Webmaster Tools backlinks:** review and compare inbound links on **`https://www.palmsplacecondos.com/`**, not apex. Apex 308s to www, so Bing often shows “No data” for `https://palmsplacecondos.com/`. IndexNow does not create backlinks. Do not treat `palms.com` (casino/tickets/press) as a peer link-profile for this condo site.
 
 ## Hosting
 

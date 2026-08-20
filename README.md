@@ -66,6 +66,24 @@ This Next.js app is not on a CMS with a native IndexNow plugin, so the site impl
 
 Optional: set `BING_SITE_VERIFICATION` from Bing Webmaster Tools (HTML `msvalidate.01` tag) so the Bing property matches this host. Cloudflare orange-cloud proxy is still **not** used in front of Vercel; Cloudflare’s native IndexNow feature is unused because DNS is gray-cloud / DNS-only.
 
+### Bing Webmaster Tools backlinks (inbound links)
+
+Backlinks are links **from other sites** to this site. Bing Webmaster Tools can review yours and **compare** them to any other website. IndexNow only tells Bing that **our** URLs changed; it does not create inbound links.
+
+**Always compare the canonical host:** `https://www.palmsplacecondos.com/` (same as `NEXT_PUBLIC_SITE_URL` and the sitemap). Apex `https://palmsplacecondos.com/` 308s to **www**, so Bing’s backlink index for the apex host is often empty even when **www** has (or will have) data.
+
+Bing Webmaster Tools Backlinks compare, **2026-08-20** (UI paste):
+
+| Metric | `https://palmsplacecondos.com/` (apex) | `https://www.palms.com` |
+|---|---|---|
+| Total referring domains | No data (`-`) | 2.4K |
+| Anchor texts | No data (`-`) | 1.1K |
+| Top referring domains / top anchors | No data available | Casino/entertainment profile (see below) |
+
+`palms.com` top referring domains in that sample included blogspot.com, themogh.org, trazeetravel.com, uvtix.com, axs.com, vegasfamilyinsider.com, fodors.com, vegasnearme.com, yogonet.com, and boxofficehero.com. Top anchors were Palms / Palms Casino Resort / palms.com / Scotch 80 Prime / Press / tickets / a pool-opening press URL. That is a **hotel-casino and ticketing** link graph, not a Palms Place **resale condo** peer. Do not chase those domains or copy those anchors for this site.
+
+Re-run the same Bing compare with **`https://www.palmsplacecondos.com/`** as “your site.” If **www** is also “No data,” Bing has not sampled inbound links yet (new property, or none discovered)—that is not a robots/sitemap bug. First-party citations that can earn real links: Google Business Profile website field, the Palms Place Facebook page, BHHS Nevada Properties agent profile, and RealScout—keep NAP identical to [`src/lib/site-contact.ts`](src/lib/site-contact.ts). Do not invent review counts or “#1” claims.
+
 ### Optional: DMARC (email only)
 
 If you use **Cloudflare Email Routing** (MX on the zone), run Cloudflare’s **DMARC** wizard to add a `_dmarc` TXT record. This does not affect the Next.js site; it helps mail authentication and reporting.
