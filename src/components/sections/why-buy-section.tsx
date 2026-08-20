@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CalendlyLink } from "@/components/shared/calendly-link";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { siteContact } from "@/lib/site-contact";
 
@@ -72,6 +73,7 @@ export function WhyBuySection() {
             .
           </p>
         </div>
+        <SectionRelatedLinks pathname="/" sectionId="why-buy-heading" />
       </div>
     </section>
   );

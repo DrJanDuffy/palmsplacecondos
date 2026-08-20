@@ -110,7 +110,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           items={searchPageFaq}
         />
 
-        <RelatedPages links={related} />
+        <RelatedPages pathname="/search" links={related} />
       </div>
     </div>
   );

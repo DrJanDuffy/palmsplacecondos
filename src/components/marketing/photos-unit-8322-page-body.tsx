@@ -147,7 +147,7 @@ export function PhotosUnit8322PageBody() {
         .
       </p>
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

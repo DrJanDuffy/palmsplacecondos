@@ -1,7 +1,11 @@
 /**
  * Visible verification footer for AEO/GEO — no fabricated stats; points to real checks.
  */
+import { geoCitationLinks } from "@/lib/internal-links";
+
 export function SourcesVerification() {
+  const citations = geoCitationLinks().slice(0, 5);
+
   return (
     <aside
       aria-labelledby="sources-heading"
@@ -16,6 +20,22 @@ export function SourcesVerification() {
         record, resale certificate, and association documents for your unit—not from this page alone.
         Not legal or tax advice.
       </p>
+      {citations.length > 0 ? (
+        <ul className="mt-4 flex flex-col gap-2">
+          {citations.map((item) => (
+            <li key={item.href}>
+              <a
+                className="font-medium text-palms-gold underline-offset-4 hover:underline"
+                href={item.href}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </aside>
   );
 }

@@ -9,6 +9,7 @@ import {
   getFeaturedListingHeroPhoto,
   getGalleryPhotoSrc,
 } from "@/lib/content/media-gallery";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { getTelHref, siteContact } from "@/lib/site-contact";
 
 function StarIcon() {
@@ -169,8 +170,17 @@ export function FeaturedListingBanner() {
 
         <p className="mt-3 text-center text-xs text-palms-cream/55">
           Listing price and status change without notice. Verify all fields with your agent and
-          official listing records before you make an offer.
+          official listing records before you make an offer. See the{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/featured">
+            featured Palms Place listing page
+          </Link>
+          {" "}and{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/photos/unit-8322">
+            Palms Place #8322 photo gallery
+          </Link>
+          .
         </p>
+        <SectionRelatedLinks pathname="/" sectionId="featured-listing-heading" />
       </div>
     </section>
   );

@@ -114,7 +114,7 @@ export function InsightsHubPageBody() {
         items={insightsHubPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

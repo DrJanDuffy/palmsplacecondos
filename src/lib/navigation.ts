@@ -42,6 +42,7 @@ export const primaryNav: NavItem[] = [
 
 /** Secondary “popular searches / buyer” shortcuts */
 export const popularNav: NavItem[] = [
+  { label: "Search listings", href: "/search" },
   { label: "Palms Place guide", href: "/palms-place" },
   { label: "Buyers", href: "/buyers" },
   { label: "Sellers", href: "/sellers" },

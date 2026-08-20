@@ -151,7 +151,7 @@ export function GuideBuyingPalmsPlacePageBody() {
         items={buyingGuidePageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

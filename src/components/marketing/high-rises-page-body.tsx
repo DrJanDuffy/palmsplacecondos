@@ -124,7 +124,7 @@ export function HighRisesPageBody() {
         items={highRisesPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/high-rises" links={related} />
     </article>
   );
 }

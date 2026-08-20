@@ -1,5 +1,6 @@
 import { PageFaqSection } from "@/components/marketing/page-faq-section";
 import { RelatedPages } from "@/components/seo/related-pages";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { SourcesVerification } from "@/components/seo/sources-verification";
 import { StructuredData } from "@/components/seo/structured-data";
 import { ButtonLink } from "@/components/shared/button-link";
@@ -78,6 +79,7 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
         <p className="mt-3">
           <strong className="text-palms-cream">Why:</strong> {note.whyCreated}
         </p>
+        <SectionRelatedLinks pathname={path} sectionId="how-why-heading" />
       </aside>
 
       <div className="mt-10 space-y-10">
@@ -87,6 +89,7 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
               {section.heading}
             </h2>
             <p className="mt-3 leading-relaxed text-palms-cream/85">{section.body}</p>
+            <SectionRelatedLinks pathname={path} sectionId={section.id} />
           </section>
         ))}
       </div>
@@ -106,6 +109,7 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
             </li>
           ))}
         </ul>
+        <SectionRelatedLinks pathname={path} sectionId="what-we-do-next" />
       </section>
 
       <div className="mt-10 flex flex-wrap gap-4">
@@ -132,7 +136,7 @@ export function FieldNotePageBody({ note }: FieldNotePageBodyProps) {
       ) : null}
 
       <SourcesVerification />
-      <RelatedPages links={related} />
+      <RelatedPages pathname={path} links={related} />
     </article>
   );
 }

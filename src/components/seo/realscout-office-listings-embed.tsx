@@ -4,7 +4,9 @@
  * @see https://support.realscout.com — widget and agent ID configuration.
  */
 import Link from "next/link";
+import { headers } from "next/headers";
 import { RealScoutOfficeListingsMount } from "@/components/seo/realscout-office-listings-mount";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { ButtonAnchor } from "@/components/shared/button-link";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
@@ -21,7 +23,8 @@ function safeAgentEncodedId(value: string): string {
   return value.replace(/["'<>]/g, "").trim() || DEFAULT_AGENT;
 }
 
-export function RealScoutOfficeListingsEmbed() {
+export async function RealScoutOfficeListingsEmbed() {
+  const pathname = (await headers()).get("x-pathname") ?? "/";
   const sharedSearchUrl = getRealScoutSharedSearchUrl();
   const agentId = safeAgentEncodedId(
     process.env.NEXT_PUBLIC_REALSCOUT_AGENT_ENCODED_ID ?? DEFAULT_AGENT,
@@ -47,8 +50,21 @@ export function RealScoutOfficeListingsEmbed() {
           Browse Palms Place condos for sale and nearby Las Vegas high-rise listings shown here.
           Availability and details are provided by the listing service. For filters and saved
           criteria, use the curated RealScout search ({siteContact.agentName}, listing specialist and
-          team leader for Palms Place).
+          team leader for Palms Place). Also see{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/search">
+            Search Palms Place and Las Vegas listings
+          </Link>
+          ,{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/condos">
+            Las Vegas Strip high-rise condos for sale
+          </Link>
+          , and{" "}
+          <Link className="font-medium text-palms-gold underline-offset-4 hover:underline" href="/photos">
+            Palms Place condo photo galleries
+          </Link>
+          .
         </p>
+        <SectionRelatedLinks pathname={pathname} sectionId="listings-heading" />
 
         <div className="mt-8 flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">

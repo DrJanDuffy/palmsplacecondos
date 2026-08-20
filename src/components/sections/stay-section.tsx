@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { StayCarousel } from "@/components/sections/stay-carousel";
 import { LuxuryPlaceholder } from "@/components/sections/luxury-placeholder";
+import { SectionRelatedLinks } from "@/components/seo/section-related-links";
 import { SectionEyebrow } from "@/components/shared/section-heading";
 import { getRealScoutSharedSearchUrl } from "@/lib/realscout";
 import { siteContact } from "@/lib/site-contact";
@@ -26,6 +27,7 @@ export function StaySection() {
           Vegas high-rise condos near Palms Casino Resort. Compare floor plans below, then search live
           listings or ask {siteContact.agentName} for current HOA details.
         </p>
+        <SectionRelatedLinks pathname="/" sectionId="stay-heading" />
 
         <div className="mt-12 overflow-hidden rounded-2xl border border-palms-gold/15 shadow-2xl shadow-black/40">
           <StayCarousel
@@ -60,6 +62,12 @@ export function StaySection() {
                           href="/condos"
                         >
                           Browse all Las Vegas high-rise condos
+                        </Link>
+                        <Link
+                          className="text-sm font-semibold text-palms-cream/80 underline-offset-4 hover:text-palms-gold hover:underline"
+                          href="/guide/palms-place-unit-types"
+                        >
+                          Palms Place studio vs one-bedroom floor plans
                         </Link>
                         <a
                           className="text-sm font-semibold text-palms-cream/80 underline-offset-4 hover:text-palms-gold hover:underline"

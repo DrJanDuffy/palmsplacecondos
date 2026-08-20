@@ -5,6 +5,7 @@
 import { featuredListing, getFeaturedListingDetailsUrl } from "@/lib/content/featured-listing";
 import { getGalleryPhotoSrc, unit8322Gallery } from "@/lib/content/media-gallery";
 import { palmsPlaceTower } from "@/lib/content/palms-place-building";
+import { geoCitationLinks, relatedLinksForPath } from "@/lib/internal-links";
 import { formatOfficeAddressLine, siteContact } from "@/lib/site-contact";
 import { getSiteUrl } from "@/lib/site-url";
 import { getSitemapLastModified } from "@/lib/sitemap-last-modified";
@@ -45,6 +46,34 @@ function applySitemapDateModified(webPage: Record<string, unknown>, pathname: st
     webPage.dateModified = getSitemapLastModified(sitemapPath).toISOString().slice(0, 10);
   } catch {
     // Omit rather than invent a lastmod for unsitemap'd paths.
+  }
+}
+
+function absoluteSiteUrl(origin: string, href: string): string {
+  if (href.startsWith("http://") || href.startsWith("https://")) return href;
+  if (href === "/") return `${origin}/`;
+  return `${origin}${href.startsWith("/") ? href : `/${href}`}`;
+}
+
+/**
+ * Mirror visible related pages + GEO citations onto WebPage
+ * (`significantLink` / `relatedLink` / `citation`).
+ */
+function applyDiscoverabilityLinks(webPage: Record<string, unknown>, pathname: string): void {
+  const origin = siteOrigin(getSiteUrl());
+  const path = pathname === "" ? "/" : pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const internals = relatedLinksForPath(path)
+    .filter((link) => !link.external)
+    .map((link) => absoluteSiteUrl(origin, link.href));
+  if (internals.length > 0) {
+    webPage.significantLink = internals.slice(0, 4);
+    if (internals.length > 4) {
+      webPage.relatedLink = internals.slice(4);
+    }
+  }
+  const citations = geoCitationLinks().map((link) => link.href);
+  if (citations.length > 0) {
+    webPage.citation = citations;
   }
 }
 
@@ -493,6 +522,38 @@ export function getBaseJsonLd(): JsonLdGraph {
       { "@id": listingAgentId },
       { "@id": brokerageId },
     ],
+    hasPart: [
+      {
+        "@type": "SiteNavigationElement",
+        name: "Palms Place Las Vegas building guide",
+        url: `${origin}/palms-place`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Las Vegas Strip high-rise condos for sale",
+        url: `${origin}/condos`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Search Palms Place listings",
+        url: `${origin}/search`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Sell your Palms Place condo",
+        url: `${origin}/sell`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Contact Palms Place Condos",
+        url: `${origin}/contact`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        name: "Palms Place Las Vegas FAQ",
+        url: `${origin}/faq`,
+      },
+    ],
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -559,6 +620,7 @@ export function getWebPageJsonLdForPath(
     },
   };
   applySitemapDateModified(webPage, path);
+  applyDiscoverabilityLinks(webPage, path);
   const mainEntityId = resolveWebPageMainEntityId(
     options?.mainEntity,
     siteUrl,
@@ -581,6 +643,7 @@ export function getWebPageJsonLdForPath(
   if (options?.hasHowTo) {
     parts.push({ "@id": `${pageUrl}#howto` });
   }
+  parts.push({ "@id": `${pageUrl}#related-list` });
   if (parts.length === 1) {
     webPage.hasPart = parts[0];
   } else if (parts.length > 1) {
@@ -633,8 +696,10 @@ export function getHomeWebPageJsonLd(): JsonLdGraph {
       ],
     },
     author: { "@id": listingAgentId },
+    hasPart: { "@id": `${pageUrl}#related-list` },
   };
   applySitemapDateModified(webPage, "/");
+  applyDiscoverabilityLinks(webPage, "/");
 
   return {
     "@context": CONTEXT,
@@ -855,6 +920,40 @@ export function getItemListJsonLd(
   if (list.description) {
     itemList.description = list.description;
   }
+
+  return {
+    "@context": CONTEXT,
+    "@graph": [itemList],
+  };
+}
+
+/** ItemList for the visible related-pages nav (`#related-list`). */
+export function getRelatedItemListJsonLd(
+  pathname: string,
+  links: { href: string; label: string; description?: string; external?: boolean }[],
+): JsonLdGraph {
+  const origin = siteOrigin(getSiteUrl());
+  const path = pathname === "" || pathname === "/" ? "/" : pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const pageUrl = path === "/" ? `${origin}/` : `${origin}${path}`;
+  const internals = links.filter((link) => !link.external);
+  const itemList: Record<string, unknown> = {
+    "@type": "ItemList",
+    "@id": `${pageUrl}#related-list`,
+    name: "Related Palms Place pages",
+    numberOfItems: internals.length,
+    itemListElement: internals.map((link, index) => {
+      const element: Record<string, unknown> = {
+        "@type": "ListItem",
+        position: index + 1,
+        name: link.label,
+        url: absoluteSiteUrl(origin, link.href),
+      };
+      if (link.description) {
+        element.description = link.description;
+      }
+      return element;
+    }),
+  };
 
   return {
     "@context": CONTEXT,

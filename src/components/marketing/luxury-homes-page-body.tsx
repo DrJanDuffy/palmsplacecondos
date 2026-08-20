@@ -109,7 +109,7 @@ export function LuxuryHomesPageBody() {
         items={luxuryHomesPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/luxury-homes" links={related} />
     </article>
   );
 }

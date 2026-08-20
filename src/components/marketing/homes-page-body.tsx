@@ -110,7 +110,7 @@ export function HomesPageBody() {
         items={homesPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/homes" links={related} />
     </article>
   );
 }

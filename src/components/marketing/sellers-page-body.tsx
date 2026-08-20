@@ -131,7 +131,7 @@ export function SellersPageBody() {
       />
 
       <SourcesVerification />
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/sellers" links={related} />
     </article>
   );
 }

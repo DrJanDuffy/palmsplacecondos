@@ -102,7 +102,7 @@ export function FaqPageBody() {
           <FaqAccordionList items={palmsPlaceFaqPlanningStay} />
         </section>
 
-        <RelatedPages className="mt-16" links={related} />
+        <RelatedPages className="mt-16" pathname="/faq" links={related} />
       </div>
     </article>
   );

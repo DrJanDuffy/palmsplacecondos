@@ -118,7 +118,7 @@ export function Under500kPageBody() {
         items={under500kPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/under-500k" links={related} />
     </article>
   );
 }

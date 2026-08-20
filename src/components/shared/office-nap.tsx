@@ -1,4 +1,5 @@
 import { CalendlyButton } from "@/components/shared/calendly-link";
+import { NEVADA_LICENSE_LOOKUP_URL } from "@/lib/internal-links";
 import {
   formatOfficeAddressLine,
   formatOfficeHoursWithSpecial,
@@ -114,7 +115,15 @@ export function OfficeNap({
 
       <div className="mt-6 space-y-1 border-t border-palms-gold/15 pt-5 text-sm text-palms-cream/70">
         <p>
-          {siteContact.agentName} · Nevada license {siteContact.license}
+          {siteContact.agentName} · Nevada license{" "}
+          <a
+            className="font-medium text-palms-gold underline-offset-4 hover:underline"
+            href={NEVADA_LICENSE_LOOKUP_URL}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {siteContact.license}
+          </a>
         </p>
         <p>{siteContact.agentTitle}</p>
       </div>

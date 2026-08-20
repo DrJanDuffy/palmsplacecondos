@@ -150,7 +150,7 @@ export function BuyerCalculatorsPageBody() {
         items={buyerCalculatorsPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/buyers/calculators" links={related} />
     </article>
   );
 }

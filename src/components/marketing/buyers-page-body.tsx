@@ -216,7 +216,7 @@ export function BuyersPageBody() {
         items={buyersPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/buyers" links={related} />
     </article>
   );
 }

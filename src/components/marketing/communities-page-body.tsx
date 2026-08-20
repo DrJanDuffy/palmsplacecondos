@@ -138,7 +138,7 @@ export function CommunitiesPageBody() {
         items={communitiesPageFaq}
       />
 
-      <RelatedPages links={related} />
+      <RelatedPages pathname="/communities" links={related} />
     </article>
   );
 }
