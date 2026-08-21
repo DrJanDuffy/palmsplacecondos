@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Cormorant_Garamond, Geist } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/layouts/site-footer";
@@ -119,6 +120,7 @@ export default function RootLayout({
           <RealScoutOfficeListingsEmbed />
           <SiteFooter />
         </div>
+        <Analytics />
       </body>
     </html>
   );
