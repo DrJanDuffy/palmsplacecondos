@@ -96,21 +96,29 @@ export function FadeCarousel({
       tabIndex={0}
     >
       <div className="relative min-h-[220px] overflow-hidden rounded-xl md:min-h-[280px]">
-        {slides.map((slide, i) => (
-          <div
-            aria-hidden={i !== index}
-            className={cn(
-              "transition-opacity duration-700 ease-out motion-reduce:transition-none",
-              i === index ? "relative z-10 opacity-100" : "pointer-events-none absolute inset-0 z-0 opacity-0",
-            )}
-            id={`${baseId}-slide-${slide.id}`}
-            key={slide.id}
-            role="group"
-            aria-roledescription="slide"
-          >
-            {slide.content}
-          </div>
-        ))}
+        {/* Inactive slides stay mounted for the fade. `inert` + `invisible`
+            take them out of the accessibility tree and tab order. `aria-hidden`
+            alone still leaves links focusable and fails axe/Lighthouse. */}
+        {slides.map((slide, i) => {
+          const isActive = i === index;
+          return (
+            <div
+              aria-roledescription="slide"
+              className={cn(
+                "transition-opacity duration-700 ease-out motion-reduce:transition-none",
+                isActive
+                  ? "relative z-10 opacity-100"
+                  : "pointer-events-none invisible absolute inset-0 z-0 opacity-0",
+              )}
+              id={`${baseId}-slide-${slide.id}`}
+              inert={isActive ? undefined : true}
+              key={slide.id}
+              role="group"
+            >
+              {slide.content}
+            </div>
+          );
+        })}
       </div>
 
       {count > 1 ? (
