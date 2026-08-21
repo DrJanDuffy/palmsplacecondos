@@ -103,3 +103,30 @@ realscout-office-listings {
     animation: none;
   }
 }
+
+/* Stay carousel: `inert` kills focus immediately. Delay `visibility: hidden`
+   until the opacity fade finishes so PSI/Lighthouse do not see focusable
+   links inside a hidden slide, without snapping the crossfade. */
+.fade-carousel-slide {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 700ms ease-out,
+    visibility 0s linear 0s;
+}
+
+.fade-carousel-slide[inert] {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition:
+    opacity 700ms ease-out,
+    visibility 0s linear 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-carousel-slide,
+  .fade-carousel-slide[inert] {
+    transition: none;
+  }
+}

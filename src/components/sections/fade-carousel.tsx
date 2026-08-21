@@ -96,20 +96,18 @@ export function FadeCarousel({
       tabIndex={0}
     >
       <div className="relative min-h-[220px] overflow-hidden rounded-xl md:min-h-[280px]">
-        {/* Inactive slides stay mounted so opacity can crossfade. `inert`
-            removes them from the accessibility tree and tab order without
-            `visibility: hidden` (which would snap the fade off). `aria-hidden`
-            alone still leaves links focusable. */}
+        {/* Do not use aria-hidden here: PageSpeed's agentic audit flags
+            hidden slides that still contain links. `inert` + delayed
+            visibility (see .fade-carousel-slide) removes them from the
+            accessibility tree and tab order while the opacity can fade. */}
         {slides.map((slide, i) => {
           const isActive = i === index;
           return (
             <div
               aria-roledescription="slide"
               className={cn(
-                "transition-opacity duration-700 ease-out motion-reduce:transition-none",
-                isActive
-                  ? "relative z-10 opacity-100"
-                  : "pointer-events-none absolute inset-0 z-0 opacity-0",
+                "fade-carousel-slide",
+                isActive ? "relative z-10" : "absolute inset-0 z-0",
               )}
               id={`${baseId}-slide-${slide.id}`}
               inert={isActive ? undefined : true}
