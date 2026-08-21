@@ -73,6 +73,12 @@ export function HeroPalmsPlace() {
             >
               View live listings
             </Link>
+            <Link
+              className="text-sm font-medium text-palms-gold/90 underline-offset-4 transition-colors hover:text-palms-gold hover:underline"
+              href="/video"
+            >
+              Watch the listing specialist video
+            </Link>
           </div>
         </div>
       </div>

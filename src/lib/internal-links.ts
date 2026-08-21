@@ -159,6 +159,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       label: "Palms Place #8322 photos — Strip views",
       description: "Living room & balcony",
     },
+    {
+      href: "/video",
+      label: "Dr. Jan Duffy Palms Place listing specialist video",
+      description: "First-party tower & #8322 cut",
+    },
     { href: "/under-500k", label: "Homes & condos under $500K", description: "Price band shortcut" },
     { href: "/popular-searches", label: "Popular buyer searches", description: "Shortcuts by topic" },
     {
@@ -294,13 +299,13 @@ function preferredHrefsForPath(pathname: string): string[] {
       "/faq",
     ];
   }
-  if (pathname.startsWith("/photos") || pathname === "/featured") {
+  if (pathname.startsWith("/photos") || pathname === "/featured" || pathname === "/video") {
     return [
       "/photos",
       "/photos/unit-8322",
+      "/video",
       "/guide/palms-place-strip-view-condos",
-      "/palms-place",
-      "__search__",
+      "/team",
     ];
   }
   if (

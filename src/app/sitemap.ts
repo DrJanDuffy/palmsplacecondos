@@ -12,8 +12,8 @@ import {
  * Google Search Console Sitemaps export (2026-08-20):
  * `https://www.palmsplacecondos.com/sitemap.xml` — Type Sitemap, Source Discovered,
  * last submitted 2026-04-16, last processed 2026-08-18, Status Success, 33 URLs.
- * This repo’s `MARKETING_ROUTES` catalog is larger (37 URLs after Strip-view and
- * short-term rental guides). Resubmit the sitemap in GSC after deploy so the
+ * This repo’s `MARKETING_ROUTES` catalog is larger (38 URLs after the
+ * listing-specialist video). Resubmit the sitemap in GSC after deploy so the
  * report catches up. Live fetch should return the current `<loc>` set, all `https://www…`,
  * matching `MARKETING_ROUTES`. IndexNow pings recent changes from this same list;
  * do not treat IndexNow as a second sitemap.

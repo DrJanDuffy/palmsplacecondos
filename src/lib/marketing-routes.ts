@@ -4,7 +4,7 @@
  *
  * GSC Sitemaps (2026-08-20): 33 URLs discovered on
  * `https://www.palmsplacecondos.com/sitemap.xml` (Success). After this deploy the
- * marketing catalog is 37 URLs (added Strip-view and short-term rental guides;
+ * marketing catalog is 38 URLs (added the listing-specialist video page;
  * GSC count was already behind this array). Count must stay aligned with this array.
  */
 
@@ -208,6 +208,13 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     summary: "Photos of Palms Place #8322 for sale — living room and balcony Strip views.",
     changeFrequency: "weekly",
     priority: 0.9,
+  },
+  {
+    path: "/video",
+    summary:
+      "Dr. Jan Duffy Palms Place listing-specialist video — first-party tower and #8322 photography.",
+    changeFrequency: "monthly",
+    priority: 0.82,
   },
   {
     path: "/high-rises",

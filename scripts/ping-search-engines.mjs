@@ -21,6 +21,7 @@ const URLS = [
   `${ORIGIN}/search`,
   `${ORIGIN}/photos`,
   `${ORIGIN}/photos/unit-8322`,
+  `${ORIGIN}/video`,
   `${ORIGIN}/buyers`,
   `${ORIGIN}/popular-searches`,
   `${ORIGIN}/guide/compare-strip-high-rises`,

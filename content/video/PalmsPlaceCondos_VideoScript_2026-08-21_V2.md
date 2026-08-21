@@ -119,3 +119,11 @@ Call (702) 827-4544 · palmsplacecondos.com
 - “Work with first” = Palms Place listing specialist / team leader for this tower (site listing-authority copy).
 - Re-verify #8322 the day you publish.
 - Render: `scripts/render-palms-place-video.sh`
+
+## Published files (2026-08-21)
+
+Silent H.264 with burned-in captions (add live VO before posting to Reels if you want her voice on the file).
+
+- Watch page: `/video` (`https://www.palmsplacecondos.com/video`)
+- 16:9 (YouTube / site player): `public/videos/dr-jan-duffy-palms-place-listing-specialist-youtube.mp4`
+- 9:16 (GBP / Reels / Shorts): `public/videos/dr-jan-duffy-palms-place-listing-specialist-shorts.mp4`

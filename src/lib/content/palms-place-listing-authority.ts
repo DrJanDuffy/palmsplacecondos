@@ -431,6 +431,17 @@ const listingAuthorityByPath: Record<string, ListingAuthoritySection> = {
     ctaLabel: "Furnished Palms Place condos guide",
     ctaHref: "/guide/furnished-palms-place-condos",
   },
+  "/video": {
+    heading: "Who is the Palms Place realtor in this listing-specialist video?",
+    answer: `Dr. Jan Duffy is the listing specialist, team leader, and Palms Place Buyers Specialist in this first-party video. Buyers and sellers in this 47-story tower at ${tower} work with her first. The cut uses her listing photography for Palms Place #${unit} (MLS #${mls})—not a competitor YouTube walkthrough or a purchased ranking badge.`,
+    proofs: [
+      "On-screen title is Palms Place listing specialist — the same role on the team page and JSON-LD.",
+      `Featured campaign stills are unit #${unit} living room and balcony from this brokerage’s gallery.`,
+      `Nevada license ${license} at ${brokerage}. Call ${siteContact.phone ?? "the office"} to tour.`,
+    ],
+    ctaLabel: "Meet the Palms Place listing specialist",
+    ctaHref: "/team",
+  },
 };
 
 export function normalizeListingAuthorityPath(pathname: string): string {
