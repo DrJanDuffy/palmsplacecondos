@@ -951,6 +951,38 @@ export function getImageGalleryJsonLd(
   };
 }
 
+/** First-party Palms Place listing-specialist VideoObject (must match the /video page player). */
+export function getAgentVideoObjectJsonLd(pathname: string): JsonLdGraph {
+  const origin = siteOrigin(getSiteUrl());
+  const siteUrl = getSiteUrl();
+  const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const pageUrl = `${origin}${path}`;
+  const contentUrl = `${origin}/videos/dr-jan-duffy-palms-place-listing-specialist-youtube.mp4`;
+  const thumbnailUrl = `${origin}/images/hero-tower-dusk.webp`;
+  const video: Record<string, unknown> = {
+    "@type": "VideoObject",
+    "@id": `${pageUrl}#video`,
+    name: "Dr. Jan Duffy — Palms Place listing specialist, Las Vegas",
+    description:
+      "Dr. Jan Duffy is the listing specialist and team leader for Palms Place at 4381 W Flamingo Road. First-party tower and listing photography. Condos for sale — not hotel booking.",
+    thumbnailUrl,
+    contentUrl,
+    embedUrl: pageUrl,
+    uploadDate: "2026-08-21",
+    duration: "PT48S",
+    inLanguage: "en-US",
+    author: { "@id": id(siteUrl, "dr-jan-duffy") },
+    publisher: { "@id": id(siteUrl, "dr-jan-duffy") },
+    about: { "@id": id(siteUrl, "place-palms-place") },
+    url: pageUrl,
+  };
+
+  return {
+    "@context": CONTEXT,
+    "@graph": [video],
+  };
+}
+
 /** Featured Palms Place unit as RealEstateListing + Offer (photos required). */
 export function getFeaturedUnitListingJsonLd(
   pathname: string,

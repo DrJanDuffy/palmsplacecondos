@@ -130,7 +130,7 @@ export const AEO_QUERY_MAP: CanonicalQuery[] = [
     id: "condo-tour",
     question: "Where is a Palms Place high-rise condo tour?",
     answer:
-      "Start with first-party listing photography on this site, then book a showing with Dr. Jan Duffy. Palms Place #8322 has a live photo gallery and a PropertyPanorama 3D tour. Competitor YouTube walkthroughs are not this brokerage’s inventory. Photos do not replace HOA documents or a walk at the hours you would live there.",
+      "Start with first-party listing photography on this site, then book a showing with Dr. Jan Duffy. Palms Place #8322 has a live photo gallery and a PropertyPanorama 3D tour. The listing-specialist video is on /video. Competitor YouTube walkthroughs are not this brokerage’s inventory. Photos do not replace HOA documents or a walk at the hours you would live there.",
     canonicalPath: "/photos",
     canonicalLabel: "Palms Place condo photo galleries",
   },
@@ -173,6 +173,14 @@ export const AEO_QUERY_MAP: CanonicalQuery[] = [
       "Palms Place penthouses and upper-floor residences are individual listings, not a single 57th-floor product. Square footage, terraces, and spa features vary. Confirm floor, outdoor space, and status on the live record. Do not assume a YouTube penthouse tour is still for sale. Dr. Jan Duffy matches current upper-floor inventory to your criteria.",
     canonicalPath: "/guide/palms-place-unit-types",
     canonicalLabel: "Palms Place studios vs one-bedroom guide",
+  },
+  {
+    id: "listing-specialist-video",
+    question: "Where is Dr. Jan Duffy’s Palms Place listing specialist video?",
+    answer:
+      "Watch Dr. Jan Duffy’s Palms Place listing-specialist video on this site’s /video page. The 48-second cut uses first-party tower and #8322 photography—not a competitor YouTube walkthrough. Captions are on screen. Call the office number on that page or schedule a showing at 4381 W Flamingo Road after you watch. Condos for sale, not hotel booking.",
+    canonicalPath: "/video",
+    canonicalLabel: "Palms Place listing specialist video",
   },
   {
     id: "gym",

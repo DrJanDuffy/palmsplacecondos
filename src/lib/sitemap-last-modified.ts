@@ -57,7 +57,7 @@ function editorialContentLastModified(): Record<string, string> {
  * Seeded from source git history; bump when that route’s copy or NAP changes.
  */
 const MARKETING_PAGE_LAST_MODIFIED: Record<string, IsoDate> = {
-  "": "2026-08-20",
+  "": "2026-08-21",
   "/palms-place": "2026-08-20",
   "/buyers": "2026-08-20",
   "/sellers": "2026-08-20",
@@ -69,11 +69,12 @@ const MARKETING_PAGE_LAST_MODIFIED: Record<string, IsoDate> = {
   "/sell": "2026-08-20",
   "/contact": "2026-08-20",
   "/connect": "2026-08-20",
-  "/faq": "2026-08-20",
+  "/faq": "2026-08-21",
   "/communities": "2026-08-20",
   "/featured": "2026-08-20",
   "/photos": "2026-08-20",
   "/photos/unit-8322": "2026-08-20",
+  "/video": "2026-08-21",
   "/high-rises": "2026-08-20",
   "/luxury-homes": "2026-08-20",
   "/popular-searches": "2026-08-20",

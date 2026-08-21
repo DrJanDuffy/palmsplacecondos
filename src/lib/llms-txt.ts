@@ -32,6 +32,7 @@ export function buildLlmsTxt(): string {
     `- JSON-LD tower @id: ${getJsonLdEntityId("place-palms-place")}`,
     `- JSON-LD brokerage @id: ${getJsonLdEntityId("brokerage")}`,
     `- Featured listing photos: ${origin}/photos/unit-8322 (MLS #${featuredListing.mlsNumber})`,
+    `- Listing specialist video: ${origin}/video`,
     `- Building/resort Facebook (not the listing agent): ${siteContact.facebookUrl ?? ""}`,
     `- YouTube: ${siteContact.youtubeUrl ?? ""}`,
     `- Google Business Profile: ${siteContact.googleBusinessProfileUrl ?? ""}`,

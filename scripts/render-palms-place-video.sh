@@ -52,7 +52,7 @@ clip() {
       drawtext=fontfile=${FONT_SEMI}:text='DR. JAN DUFFY  ·  PALMS PLACE LISTING SPECIALIST':fontcolor=0xC5A35A:fontsize=26:x=(w-text_w)/2:y=34,
       drawtext=fontfile=${FONT_BOLD}:textfile=${cap}:reload=0:fontcolor=0xF5F0E6:fontsize=44:line_spacing=10:x=(w-text_w)/2:y=h-th-160:box=1:boxcolor=0x0D0D0D@0.78:boxborderw=32
     " \
-    -c:v libx264 -pix_fmt yuv420p -an "$dest"
+    -c:v libx264 -pix_fmt yuv420p -crf 18 -preset medium -an "$dest"
 }
 
 render_aspect() {
@@ -67,12 +67,21 @@ render_aspect() {
   clip "$IMG/hero-tower-dusk.webp" 8 "$WORK/c6.txt" "$dir/06.mp4" "$w" "$h"
   printf "file '%s'\n" "$dir"/0{1,2,3,4,5,6}.mp4 >"$dir/list.txt"
   ffmpeg -y -hide_banner -loglevel error -f concat -safe 0 -i "$dir/list.txt" \
-    -c:v libx264 -pix_fmt yuv420p -movflags +faststart -an \
+    -c:v libx264 -pix_fmt yuv420p -crf 18 -preset medium -movflags +faststart -an \
     "$OUT_DIR/palms-place-las-vegas-${label}.mp4"
 }
 
 render_aspect 1080 1920 shorts
 render_aspect 1920 1080 youtube
 
+# Public site copies (deploy with the app).
+PUBLIC_VID="$ROOT/public/videos"
+mkdir -p "$PUBLIC_VID"
+cp "$OUT_DIR/palms-place-las-vegas-shorts.mp4" \
+  "$PUBLIC_VID/dr-jan-duffy-palms-place-listing-specialist-shorts.mp4"
+cp "$OUT_DIR/palms-place-las-vegas-youtube.mp4" \
+  "$PUBLIC_VID/dr-jan-duffy-palms-place-listing-specialist-youtube.mp4"
+
 echo "Wrote:"
-ls -lh "$OUT_DIR"/palms-place-las-vegas-*.mp4
+ls -lh "$OUT_DIR"/palms-place-las-vegas-*.mp4 \
+  "$PUBLIC_VID"/dr-jan-duffy-palms-place-listing-specialist-*.mp4

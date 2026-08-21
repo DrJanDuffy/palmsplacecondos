@@ -114,6 +114,15 @@ export function FeaturedListingBanner() {
                 <p className="max-w-3xl text-sm leading-relaxed text-palms-cream/80">
                   {featuredListing.overview}
                 </p>
+                <p className="text-sm text-palms-cream/80">
+                  <Link
+                    className="font-medium text-palms-gold underline-offset-4 hover:underline"
+                    href="/video"
+                  >
+                    Watch the Palms Place listing specialist video
+                  </Link>
+                  {" — first-party tower and #8322 photography."}
+                </p>
                 <p className="text-xs text-palms-cream/55">
                   MLS #{featuredListing.mlsNumber} · {featuredListing.annualTax} · Source: GLVAR ·
                   Listing offered by {siteContact.brokerage}
