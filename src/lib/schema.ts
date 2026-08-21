@@ -554,6 +554,36 @@ export function getTeamPersonsJsonLd(): JsonLdGraph {
   };
 }
 
+export type ItemListEntry = { name: string; description: string; path: string };
+
+/**
+ * ItemList JSON-LD for a hub page that lists other pages (e.g. field notes, guides).
+ * Matches the visible list on the page — do not use for unordered/unrelated links.
+ */
+export function getItemListJsonLd(pathname: string, items: ItemListEntry[]): JsonLdGraph {
+  const origin = siteOrigin(getSiteUrl());
+  const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  const pageUrl = `${origin}${path}`;
+  const itemList: Record<string, unknown> = {
+    "@type": "ItemList",
+    "@id": `${pageUrl}#item-list`,
+    itemListElement: items.map((item, index) => {
+      const itemPath = item.path.startsWith("/") ? item.path : `/${item.path}`;
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${origin}${itemPath}`,
+        name: item.name,
+      };
+    }),
+  };
+
+  return {
+    "@context": CONTEXT,
+    "@graph": [itemList],
+  };
+}
+
 /** BreadcrumbList for dedicated routes (absolute URLs, matches canonical host). */
 export function getBreadcrumbListJsonLd(pathname: string, items: BreadcrumbItem[]): JsonLdGraph {
   const siteUrl = siteOrigin(getSiteUrl());

@@ -3,11 +3,11 @@ import { siteContact } from "@/lib/site-contact";
 
 export const hoaPacketBeforeOfferNote: FieldNote = {
   slug: "why-we-request-hoa-packets-early",
-  title: "Why we request Palms Place HOA packets before—not after—an offer",
+  title: "Why We Request Palms Place HOA Packets Early",
   description:
-    "A Palms Place–specific look at rental caps, special assessments, and resale certificate timing from Dr. Jan Duffy’s listing team—why early HOA review beats waiving contingencies to “win.”",
+    "Rental caps, special assessments, and resale timing at Palms Place—why we review HOA packets early instead of waiving contingencies to “win” an offer.",
   datePublished: "2026-05-16",
-  dateModified: "2026-05-20",
+  dateModified: "2026-08-21",
   eyebrow: "Field note · Due diligence",
   headline: "Why we request Palms Place HOA packets before—not after—an offer",
   lede:

@@ -1,0 +1,45 @@
+name: SEO/GEO/AEO audit
+
+# Automated half of the self-improving SEO loop (see docs/seo-geo-aeo-audit-log.md).
+# Runs the same build + audit a human would run locally, on a schedule and on
+# PRs that touch SEO-relevant code, so a regression fails CI instead of
+# shipping unnoticed.
+
+on:
+  schedule:
+    # Weekly, off the top-of-hour to avoid the shared-scheduler thundering herd.
+    - cron: "17 9 * * 1"
+  pull_request:
+    paths:
+      - "src/app/**"
+      - "src/components/marketing/**"
+      - "src/components/seo/**"
+      - "src/lib/**"
+      - "scripts/audit-seo.mjs"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: https://www.palmsplacecondos.com
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm run typecheck
+
+      - run: npm run build
+
+      - run: npm run audit:seo
