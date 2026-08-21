@@ -127,3 +127,17 @@ Silent H.264 with burned-in captions (add live VO before posting to Reels if you
 - Watch page: `/video` (`https://www.palmsplacecondos.com/video`)
 - 16:9 (YouTube / site player): `public/videos/dr-jan-duffy-palms-place-listing-specialist-youtube.mp4`
 - 9:16 (GBP / Reels / Shorts): `public/videos/dr-jan-duffy-palms-place-listing-specialist-shorts.mp4`
+
+## Tavus (talking-head cut)
+
+The [Tavus examples repo](https://github.com/Tavus-Engineering/tavus-examples.git) is **live CVI** (Daily rooms, API key in the browser). This listing video uses the **Video API** instead: script + trained face → downloadable MP4 ([quickstart](https://docs.tavus.io/sections/video/quickstart)).
+
+Spoken copy: `content/video/tavus-palms-place-vo.txt` (same VO as Cut B). B-roll defaults to the 16:9 file above.
+
+```
+npm run generate:tavus-video -- --dry-run
+TAVUS_API_KEY=… TAVUS_REPLICA_ID=… npm run generate:tavus-video -- --list-faces
+TAVUS_API_KEY=… TAVUS_REPLICA_ID=… npm run generate:tavus-video
+```
+
+`TAVUS_REPLICA_ID` must be a completed **user** face trained as Dr. Jan Duffy. Do not use a stock Tavus face and label it as her. Do not put the API key in `NEXT_PUBLIC_*`.
