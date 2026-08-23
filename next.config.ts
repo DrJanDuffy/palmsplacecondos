@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   /* When a parent directory has another lockfile, pin tracing to this app root (Vercel/local). */
   outputFileTracingRoot: path.join(__dirname),
 
+  // Drop the `X-Powered-By: Next.js` response header — no SEO/GEO value, and
+  // a minor fingerprinting surface for a public marketing site.
+  poweredByHeader: false,
+
   images: {
     formats: ["image/avif", "image/webp"],
     // Homepage hero source is 1536px. Default 2048/3840 entries make 3x phones

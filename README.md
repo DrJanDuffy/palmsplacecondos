@@ -108,6 +108,24 @@ Competitor YouTube/Instagram titles for Palms Place are indexed; this site answe
 
 The FAQ query map ([`src/lib/content/aeo-query-map.ts`](src/lib/content/aeo-query-map.ts)) is the AEO index for these questions.
 
+### Self-improving SEO / GEO / AEO loop
+
+[`scripts/seo-geo-aeo-audit.mjs`](scripts/seo-geo-aeo-audit.mjs) is a static, offline audit of this repo's own search + AI-answer-engine surface — no external SEO service, no API keys. Run it locally with:
+
+```bash
+npm run audit:seo
+```
+
+It checks:
+
+- **Route coverage** — every [`MARKETING_ROUTES`](src/lib/marketing-routes.ts) path resolves to a real `page.tsx` (a sitemap/llms.txt entry that would 404 is a hard error).
+- **Orphan pages** — a `page.tsx` that exists but isn't in `MARKETING_ROUTES` (missing from sitemap.xml, llms.txt, and IndexNow).
+- **Title/description length and sitewide duplicates** — duplicate `<title>`/meta description across pages is a disambiguation problem for both Google and AI answer engines.
+- **Content freshness** — `dateModified` / sitemap lastmod values older than 180 days are flagged for a copy/facts refresh; GEO treats freshness as a citation-priority signal distinct from Google ranking.
+- **AI crawler allow-list** — [`src/app/robots.ts`](src/app/robots.ts) still welcomes the answer-engine crawlers (GPTBot, PerplexityBot, Claude-User, Claude-SearchBot, etc.) this site intentionally allows for GEO/AEO citation eligibility.
+
+[`.github/workflows/seo-geo-aeo-self-improve.yml`](.github/workflows/seo-geo-aeo-self-improve.yml) runs the same audit as a PR status check on content/SEO changes, and again weekly (Monday, plus manual dispatch) — filing or updating a single tracking issue (label `seo-self-audit`) with current findings so drift surfaces on its own instead of waiting for someone to notice it in Search Console. Hard errors fail the check; length/freshness/duplicate findings are warnings for editorial follow-up.
+
 ### Optional: DMARC (email only)
 
 If you use **Cloudflare Email Routing** (MX on the zone), run Cloudflare’s **DMARC** wizard to add a `_dmarc` TXT record. This does not affect the Next.js site; it helps mail authentication and reporting.

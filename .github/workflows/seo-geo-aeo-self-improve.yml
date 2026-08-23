@@ -1,0 +1,98 @@
+name: SEO / GEO / AEO self-improve loop
+
+# Self-checking loop for the site's search + AI-answer-engine surface:
+#   - On every PR touching content/SEO code, run the audit as a status check
+#     (fails the PR only on hard errors — e.g. a sitemap entry that 404s).
+#   - On a weekly schedule (and manual dispatch), run the same audit and
+#     file/update a single tracking issue with the current findings, so
+#     drift (stale guides, duplicate titles, a missing AI crawler) surfaces
+#     on its own instead of waiting for someone to notice.
+#
+# The audit itself (scripts/seo-geo-aeo-audit.mjs) is static and offline —
+# no external SEO service, no API keys. See README "Self-improving SEO /
+# GEO / AEO loop" for what each check does and how to act on findings.
+
+on:
+  pull_request:
+    paths:
+      - "src/app/**"
+      - "src/lib/**"
+      - "src/components/seo/**"
+      - "src/components/marketing/**"
+      - "scripts/seo-geo-aeo-audit.mjs"
+      - ".github/workflows/seo-geo-aeo-self-improve.yml"
+  schedule:
+    # Monday 13:00 UTC (~6am Pacific) — ahead of the work week.
+    - cron: "0 13 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: seo-geo-aeo-self-improve-${{ github.event_name == 'pull_request' && github.ref || 'scheduled' }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.x"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run SEO / GEO / AEO audit
+        id: audit
+        run: |
+          set +e
+          npm run audit:seo -- --out audit-report.md
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Add report to job summary
+        if: always()
+        run: cat audit-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: File or update tracking issue
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const body = fs.readFileSync("audit-report.md", "utf8");
+            const title = "SEO / GEO / AEO self-audit";
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "seo-self-audit",
+            });
+            const existing = issues.find((i) => i.title === title);
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const fullBody = `${body}\n\n_Last run: [${new Date().toISOString()}](${runUrl})_`;
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: fullBody,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body: fullBody,
+                labels: ["seo-self-audit"],
+              });
+            }
+
+      - name: Fail on hard errors
+        if: steps.audit.outputs.exit_code != '0'
+        run: exit 1
