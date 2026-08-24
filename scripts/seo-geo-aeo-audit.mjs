@@ -62,6 +62,8 @@ const EXPECTED_AI_CRAWLERS = [
   "Google-Extended",
   "Applebot-Extended",
   "CCBot",
+  "YouBot",
+  "DuckAssistBot",
 ];
 
 const errors = [];
