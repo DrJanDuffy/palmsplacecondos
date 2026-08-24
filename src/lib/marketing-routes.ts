@@ -4,7 +4,7 @@
  *
  * GSC Sitemaps (2026-08-20): 33 URLs discovered on
  * `https://www.palmsplacecondos.com/sitemap.xml` (Success). After this deploy the
- * marketing catalog is 39 URLs (added `/photo-use` for ImageObject license URLs;
+ * marketing catalog is 40 URLs (added `/maps` for GBP/Google Maps citations;
  * GSC count was already behind this array). Count must stay aligned with this array.
  */
 
@@ -172,6 +172,13 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     summary: "Contact the Palms Place team — office NAP, hours, map, call and directions.",
     changeFrequency: "monthly",
     priority: 0.85,
+  },
+  {
+    path: "/maps",
+    summary:
+      "Unique Google Maps for the Palms Place office GBP pin, tower, nearby landmarks, and Google Sites embed.",
+    changeFrequency: "monthly",
+    priority: 0.8,
   },
   {
     path: "/connect",

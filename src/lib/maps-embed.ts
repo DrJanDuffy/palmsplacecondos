@@ -32,6 +32,16 @@ export function googleMapsEmbedApiPlaceUrl(addressOrQuery: string, apiKey: strin
   return `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${q}`;
 }
 
+/** Google Maps place search (citation / “open in Maps” / JSON-LD `hasMap`). */
+export function googleMapsSearchUrl(query: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query.trim())}`;
+}
+
+/** Google Maps directions to a destination address or place name. */
+export function googleMapsDirectionsUrl(destination: string): string {
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination.trim())}`;
+}
+
 /** Keyless OpenStreetMap fallback when Google embeds are unavailable. */
 export function openStreetMapEmbedUrl(
   { latitude, longitude }: MapCoords,

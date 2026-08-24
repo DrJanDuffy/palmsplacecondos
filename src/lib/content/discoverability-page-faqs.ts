@@ -531,6 +531,19 @@ export const photosHubPageFaq: FaqItem[] = [
   },
 ];
 
+/** `/maps` — must mirror visible FAQ on that page. */
+export function getMapsPageFaq(): FaqItem[] {
+  const address = formatOfficeAddressLine();
+  return [
+    canonicalQueryAsFaqItem("office-map"),
+    canonicalQueryAsFaqItem("google-sites-gbp-map"),
+    {
+      question: "Should I create 150 Google Sites with the same Palms Place map?",
+      answer: `No. Repeating one Google Map, one NAP (${siteContact.gbpBusinessName}, ${address}, ${siteContact.phone ?? "the office phone"}), and one backlink across 150 Google Sites is doorway-style spam and can hurt the Google Business Profile. Use the unique office and tower maps on /maps plus one Google Sites embed of the GBP map with a follow link to palmsplacecondos.com.`,
+    },
+  ];
+}
+
 /** `/photos/unit-8322` — must mirror visible FAQ on that page. */
 export const unit8322PhotosPageFaq: FaqItem[] = [
   {

@@ -73,7 +73,12 @@ export function ContactPageBody() {
         </h2>
         <p className="mt-3 leading-relaxed text-palms-cream/85">
           Use the map for the team office NAP—not the Palms Place tower at 4381 W Flamingo Road.
-          Confirm which pin applies to your appointment before you drive.
+          Confirm which pin applies to your appointment before you drive. Unique office and tower
+          maps, GBP citation text, and a Google Sites embed kit are on{" "}
+          <Link className="text-palms-gold underline-offset-4 hover:underline" href="/maps">
+            Palms Place Google Maps
+          </Link>
+          .
         </p>
         <div className="mt-4 overflow-hidden rounded-lg border border-palms-gold/15">
           <iframe

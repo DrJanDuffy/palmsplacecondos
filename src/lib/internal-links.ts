@@ -141,6 +141,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       external: true,
     },
     { href: "/contact", label: "Contact the office", description: "Phone, email & map" },
+    {
+      href: "/maps",
+      label: "Palms Place Google Maps & GBP citation",
+      description: "Office pin, tower pin, Google Sites embed",
+    },
     { href: "/connect", label: "Connect & YouTube", description: "Stay in touch" },
     { href: "/communities", label: "Neighborhoods & communities", description: "Near the Strip" },
     {
@@ -329,7 +334,10 @@ function preferredHrefsForPath(pathname: string): string[] {
     ];
   }
   if (pathname === "/contact" || pathname === "/connect" || pathname === "/team") {
-    return ["/contact", "/photo-use", "/team", "/buyers", "/palms-place"];
+    return ["/contact", "/maps", "/team", "/buyers", "/palms-place"];
+  }
+  if (pathname === "/maps") {
+    return ["/maps", "/contact", "/area/palms-place-las-vegas", "/palms-place", "/team"];
   }
   if (pathname === "/palms-place" || pathname === "/area/palms-place-las-vegas") {
     return [

@@ -190,6 +190,22 @@ export const AEO_QUERY_MAP: CanonicalQuery[] = [
     canonicalPath: "/guide/palms-place-amenities-and-resort-access",
     canonicalLabel: "Palms Place amenities and resort access guide",
   },
+  {
+    id: "office-map",
+    question: "Where is the Palms Place Condos office on Google Maps?",
+    answer:
+      "The Palms Place Condos Google Business Profile pin is the listing office at 3651 S Lindell Rd suite d, Las Vegas, NV 89103—not the Palms Place tower at 4381 W Flamingo Road. Open the maps page for the office embed, directions, and GBP links. Confirm which pin applies to your appointment with Dr. Jan Duffy before you drive.",
+    canonicalPath: "/maps",
+    canonicalLabel: "Palms Place Google Maps page",
+  },
+  {
+    id: "google-sites-gbp-map",
+    question: "How do I embed the Palms Place GBP map on a Google Site?",
+    answer:
+      "Create one Google Site and embed the GBP citation file from palmsplacecondos.com/google-sites/gbp-citation.html, or Insert → Map and search Palms Place Condos at 3651 S Lindell Rd suite d. Add the office NAP and a follow backlink to palmsplacecondos.com. Do not publish 150 duplicate Google Sites with the same pin.",
+    canonicalPath: "/maps",
+    canonicalLabel: "Palms Place Google Maps page",
+  },
 ];
 
 export function getCanonicalQuery(id: string): CanonicalQuery | undefined {

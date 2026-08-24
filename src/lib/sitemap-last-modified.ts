@@ -68,6 +68,7 @@ const MARKETING_PAGE_LAST_MODIFIED: Record<string, IsoDate> = {
   "/search": "2026-08-20",
   "/sell": "2026-08-20",
   "/contact": "2026-08-24",
+  "/maps": "2026-08-24",
   "/photo-use": "2026-08-24",
   "/connect": "2026-08-20",
   "/faq": "2026-08-21",

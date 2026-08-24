@@ -23,6 +23,7 @@ const URLS = [
   `${ORIGIN}/photos/unit-8322`,
   `${ORIGIN}/photo-use`,
   `${ORIGIN}/contact`,
+  `${ORIGIN}/maps`,
   `${ORIGIN}/video`,
   `${ORIGIN}/buyers`,
   `${ORIGIN}/popular-searches`,
