@@ -42,6 +42,11 @@ const AI_CRAWLER_USER_AGENTS = [
   "Google-Extended",
   "Applebot-Extended",
   "CCBot",
+  // You.com and DuckDuckGo AI-assisted answers — same rationale as the
+  // agents above: maximize AI citation surface for a lead-gen local
+  // business site with no paywalled content to protect.
+  "YouBot",
+  "DuckAssistBot",
 ] as const;
 
 /** Match sitemap.ts: live origin, no 4-hour static metadata cache. */
