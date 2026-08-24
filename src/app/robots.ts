@@ -14,8 +14,9 @@ import { getPublicSiteOrigin } from "@/lib/public-site-origin";
  * Extra AI crawler groups use the same Allow/Disallow as `*` so answer engines
  * can fetch marketing HTML. Do not add unsupported fields.
  *
- * Production `https://www.palmsplacecondos.com/robots.txt` (fetched 2026-08-20)
- * matches this module: Allow `/`, Disallow `/api/`, AI crawler group, and
+ * Production `https://www.palmsplacecondos.com/robots.txt` (fetched 2026-08-20,
+ * before Claude-User/Claude-SearchBot were added below) matched this module:
+ * Allow `/`, Disallow `/api/`, AI crawler group, and
  * `Sitemap: https://www.palmsplacecondos.com/sitemap.xml`. That Disallow keeps
  * `/api/indexnow` off crawlers; the IndexNow key file is at `/{key}.txt` (root,
  * allowed). Do not add `Host:`.
@@ -28,6 +29,12 @@ const AI_CRAWLER_USER_AGENTS = [
   "OAI-SearchBot",
   "PerplexityBot",
   "ClaudeBot",
+  // Anthropic's more precise 2026 agents: Claude-User (on-demand fetch for a
+  // live Claude conversation) and Claude-SearchBot (index crawler for
+  // Claude's answer/citation surface) — both distinct from ClaudeBot
+  // (training-data crawler). Allow all three for AEO/GEO citation eligibility.
+  "Claude-User",
+  "Claude-SearchBot",
   "anthropic-ai",
   "Google-Extended",
   "Applebot-Extended",
