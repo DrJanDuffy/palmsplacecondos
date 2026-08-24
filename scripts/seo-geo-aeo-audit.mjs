@@ -54,6 +54,7 @@ const EXPECTED_AI_CRAWLERS = [
   "ChatGPT-User",
   "OAI-SearchBot",
   "PerplexityBot",
+  "Perplexity-User",
   "ClaudeBot",
   "Claude-User",
   "Claude-SearchBot",

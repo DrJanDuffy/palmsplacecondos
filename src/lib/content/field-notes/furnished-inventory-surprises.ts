@@ -3,11 +3,11 @@ import { siteContact } from "@/lib/site-contact";
 
 export const furnishedInventorySurprisesNote: FieldNote = {
   slug: "furnished-resale-inventory-surprises",
-  title: "Furnished Palms Place resales: inventory surprises we catch before closing",
+  title: "Furnished Palms Place Resales: Inventory Surprises",
   description:
-    "How listing prep at Palms Place handles art, linens, built-ins, and “furnished” remarks when sellers and buyers disagree at walkthrough—not generic staging advice.",
+    "How our listing team documents art, linens, and built-ins on furnished Palms Place resales—so buyers and sellers agree on what conveys before walkthrough.",
   datePublished: "2026-05-18",
-  dateModified: "2026-08-20",
+  dateModified: "2026-08-24",
   eyebrow: "Field note · Listing prep",
   headline: "Furnished Palms Place resales: inventory surprises we catch before closing",
   lede:

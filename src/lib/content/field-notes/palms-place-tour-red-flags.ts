@@ -5,9 +5,9 @@ export const palmsPlaceTourRedFlagsNote: FieldNote = {
   slug: "palms-place-tour-red-flags",
   title: "Palms Place tour red flags we actually walk buyers past",
   description:
-    "Specific Palms Place tour signals—sound, furnished mismatches, parking, and SkyTube access—that Dr. Jan Duffy’s buyer tours address before offers, not generic high-rise tips.",
+    "Palms Place tour signals—sound, furnished mismatches, parking, and SkyTube access—that buyer tours address before offers, not generic high-rise tips.",
   datePublished: "2026-05-15",
-  dateModified: "2026-08-20",
+  dateModified: "2026-08-24",
   eyebrow: "Field note · Buyer tours",
   headline: "Palms Place tour red flags we actually walk buyers past",
   lede:
