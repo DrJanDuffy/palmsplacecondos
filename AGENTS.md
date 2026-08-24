@@ -49,6 +49,7 @@ This file is the **repository-specific** companion to the shared Cursor rules in
 
 - **Primary host is `www`.** Set **`NEXT_PUBLIC_SITE_URL`** to `https://www.yourdomain.com` (no trailing slash) and use the **same** URL-prefix property in GSC. Apex traffic is redirected to **`www`** via [`src/middleware.ts`](src/middleware.ts) when the env URL includes `www`.
 - **Page with redirect / Validation Failed** for `http://`, apex, or `http://www` URLs is **expected**. Those hosts 301 to `https://www…`. Do **not** click Validate Fix and do **not** remove the redirects so GSC will “pass.” Inspect the **https www** URL instead.
+- **Not found (404)** for `https://www.palmsplacecondos.com/$` is **expected**. Googlebot invents that path from `$` in listing prices and React Flight comments (`<!--/$-->`). Middleware returns **410 Gone** for `/$`. Do **not** 308 it to the homepage (soft 404). Do **not** click Validate Fix expecting a 200. It is not in the sitemap.
 - Submit **`https://www.yourdomain.com/sitemap.xml`** in GSC after deploy; **`robots.txt`** uses the same origin.
 - **LLM indexes:** [`/llms.txt`](src/app/llms.txt/route.ts) and [`/llms-full.txt`](src/app/llms-full.txt/route.ts) list public marketing routes (same set as [`src/lib/marketing-routes.ts`](src/lib/marketing-routes.ts)).
 - **SERP intents** (Strip view, condo tour, HOA costs, Airbnb/STR, penthouse, gym) map to first-party guides in [`aeo-query-map.ts`](src/lib/content/aeo-query-map.ts)—do not embed competitor videos or copy third-party phones/HOA dollar claims.
