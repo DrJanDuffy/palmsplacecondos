@@ -68,6 +68,12 @@ export function FeaturedListingBanner() {
                 <p className="font-display text-4xl font-bold tracking-tight text-palms-cream md:text-5xl">
                   {featuredListing.price}
                 </p>
+                <p className="text-sm text-palms-cream/55">
+                  <span className="line-through">{featuredListing.previousPrice}</span>
+                  <span className="sr-only">
+                    {` Previous ask ${featuredListing.previousPrice}; relisted at ${featuredListing.price}.`}
+                  </span>
+                </p>
                 <p className="text-sm font-medium text-palms-gold">{featuredListing.status}</p>
               </div>
 

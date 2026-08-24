@@ -39,7 +39,7 @@ Lead every beat with the agent. One number per sentence.
 
 ### Shot 2 — Authority (0:08–0:16)
 
-**Picture:** Unit #8322 living room — her listing photography. MLS #2782527.
+**Picture:** Unit #8322 living room — her listing photography. MLS #2810666.
 
 **VO:** If you buy or sell in this tower, you start with me. Not a rotating valley desk. Same agent for listings and buyer tours.
 
@@ -94,7 +94,7 @@ C. Inside Palms Place with listing specialist Dr. Jan Duffy
 
 Dr. Jan Duffy is the listing specialist, team leader, and Palms Place Buyers Specialist at Berkshire Hathaway HomeServices Nevada Properties (Nevada license S.0197614.LLC). She is the Palms Place high-rise realtor this tower’s buyers and sellers work with first — building-level listing work at 4381 W Flamingo Road, not a valley-wide template.
 
-Featured campaign: Palms Place #8322, MLS #2782527. Price and status change. Verify before you offer.
+Featured campaign: Palms Place #8322, MLS #2810666, relisted at $374,500. Price and status change. Verify before you offer.
 
 Condos for sale — not hotel booking.
 

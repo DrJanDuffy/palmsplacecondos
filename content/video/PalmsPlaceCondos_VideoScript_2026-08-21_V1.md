@@ -38,7 +38,7 @@ Target ~145 words. Speak in 8–15 word sentences. One number per beat.
 
 ### Shot 2 — Strip glass (0:08–0:16)
 
-**Picture:** Unit #8322 living room — real listing photo. MLS #2782527.
+**Picture:** Unit #8322 living room — real listing photo. MLS #2810666.
 
 **VO:** Featured listing: Palms Place 8322. One bedroom. 1,220 square feet. Eighth-floor corner. Two walls of glass toward the Strip.
 
@@ -46,7 +46,7 @@ Target ~145 words. Speak in 8–15 word sentences. One number per beat.
 
 **Picture:** Unit #8322 balcony — real listing photo.
 
-**VO:** Price on this spotlight is $387,777. Status changes. Confirm price, furnishings, and rental rules on the official record before you offer.
+**VO:** Price on this spotlight is $374,500 after a relist and price drop. Status changes. Confirm price, furnishings, and rental rules on the official record before you offer.
 
 ### Shot 4 — Pool deck (0:24–0:32)
 
@@ -76,7 +76,7 @@ Keep captions short. Do not put the office Lindell address over tower shots—us
 | --- | --- |
 | 0:00 | Palms Place · 47 stories · 4381 W Flamingo Rd |
 | 0:08 | #8322 · 1 bed · 1,220 SF · 8th-floor corner |
-| 0:16 | $387,777 spotlight · confirm before you offer |
+| 0:16 | $374,500 relist · confirm before you offer |
 | 0:24 | Amenities are in the HOA packet · tour at your hours |
 | 0:32 | Studios and one-bedrooms · inventory changes |
 | 0:40 | Dr. Jan Duffy · (702) 827-4544 · PalmsPlaceCondos.com |
@@ -89,7 +89,7 @@ Palms Place condos for sale in Las Vegas — 4381 W Flamingo Road, west of the S
 
 Dr. Jan Duffy, Realtor, is the listing specialist and Palms Place buyers specialist at Berkshire Hathaway HomeServices Nevada Properties (Nevada license S.0197614.LLC).
 
-Featured spotlight: Palms Place #8322, MLS #2782527 — 1 bed, 1.5 baths, 1,220 SF, 8th-floor corner. Price and status change. Verify with the official listing before you offer.
+Featured spotlight: Palms Place #8322, MLS #2810666 — relisted at $374,500 (prior ask $387,777). 1 bed, 1.5 baths, 1,220 SF, 8th-floor corner. Price and status change. Verify with the official listing before you offer.
 
 This video is about condo ownership, not hotel reservations. Book a stay on the official Palms Place hotel site.
 

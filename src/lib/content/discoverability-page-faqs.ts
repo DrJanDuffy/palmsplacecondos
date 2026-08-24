@@ -1,5 +1,6 @@
 import type { FaqItem } from "@/lib/schema";
 import { canonicalQueryAsFaqItem } from "@/lib/content/aeo-query-map";
+import { featuredListing } from "@/lib/content/featured-listing";
 import {
   formatOfficeAddressLine,
   formatOfficeHoursWithSpecial,
@@ -535,6 +536,6 @@ export const unit8322PhotosPageFaq: FaqItem[] = [
   {
     question: "What should buyers know about these photos?",
     answer:
-      "These are professional listing photos for MLS #2782527. Furnishings, art, and electronics convey only as stated in the inventory exhibit—not by photo alone. Views, light, and sound vary by time of day; tour the unit before you write an offer.",
+      `These are professional listing photos for MLS #${featuredListing.mlsNumber}. Furnishings, art, and electronics convey only as stated in the inventory exhibit—not by photo alone. Views, light, and sound vary by time of day; tour the unit before you write an offer.`,
   },
 ];

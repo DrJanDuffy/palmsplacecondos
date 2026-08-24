@@ -53,7 +53,7 @@ const unit8322Photos: GalleryPhoto[] = [
     src: "/images/listings/unit-8322/palms-place-8322-living-room-strip-view-las-vegas.jpg",
     title: "Palms Place #8322 living room with Las Vegas Strip view",
     description:
-      "Furnished living room in Palms Place unit #8322 at 4381 W Flamingo Road — corner high-rise residence with floor-to-ceiling glass, fireplace, and east-facing Strip skyline views. MLS #2782527.",
+      `Furnished living room in Palms Place unit #8322 at 4381 W Flamingo Road — corner high-rise residence with floor-to-ceiling glass, fireplace, and east-facing Strip skyline views. MLS #${featuredListing.mlsNumber}.`,
     alt: "Furnished Palms Place condo living room at unit 8322 with fireplace, sectional sofa, and Las Vegas Strip view through floor-to-ceiling windows",
     caption:
       "Unit #8322 living area — Strip views through two walls of glass. Furnishings convey per inventory list.",
@@ -66,7 +66,7 @@ const unit8322Photos: GalleryPhoto[] = [
     src: "/images/listings/unit-8322/palms-place-8322-balcony-strip-view-las-vegas.jpg",
     title: "Palms Place #8322 balcony overlooking the Las Vegas Strip",
     description:
-      "Private balcony at Palms Place unit #8322 with glass railing and twilight Strip skyline — 8th-floor corner residence near Palms Casino Resort. MLS #2782527.",
+      `Private balcony at Palms Place unit #8322 with glass railing and twilight Strip skyline — 8th-floor corner residence near Palms Casino Resort. MLS #${featuredListing.mlsNumber}.`,
     alt: "Palms Place unit 8322 balcony with glass railing and panoramic Las Vegas Strip skyline at twilight",
     caption:
       "8th-floor balcony view toward the Strip — confirm outdoor use and HOA rules in disclosures.",
