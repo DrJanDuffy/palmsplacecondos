@@ -5,6 +5,7 @@
 import { featuredListing, getFeaturedListingDetailsUrl } from "@/lib/content/featured-listing";
 import { getGalleryPhotoSrc, unit8322Gallery } from "@/lib/content/media-gallery";
 import { palmsPlaceTower } from "@/lib/content/palms-place-building";
+import { PHOTO_LICENSE_REQUEST_PATH, PHOTO_USE_PATH } from "@/lib/content/photo-use";
 import { formatOfficeAddressLine, siteContact } from "@/lib/site-contact";
 import { getSiteUrl } from "@/lib/site-url";
 import { getSitemapLastModified } from "@/lib/sitemap-last-modified";
@@ -933,6 +934,13 @@ export function getImageGalleryJsonLd(
       height: photo.height,
       creditText: siteContact.agentName,
       copyrightNotice: siteContact.brokerage,
+      creator: {
+        "@type": "Person",
+        name: siteContact.agentName,
+        url: origin,
+      },
+      license: `${origin}${PHOTO_USE_PATH}`,
+      acquireLicensePage: `${origin}${PHOTO_LICENSE_REQUEST_PATH}`,
     };
   });
 

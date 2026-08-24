@@ -94,7 +94,11 @@ export function PhotosHubPageBody() {
             contact the office
           </Link>
           . Photos do not replace disclosures—verify HOA, furnishings, and status with your agent.
-          For outlook (Strip vs mountain), read the{" "}
+          Credit and reuse terms:{" "}
+          <Link className="text-palms-gold underline-offset-4 hover:underline" href="/photo-use">
+            Palms Place listing photo use
+          </Link>
+          . For outlook (Strip vs mountain), read the{" "}
           <Link
             className="text-palms-gold underline-offset-4 hover:underline"
             href="/guide/palms-place-strip-view-condos"

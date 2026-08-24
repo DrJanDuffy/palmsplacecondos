@@ -21,6 +21,8 @@ const URLS = [
   `${ORIGIN}/search`,
   `${ORIGIN}/photos`,
   `${ORIGIN}/photos/unit-8322`,
+  `${ORIGIN}/photo-use`,
+  `${ORIGIN}/contact`,
   `${ORIGIN}/video`,
   `${ORIGIN}/buyers`,
   `${ORIGIN}/popular-searches`,

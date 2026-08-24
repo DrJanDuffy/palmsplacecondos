@@ -4,7 +4,7 @@
  *
  * GSC Sitemaps (2026-08-20): 33 URLs discovered on
  * `https://www.palmsplacecondos.com/sitemap.xml` (Success). After this deploy the
- * marketing catalog is 38 URLs (added the listing-specialist video page;
+ * marketing catalog is 39 URLs (added `/photo-use` for ImageObject license URLs;
  * GSC count was already behind this array). Count must stay aligned with this array.
  */
 
@@ -196,6 +196,13 @@ export const MARKETING_ROUTES: MarketingRoute[] = [
     summary: "Featured and spotlight inventory paths via live RealScout search.",
     changeFrequency: "weekly",
     priority: 0.75,
+  },
+  {
+    path: "/photo-use",
+    summary:
+      "Listing photo credit, copyright, and how to request reuse — ImageObject license page.",
+    changeFrequency: "monthly",
+    priority: 0.4,
   },
   {
     path: "/photos",

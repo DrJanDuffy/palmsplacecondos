@@ -106,6 +106,19 @@ export function ContactPageBody() {
         </p>
       </section>
 
+      <section className="mt-10" aria-labelledby="contact-photos-heading">
+        <h2 className="font-display text-xl font-semibold text-palms-cream" id="contact-photos-heading">
+          How do I request permission to reuse listing photos?
+        </h2>
+        <p className="mt-3 leading-relaxed text-palms-cream/85">
+          Email or call this office and name the unit and file. Full terms:{" "}
+          <Link className="text-palms-gold underline-offset-4 hover:underline" href="/photo-use">
+            Palms Place listing photo use
+          </Link>
+          . Photos are not Creative Commons.
+        </p>
+      </section>
+
       <PageFaqSection
         pathname="/contact"
         headingId="contact-faq-heading"

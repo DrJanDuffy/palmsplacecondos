@@ -155,6 +155,11 @@ export function relatedLinksForPath(pathname: string): RelatedLink[] {
       description: "Listing photo galleries",
     },
     {
+      href: "/photo-use",
+      label: "Palms Place listing photo use and credit",
+      description: "Copyright, credit, and reuse requests",
+    },
+    {
       href: "/photos/unit-8322",
       label: "Palms Place #8322 photos — Strip views",
       description: "Living room & balcony",
@@ -299,13 +304,13 @@ function preferredHrefsForPath(pathname: string): string[] {
       "/faq",
     ];
   }
-  if (pathname.startsWith("/photos") || pathname === "/featured" || pathname === "/video") {
+  if (pathname.startsWith("/photos") || pathname === "/featured" || pathname === "/video" || pathname === "/photo-use") {
     return [
       "/photos",
       "/photos/unit-8322",
+      "/photo-use",
       "/video",
-      "/guide/palms-place-strip-view-condos",
-      "/team",
+      "/contact",
     ];
   }
   if (
@@ -324,7 +329,7 @@ function preferredHrefsForPath(pathname: string): string[] {
     ];
   }
   if (pathname === "/contact" || pathname === "/connect" || pathname === "/team") {
-    return ["/contact", "/team", "/buyers", "/sellers", "/palms-place"];
+    return ["/contact", "/photo-use", "/team", "/buyers", "/palms-place"];
   }
   if (pathname === "/palms-place" || pathname === "/area/palms-place-las-vegas") {
     return [

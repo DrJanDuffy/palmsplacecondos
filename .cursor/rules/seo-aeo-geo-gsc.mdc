@@ -36,7 +36,7 @@ Companion to **`best-practices-2026.mdc`**. Detailed file-specific rules stay in
   - **Page with redirect** for `http://`, apex, or non-canonical `www` variants is **expected** when the canonical URL is elsewhere. **Do not click Validate Fix** on that report—Google will recrawl the same URLs, still see a redirect, and mark validation **Failed**. That is not a production bug. Use **URL Inspection** on the **https + preferred host** destination and confirm *that* URL is indexed.
   - **Discovered – currently not indexed** often reflects **crawl queue / priority**, not necessarily a code bug—confirm sitemap, no `noindex`, and 200 responses for important URLs.
   - **Blocked by robots.txt** for `/_next/static/...` assets: remove blanket **`Disallow: /_next/`** if present so crawlers can fetch static chunks.
-- **Enhancements** (e.g. Review snippets): fix invalid JSON-LD (e.g. integer **`reviewCount`**, valid parent types, **`itemReviewed`** on **`Review`**); validate with [Rich Results Test](https://search.google.com/test/rich-results).
+- **Enhancements** (e.g. Review snippets, Image metadata): fix invalid JSON-LD (e.g. integer **`reviewCount`**, valid parent types, **`itemReviewed`** on **`Review`**). For ImageObject, **`creator`**, **`license`**, and **`acquireLicensePage`** are recommended once credit/copyright exist—point **`license`** at a real on-site terms URL (not Creative Commons unless the photos are CC) and **`acquireLicensePage`** at a contact/request page. Validate with [Rich Results Test](https://search.google.com/test/rich-results).
 - After deploy, allow **days to weeks** for reports to reflect fixes.
 
 ## What this rule does not replace

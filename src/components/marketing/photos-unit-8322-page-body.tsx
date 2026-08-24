@@ -104,6 +104,18 @@ export function PhotosUnit8322PageBody() {
 
       <PhotoGalleryGrid photos={photos} />
 
+      <p className="mt-4 text-sm leading-relaxed text-palms-cream/70">
+        Photo credit: {siteContact.agentName}. Copyright: {siteContact.brokerage}.{" "}
+        <Link className="text-palms-gold underline-offset-4 hover:underline" href="/photo-use">
+          Listing photo use terms
+        </Link>
+        {" · "}
+        <Link className="text-palms-gold underline-offset-4 hover:underline" href="/contact">
+          Request permission to reuse
+        </Link>
+        .
+      </p>
+
       <section className="mt-12" aria-labelledby="unit-photos-tour-heading">
         <h2
           className="font-display text-2xl font-semibold text-palms-cream"
