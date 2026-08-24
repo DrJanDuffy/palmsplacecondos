@@ -4,11 +4,11 @@ import { siteContact } from "@/lib/site-contact";
 
 export const palmsPlaceCornerListingNote: FieldNote = {
   slug: "palms-place-corner-unit-listing-campaign",
-  title: "How we listed Palms Place #8322 as a corner-unit campaign—not a generic Strip condo",
+  title: "Palms Place #8322: A Corner-Unit Listing Campaign",
   description:
-    "First-hand Palms Place listing note from Dr. Jan Duffy: why unit #8322 was marketed as an eighth-floor corner with Strip-view glass, HOA-inclusive utilities, and STR remarks—not a valley-wide template.",
+    "Why Palms Place #8322 was marketed as an eighth-floor corner with Strip-view glass, HOA-inclusive utilities, and STR remarks—not a valley-wide template.",
   datePublished: "2026-08-20",
-  dateModified: "2026-08-20",
+  dateModified: "2026-08-24",
   eyebrow: "Field note · Listing campaign",
   headline: "How we listed Palms Place #8322 as a corner-unit campaign—not a generic Strip condo",
   lede: `Palms Place #${featuredListing.unitNumber} (MLS #${featuredListing.mlsNumber}) is an ${featuredListing.entryLevel} corner with two east-facing walls of glass. We did not upload it as “nice Strip condo, call for details.” The remarks, photography, and HOA notes had to match how this high-rise actually shows—or the first serious buyer would catch the gaps on tour.`,

@@ -28,6 +28,9 @@ const AI_CRAWLER_USER_AGENTS = [
   "ChatGPT-User",
   "OAI-SearchBot",
   "PerplexityBot",
+  // Perplexity's on-demand user-browsing agent (mirrors ChatGPT-User) —
+  // distinct from the PerplexityBot index crawler above.
+  "Perplexity-User",
   "ClaudeBot",
   // Anthropic's more precise 2026 agents: Claude-User (on-demand fetch for a
   // live Claude conversation) and Claude-SearchBot (index crawler for
