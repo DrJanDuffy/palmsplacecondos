@@ -129,6 +129,14 @@ function resolveRouteFile(routePath) {
   return existsSync(dynamicFile) ? { file: dynamicFile, dynamic: true, slug: segments[segments.length - 1] } : null;
 }
 
+for (const routePath of routeEntries) {
+  if (routePath.includes("$")) {
+    errors.push(
+      `Crawler-artifact path in MARKETING_ROUTES: "${routePath}". Do not add "/$" to the sitemap — GSC Not found (404) for that URL is expected; keep 404/410.`,
+    );
+  }
+}
+
 const resolvedRoutes = [];
 for (const routePath of routeEntries) {
   const resolved = resolveRouteFile(routePath);
