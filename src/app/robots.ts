@@ -47,6 +47,15 @@ const AI_CRAWLER_USER_AGENTS = [
   // business site with no paywalled content to protect.
   "YouBot",
   "DuckAssistBot",
+  // Meta AI's answer surface inside Facebook/Instagram/WhatsApp (documented
+  // at developers.facebook.com/docs/sharing/webmasters/web-crawlers) and
+  // Amazon's Alexa+Rufus shopping-assistant crawler — both legitimate,
+  // well-documented answer-engine fetchers, same GEO/AEO citation rationale
+  // as the agents above. Bytespider is intentionally excluded: it is a
+  // training-only crawler with no citation surface for this site and a
+  // reputation for aggressive, unthrottled crawling.
+  "Meta-ExternalAgent",
+  "Amazonbot",
 ] as const;
 
 /** Match sitemap.ts: live origin, no 4-hour static metadata cache. */
