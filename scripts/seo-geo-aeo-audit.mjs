@@ -184,6 +184,67 @@ if (existsSync(fieldNotesDir)) {
   }
 }
 
+/**
+ * Resolve a page's static "@/..." or relative import specifier to a real file
+ * (tries <path>.ts, <path>.tsx, <path>/index.ts). Returns null for anything
+ * else (bare package specifiers) — nothing to statically inspect there.
+ */
+function resolveModuleSpecifier(specifier, fromFile) {
+  let base;
+  if (specifier.startsWith("@/")) {
+    base = path.join(ROOT, "src", specifier.slice(2));
+  } else if (specifier.startsWith(".")) {
+    base = path.resolve(path.dirname(fromFile), specifier);
+  } else {
+    return null;
+  }
+  const candidates = [`${base}.ts`, `${base}.tsx`, path.join(base, "index.ts")];
+  return candidates.find(existsSync) ?? null;
+}
+
+/**
+ * Resolve a metadata field (title/description) for a page.tsx by tracing what
+ * is actually passed at the `title:`/`description:` call site — never by
+ * fuzzy-matching a similarly-named constant elsewhere in the file (a page
+ * that also defines `ogDescription` must not have THAT checked as if it were
+ * the meta description just because both names contain "Description").
+ * Follows at most one hop: a bare identifier to its same-file `const`, or an
+ * imported object to its property in the module it comes from (e.g.
+ * `title: unit8322Gallery.metaTitle`). Only ever returns a plain
+ * double-quoted string — a template literal with `${…}` interpolation
+ * (common for phone/agent-name descriptions) is left unresolved rather than
+ * reported with a wrong, un-interpolated length.
+ */
+function resolveMetadataField(fieldName, src, file) {
+  const callSiteMatch = src.match(
+    new RegExp(`\\b${fieldName}:\\s*(?:"([^"]+)"|(\\w+)\\.(\\w+)|(\\w+))`),
+  );
+  if (!callSiteMatch) return undefined;
+  const [, literal, memberObj, memberProp, bareIdentifier] = callSiteMatch;
+
+  // 1. Inline literal directly at the call site: `title: "…"`.
+  if (literal) return literal;
+
+  // 2. One hop through an imported content module: `title: someObject.someProp`.
+  if (memberObj && memberProp) {
+    const importMatch = src.match(new RegExp(`import\\s*\\{[^}]*\\b${memberObj}\\b[^}]*\\}\\s*from\\s*"([^"]+)"`));
+    const resolvedFile = importMatch && resolveModuleSpecifier(importMatch[1], file);
+    if (resolvedFile) {
+      const moduleMatch = readText(resolvedFile).match(new RegExp(`\\b${memberProp}:\\s*"([^"]+)"`));
+      if (moduleMatch) return moduleMatch[1];
+    }
+    return undefined;
+  }
+
+  // 3. Bare identifier pointing at a same-file `const homeTitle = "…"`.
+  if (bareIdentifier) {
+    const constMatch = src.match(new RegExp(`const\\s+${bareIdentifier}\\s*=\\s*"([^"]+)"`));
+    if (constMatch) return constMatch[1];
+  }
+
+  return undefined;
+}
+
 const titleByPath = new Map();
 const descByPath = new Map();
 
@@ -198,27 +259,28 @@ for (const { routePath, file, dynamic, slug } of resolvedRoutes) {
     description = entry?.description;
   } else {
     const src = readText(file);
-    title = src.match(/const\s+title\s*=\s*"([^"]+)"/)?.[1] ?? src.match(/\btitle:\s*"([^"]+)"/)?.[1];
-    description =
-      src.match(/const\s+description\s*=\s*"([^"]+)"/)?.[1] ?? src.match(/\bdescription:\s*"([^"]+)"/)?.[1];
+    title = resolveMetadataField("title", src, file);
+    description = resolveMetadataField("description", src, file);
   }
 
-  if (!title || !description) {
-    // generateMetadata()-only routes (e.g. dynamic pages without a matched content file) —
-    // not enough static signal to check safely; skip rather than false-positive.
-    continue;
+  // Check title and description independently — a page whose description is
+  // an unresolved template literal (see resolveMetadataField) should still
+  // get its title checked, and vice versa. generateMetadata()-only routes
+  // with neither resolve to nothing here, same as before: not enough static
+  // signal to check safely, skip rather than false-positive.
+  if (title) {
+    titleByPath.set(label, title);
+    if (title.length < TITLE_MIN || title.length > TITLE_MAX) {
+      warnings.push(`Title length: "${label}" is ${title.length} chars (target ${TITLE_MIN}-${TITLE_MAX}): "${title}"`);
+    }
   }
-
-  titleByPath.set(label, title);
-  descByPath.set(label, description);
-
-  if (title.length < TITLE_MIN || title.length > TITLE_MAX) {
-    warnings.push(`Title length: "${label}" is ${title.length} chars (target ${TITLE_MIN}-${TITLE_MAX}): "${title}"`);
-  }
-  if (description.length < DESCRIPTION_MIN || description.length > DESCRIPTION_MAX) {
-    warnings.push(
-      `Description length: "${label}" is ${description.length} chars (target ${DESCRIPTION_MIN}-${DESCRIPTION_MAX}): "${description}"`,
-    );
+  if (description) {
+    descByPath.set(label, description);
+    if (description.length < DESCRIPTION_MIN || description.length > DESCRIPTION_MAX) {
+      warnings.push(
+        `Description length: "${label}" is ${description.length} chars (target ${DESCRIPTION_MIN}-${DESCRIPTION_MAX}): "${description}"`,
+      );
+    }
   }
 }
 
