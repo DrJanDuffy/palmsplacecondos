@@ -208,37 +208,52 @@ function resolveModuleSpecifier(specifier, fromFile) {
  * fuzzy-matching a similarly-named constant elsewhere in the file (a page
  * that also defines `ogDescription` must not have THAT checked as if it were
  * the meta description just because both names contain "Description").
- * Follows at most one hop: a bare identifier to its same-file `const`, or an
- * imported object to its property in the module it comes from (e.g.
- * `title: unit8322Gallery.metaTitle`). Only ever returns a plain
- * double-quoted string — a template literal with `${…}` interpolation
- * (common for phone/agent-name descriptions) is left unresolved rather than
- * reported with a wrong, un-interpolated length.
+ * Follows at most one hop: a bare identifier to its same-file `const`, an
+ * ES6 shorthand property (`{ …, title, description }`) to the same-file
+ * `const` it implies, or an imported object to its property in the module
+ * it comes from (e.g. `title: unit8322Gallery.metaTitle`). Only ever
+ * returns a plain double-quoted string — a template literal with `${…}`
+ * interpolation (common for phone/agent-name descriptions) is left
+ * unresolved rather than reported with a wrong, un-interpolated length.
  */
 function resolveMetadataField(fieldName, src, file) {
   const callSiteMatch = src.match(
     new RegExp(`\\b${fieldName}:\\s*(?:"([^"]+)"|(\\w+)\\.(\\w+)|(\\w+))`),
   );
-  if (!callSiteMatch) return undefined;
-  const [, literal, memberObj, memberProp, bareIdentifier] = callSiteMatch;
 
-  // 1. Inline literal directly at the call site: `title: "…"`.
-  if (literal) return literal;
+  if (callSiteMatch) {
+    const [, literal, memberObj, memberProp, bareIdentifier] = callSiteMatch;
 
-  // 2. One hop through an imported content module: `title: someObject.someProp`.
-  if (memberObj && memberProp) {
-    const importMatch = src.match(new RegExp(`import\\s*\\{[^}]*\\b${memberObj}\\b[^}]*\\}\\s*from\\s*"([^"]+)"`));
-    const resolvedFile = importMatch && resolveModuleSpecifier(importMatch[1], file);
-    if (resolvedFile) {
-      const moduleMatch = readText(resolvedFile).match(new RegExp(`\\b${memberProp}:\\s*"([^"]+)"`));
-      if (moduleMatch) return moduleMatch[1];
+    // 1. Inline literal directly at the call site: `title: "…"`.
+    if (literal) return literal;
+
+    // 2. One hop through an imported content module: `title: someObject.someProp`.
+    if (memberObj && memberProp) {
+      const importMatch = src.match(new RegExp(`import\\s*\\{[^}]*\\b${memberObj}\\b[^}]*\\}\\s*from\\s*"([^"]+)"`));
+      const resolvedFile = importMatch && resolveModuleSpecifier(importMatch[1], file);
+      if (resolvedFile) {
+        const moduleMatch = readText(resolvedFile).match(new RegExp(`\\b${memberProp}:\\s*"([^"]+)"`));
+        if (moduleMatch) return moduleMatch[1];
+      }
+      return undefined;
     }
+
+    // 3. Bare identifier pointing at a same-file `const homeTitle = "…"`.
+    if (bareIdentifier) {
+      const constMatch = src.match(new RegExp(`const\\s+${bareIdentifier}\\s*=\\s*"([^"]+)"`));
+      if (constMatch) return constMatch[1];
+    }
+
     return undefined;
   }
 
-  // 3. Bare identifier pointing at a same-file `const homeTitle = "…"`.
-  if (bareIdentifier) {
-    const constMatch = src.match(new RegExp(`const\\s+${bareIdentifier}\\s*=\\s*"([^"]+)"`));
+  // 4. ES6 shorthand property — no `fieldName:` colon usage anywhere in the
+  // file at all (checked above), so `buildPageMetadata({ …, title,
+  // description })` is the only way this field could still be wired up: the
+  // property name doubles as the same-file `const title = "…"` reference.
+  const shorthandMatch = src.match(new RegExp(`\\b${fieldName}\\s*[,}]`));
+  if (shorthandMatch) {
+    const constMatch = src.match(new RegExp(`const\\s+${fieldName}\\s*=\\s*"([^"]+)"`));
     if (constMatch) return constMatch[1];
   }
 
