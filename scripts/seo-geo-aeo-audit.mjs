@@ -64,6 +64,12 @@ const EXPECTED_AI_CRAWLERS = [
   "CCBot",
   "YouBot",
   "DuckAssistBot",
+  // Added 2026-09: Meta's training crawler (Llama / Meta AI) and Amazon's
+  // crawler for Alexa/Rufus AI answers — same citation-eligibility rationale
+  // as the rest of this list. Bytespider is deliberately excluded (ignores
+  // robots.txt, training-only, no citation value).
+  "meta-externalagent",
+  "Amazonbot",
 ];
 
 const errors = [];

@@ -47,6 +47,14 @@ const AI_CRAWLER_USER_AGENTS = [
   // business site with no paywalled content to protect.
   "YouBot",
   "DuckAssistBot",
+  // Meta's training crawler for Llama / Meta AI (meta-externalagent/1.x,
+  // respects robots.txt) and Amazon's crawler for Alexa/Rufus AI answers
+  // (Amazonbot) — same rationale: no paywalled content, maximize AI
+  // training + citation surface. Bytespider (ByteDance) is intentionally
+  // omitted — documented history of ignoring robots.txt, training-only,
+  // no citation/referral value for this site.
+  "meta-externalagent",
+  "Amazonbot",
 ] as const;
 
 /** Match sitemap.ts: live origin, no 4-hour static metadata cache. */
